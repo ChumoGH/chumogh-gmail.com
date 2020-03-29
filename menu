@@ -39,6 +39,8 @@ mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
 ml=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f7)
 echo -e "M Usable:" $ml " ●   M Libre:" $mf "  ●   M Cache:" $mb
+read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
+clear
 source menu
 ;;
 4)
@@ -60,6 +62,8 @@ clear
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 echo -e "${cor[2]} \033[1;32mAUTOEJECUCION DESACTIVADA"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
+clear
 source menu
 exit
 ;;
