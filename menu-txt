@@ -1,7 +1,5 @@
 #!/bin/bash
 source cabecalho
-sudo sync
-sysctl -w vm.drop_caches=3
 mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
