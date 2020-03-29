@@ -10,7 +10,7 @@ csss=$(cat /proc/cpuinfo | grep processor | wc -l)
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
 echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[4]} @ChumoGH"
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
-echo -e $pp "" $csss "CPUs"
+echo -e $pp $csss "CPUs"
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
 echo -e "M Total:" $mt "  ●   \033[1;32mM Libre:" $mf  
 echo -e "M Usable:" $ml"  ●   M Cache:" $mb
