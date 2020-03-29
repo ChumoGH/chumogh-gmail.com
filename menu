@@ -25,13 +25,16 @@ mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
 ml=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f7)
 echo -e "M Usable:" $ml " ●   M Libre:" $mf "  ●   M Cache:" $mb
 echo -e "OPTIMIZANDO SERVIDOR"
+echo -e "$barra"
 clear
 sleep 1
 echo -e "Liberando Cache"
+echo -e "$barra"
 sleep 0.5
 sudo sync
 sysctl -w vm.drop_caches=3
 sleep 0.5
+echo -e "$barra"
 mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
