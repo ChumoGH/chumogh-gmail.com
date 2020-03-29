@@ -9,14 +9,14 @@ ml=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f7)
 [[ -e /etc/bash.bashrc-bakup ]] && _autorun="\033[1;32m${txt[10]}" || _autorun="\033[1;31m${txt[11]}"
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
 echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[4]} @ChumoGH"
-echo -e "M Total:" $mt "  ●   M Libre:" $mf "  ●   M Cache:" $mb 
-echo -e "M Usable:" $ml
+echo -e "M Total:" $mt "  ●   M Libre:" $mf  
+echo -e "M Usable:" $ml"  ●   M Cache:" $mb
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 echo -e "${cor[2]} [0] >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[5]}"
 echo -e "${cor[2]} [2] >${cor[3]} ${txt[6]}"
 echo -e "${cor[2]} [3] >\033[0;33m [!]\033[1;32m ${txt[7]}"
-echo -e "${cor[2]} [4] >\033[1;31m [!]\033[1;31m ${txt[8]}"
+echo -e "${cor[2]} [4] >\033[1;31m [!]\033[1;31m ${txt["hsgfhsf"]}"
 echo -e "${cor[2]} [5] >${cor[3]} ${txt[12]}"
 echo -e "${cor[2]} [6] >${cor[3]} ${txt[20]} $VERIFICAR_PID"
 echo -e "${cor[2]} [7] >${cor[3]} ${txt[26]}"
