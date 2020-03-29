@@ -26,7 +26,6 @@ ml=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f7)
 echo -e "M Usable:" $ml " ●   M Libre:" $mf "  ●   M Cache:" $mb
 echo -e "OPTIMIZANDO SERVIDOR"
 echo -e "$barra"
-clear
 sleep 1
 echo -e "Liberando Cache"
 echo -e "$barra"
@@ -40,7 +39,7 @@ mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
 ml=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f7)
 echo -e "M Usable:" $ml " ●   M Libre:" $mf "  ●   M Cache:" $mb
-exit
+source menu
 ;;
 4)
 remover_adm
@@ -88,6 +87,10 @@ chmod +x /etc/adm-lite/*
 [[ -e /etc/adm-lite/idioma_menuinst ]] && idioma=$(cat /etc/adm-lite/idioma_menuinst|head -1) || idioma="pt"
 value=$(vary_rex "2f6574632f61646d2d6c6974652f6d656e755f696e7374")
 ${value} ${idioma}
+;;
+99)
+fun_atualizar
+exit
 ;;
 *)
 source menu
