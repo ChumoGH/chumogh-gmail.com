@@ -63,7 +63,8 @@ echo "cd /etc/adm-lite && bash ./menu" > /bin/menu
 echo "cd /etc/adm-lite && bash ./menu" > /bin/cgh
 echo "cd /etc/adm-lite && bash ./menu" > /bin/chumogh
 chmod +x /bin/menu
-chmod +x /bin/adm
+chmod +x /bin/cgh
+chmod +x /bin/chumogh
 cd /etc/adm-lite
 touch /etc/adm-lite/index.html
 wget -i $HOME/lista -o /dev/null
