@@ -94,12 +94,12 @@ fun_squid  () {
   return 0
   }
 #Instalar
-echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR SQUID ADM-ULTIMATE")\n$barra"
+echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR SQUID ChumoGH-Script")\n$barra"
 fun_ip
 echo -ne " $(source trans -b pt:${id} "Confirme seu ip")"; read -p ": " -e -i $IP ip
 echo -e "$barra\n $(source trans -b pt:${id} "Ahora Escoja su Puerto que Desea en Squid")"
 echo -e " $(source trans -b pt:${id} "Escoja su Puerto, Ejemplo: 80 8080 3128")"
-echo -ne " $(source trans -b pt:${id} "Digite as Portas:") "; read portasx
+echo -ne " $(source trans -b pt:${id} "Digite su Portas:") "; read portasx
 echo -e "$barra"
 totalporta=($portasx)
 unset PORT
@@ -131,7 +131,7 @@ echo -e " ${txt[220]}"
 read -p " $(source trans -b es:${id} "Agregar Host"): " hos
 if [[ $hos != \.* ]]; then
 echo -e "$barra"
-echo -e "\033[1;31m $(source trans -b es:${id} " [!] Host-Squid debe iniciar con "."")\033[0m"
+echo -e "\033[1;31m $(source trans -b es:${id} " [!] Host-Squid debe iniciar con un "."")\033[0m"
 echo -e "\033[1;31m $(source trans -b es:${id} " Asegurese de agregarlo despues corretamente!")\033[0m"
 fi
 host="$hos/"
@@ -325,7 +325,6 @@ TCPKeepAlive yes
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes" > /etc/ssh/sshd_config
-read -p " Listen-DROPBEAR: " dpa
 echo -e "${cor[2]} $(source trans -b pt:${id} "Instalando dropbear")"
 echo -e "$barra"
 fun_bar "apt-get install dropbear -y"
@@ -333,7 +332,7 @@ echo -e "$barra"
 touch /etc/dropbear/banner
 echo -e "${cor[2]} $(source trans -b pt:${id} "Configurando dropbear")"
 echo -e "NO_START=0" > /etc/default/dropbear
-echo -e 'DROPBEAR_EXTRA_ARGS="-p " $dpa' >> /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$dpa'"' >> /etc/default/dropbear
 echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
 echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
 } || {
@@ -371,14 +370,14 @@ cat /etc/bannerssh > /etc/dropbear/banner
 echo -e "$barra"
 echo -e "${cor[2]} $(source trans -b pt:${id} "Configurando dropbear")"
 echo -e "NO_START=0" > /etc/default/dropbear
-echo -e 'DROPBEAR_EXTRA_ARGS="-p " $dpa' >> /etc/default/dropbear
-echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$dpa'"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_BANNER="/etc/bannerssh"' >> /etc/default/dropbear
 echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
 }
 fun_eth
 service ssh restart > /dev/null 2>&1
 service dropbear restart > /dev/null 2>&1
-echo -e "$barra\n${cor[3]} $(source trans -b pt:${id} "Seu dropbear foi configurado com sucesso")\n$barra"
+echo -e "$barra\n${cor[3]} $(source trans -b pt:${id} "Dropbear Configurado Exitosamente")\n$barra"
 mportas > /tmp/portz
 while read portas; do
 [[ $portas = "" ]] && break
