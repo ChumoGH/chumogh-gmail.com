@@ -208,7 +208,7 @@ echo -e "\033[1;34m${txt[25]}"
 sleep 1s
 echo "4" >> $2
 elif [ "$1" = "5" ]; then
-echo -e "\033[1;35m${txt[25]}"
+echo -e "\033[1;35\]m${txt[25]}"
 sleep 1s
 echo "5" >> $2
 elif [ "$1" = "6" ]; then
@@ -457,7 +457,7 @@ txt_ofuscatw=$(echo $txtofus|rev)
 fun_atualizar () {
 cd /etc/adm-lite
 chmod 777 ./*
-echo -e "${cor[3]} "¿Realmente desea actualizar su ADM-Ultimate?""
+echo -e "${cor[3]} "¿Confirme Actualizacion de ☆ChumoGH ● Script☆?""
 read -p " [S/N]: " -e -i n sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
 [[ -e /etc/adm-lite/idioma ]] && rm /etc/adm-lite/idioma
