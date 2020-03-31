@@ -349,6 +349,11 @@ txt[335]="MENÚ INSTALACIÓN"
 txt[336]="INSTALAR"
 txt[337]="CONFIGURAR"
 txt[338]="Seleccione un opción"
+txt[339]="REMOVER ☆ChumoGH ● Script☆"
+txt[340]="VERIFICAR ACTUALIZACION"
+txt[341]="V2RAY Socket"
+
+
 echo "${txt[0]}" > $_dr
 for((_cont=1; _cont<${#txt[@]}; _cont++)); do
 echo "${txt[$_cont]}" >> $_dr
