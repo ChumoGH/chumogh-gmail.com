@@ -733,7 +733,7 @@ echo -e "${cor[2]} √ \033[1;37m${txt[0]}"
 echo -e "${cor[1]} =================================== ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
 echo -e "${cor[2]} ° \033[1;37m${txt[1]} $__onlines ${cor[2]}    ° \033[1;37m${txt[2]} $__vencidos"
-echo -e "${cor[2]} ° \033[1;37m${txt[3]} $_os \033[1;37m$modelo1 "
+echo -e "${cor[2]} ° \033[1;37m${txt[3]} $_os   \033[1;37m  $modelo1 "
 echo -e "${cor[2]} ° \033[1;37m${txt[331]} \033[1;31m$__IP"
 echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••  ${cor[0]}"
 echo -e "${cor[1]}\033[1;37mKey:${cor[1]}$exitokey "
