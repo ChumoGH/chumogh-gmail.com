@@ -17,7 +17,7 @@ echo -e "M Usable:" $ml"  ●   M Cache:" $mb
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 echo -e "${cor[2]} [0] >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[5]}"
-echo -e "${cor[2]} [2] >${cor[3]} ${txt[6]}"
+echo -e "${cor[2]} [2] >${cor[3]} ${txt[6]}$_badvpn${txt[355]}$_tcpspeed"
 echo -e "${cor[2]} [3] >${cor[0]}\033[0;33m [!]\033[1;32m OPTIMIZAR VPS "
 echo -e "${cor[2]} [4] >${cor[0]}\033[1;31m [!]\033[1;31m REMOVER ☆ChumoGH ● Script☆"
 echo -e "${cor[2]} [5] >${cor[3]} ${txt[12]}"
