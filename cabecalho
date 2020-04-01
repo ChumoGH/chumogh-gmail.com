@@ -308,10 +308,10 @@ idioma[4]="it Italian"
 idioma[5]="pt Portuguese"
 idioma[6]="es Spanish"
 i="1"
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[77]} ${txt[78]}
  ${txt[79]}"
-echo -e "${cor[1]} =================================== ${cor[3]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[3]}"
 while true; do
 [[ "${idioma[$i]}" = "" ]] && break
 a=$(echo ${idioma[$i]} | awk '{print $2}')
@@ -327,7 +327,7 @@ texto3=$(printf '%-20s' "[ $i ]-$a")
 i=$(($i+1))
 echo -e "$texto1 $texto2 $texto3"
 done
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e " ${txt[82]}"
 read -p " => " idiom
 number_var $idiom > /dev/null 2>&1
@@ -362,7 +362,7 @@ echo ""
 fi
 done
 echo ""
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "\033[0m"
 unset idioma
 exit 0
@@ -390,7 +390,7 @@ echo -e "${cor[2]} |$_cont| >${cor[5]} $u"
 [[ "$u" = "" ]] && break
 _cont=$(($_cont + 1))
 done
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[42]}"
 echo -ne "${cor[6]}"
 read -p " ${txt[9]} " select_user
@@ -458,7 +458,7 @@ fun_atualizar () {
 cd /etc/adm-lite
 chmod 777 ./*
 echo -e "${cor[3]} "¿Confirme Actualizacion de ☆ChumoGH ● Script☆?""
-read -p " [S/N]: " -e -i n sshsn
+read -p " [S/N]: " -e -i s sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
 [[ -e /etc/adm-lite/idioma ]] && rm /etc/adm-lite/idioma
 ./updateadm
@@ -496,7 +496,7 @@ useradd -M -s /bin/false -d /home/ovpn/ $CLIENT -e $valid
 usermod -p $(openssl passwd -1 $senha) $CLIENT
 #Arquivo
 echo -e " ${txt[318]}"
-echo -e "${cor[1]} =================================== \033[1;37m"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ \033[1;37m"
 read -p " [S/N]: " -e -i S newfile
   [[ ${newfile} = @(s|S|y|Y) ]] && {
   echo -e " ${txt[319]}"
@@ -552,7 +552,7 @@ sleep 2s
 echo -e "${cor[5]} ${txt[281]}"
 return
 elif [ "$escolhaas" = "2" ]; then
-read -p " Nova Porta: " newport
+read -p " Nuevo Puerto: " newport
 porta="$newport"
 sed -i "s/443/$porta -p 443/g" $arquivo
 service dropbear restart > /dev/null 2>&1 &
@@ -622,7 +622,7 @@ open_python () {
 echo -e "${cor[2]} ${cor[5]}${txt[279]}"
 read -p " [S/N]: " -e -i n pthsn
 [[ "$pthsn" = @(s|S|y|Y) ]] && {
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 porta="$1"
 fuser -k $porta/tcp > /dev/null 2>&1
 sleep 2s
@@ -632,7 +632,7 @@ return
 }
 
 minhas_portas () {
-echo -e "${cor[1]} =================================== ${cor[4]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[4]}"
 portas_var="/tmp/portas"
 porta_var="/tmp/portas2"
 lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" > $portas_var
@@ -657,12 +657,12 @@ echo -e " \033[1;37m[$i] -> \033[1;31m${service_serv[$i]} : \033[1;32m${service_
 i=$(($i+1))
 done < $porta_var
 echo -e "${cor[5]} ${txt[277]}"
-echo -e "${cor[1]} =================================== \033[1;37m"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ \033[1;37m"
 read -p " [1-$(($i-1))]: " nun
 echo -e "\033[1;31m ${txt[283]} \033[1;32m${service_porta[$nun]}\033[1;31m : \033[1;32m${service_serv[$nun]}\033[0m"
 rm $portas_var
 rm $porta_var
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 if [ "${service_serv[$nun]}" = "dropbear" ]; then
 open_dropbear ${service_porta[$nun]}
 elif [ "${service_serv[$nun]}" = "sshd" ]; then
@@ -678,7 +678,7 @@ open_python ${service_porta[$nun]}
 else
 echo -e "\033[1;31m ${txt[278]}\033[0m"
 fi
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 }
 
 #VERIFICA SE E NUMERICO
@@ -709,12 +709,12 @@ i=1
 while true; do
 a=$(sed -n "$i"p $porta_var | awk '{print $1}')
 b=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$a" != "" ]] && texto="${cor[2]} ° \033[1;37m$a: \033[1;31m$b" || texto=""
+[[ "$a" != "" ]] && texto="\033[1;34m ● \033[1;37m$a: \033[1;31m$b" || texto=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
 c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$c" != "" ]] && texto_="${cor[2]} ° \033[1;37m$c: \033[1;31m$d" || texto_=""
+[[ "$c" != "" ]] && texto_="\033[1;34m ● \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
 echo -e "$texto $texto_"
@@ -725,20 +725,20 @@ rm $porta_var
 [[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]}" || vesaoSCT="\033[1;31m${txt[316]}"
 credit=$(cat ./menu_credito)
 exitokey=$(cat < /root/exito)
+#ipserv=$(curl ifconfig.me)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
 __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-echo -e "${cor[1]} =================================== ${cor[0]}"
-echo -e "${cor[2]} ∆ \033[1;37m$credit"
-echo -e "${cor[2]} √ \033[1;37m${txt[0]}"
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[2]} ☆   \033[1;37m$credit"
+echo -e "${cor[2]} √   \033[1;37m${txt[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
-echo -e "${cor[2]} ° \033[1;37m${txt[1]} $__onlines ${cor[2]}    ° \033[1;37m${txt[2]} $__vencidos"
-echo -e "${cor[2]} ° \033[1;37m${txt[3]} $_os \033[1;37mBase: \033[1;31m$modelo1 "
-echo -e "${cor[2]} ° \033[1;37m${txt[331]} \033[1;31m$__IP"
-echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••  ${cor[0]}"
-echo -e "${cor[1]}\033[1;37mKey:${cor[1]}$exitokey "
-echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••  ${cor[0]}"
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[2]} ● \033[1;37m${txt[1]} $__onlines ${cor[2]}    ● \033[1;37m${txt[2]} $__vencidos"
+echo -e "${cor[2]} ● \033[1;37m${txt[3]} $_os \033[1;37mBase: \033[1;31m$modelo1 "
+echo -e "${cor[2]} ● \033[1;37m${txt[331]} \033[1;31m$__IP"
+echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••  ${cor[0]}"
+echo -e "${cor[1]}\033[1;37m Key:${cor[1]}$exitokey "
+echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 ports_
-echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} ${vesaoSCT} ${cor[0]}"
