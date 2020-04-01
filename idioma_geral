@@ -355,7 +355,7 @@ txt[341]="V2RAY Socket"
 txt[342]="(Experimental)"
 txt[343]="+593987072611"
 txt[344]="+593982688820"
-txt[345]="V2RAY Socket"
+txt[345]=" Compra Keys al"
 
 
 echo "${txt[0]}" > $_dr
