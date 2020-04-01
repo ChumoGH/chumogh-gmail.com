@@ -67,6 +67,7 @@ clear
     echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
     echo -e "${cor[2]} \033[1;32m          * ESTA OPCION ES EXPERIMENTAL *"
     echo -e "${cor[2]} \033[1;32mPara continuar debes tener configurado un dominio en el VPS"
+    echo -e "${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP"
     echo -e "${cor[2]} \033[1;35m***********************************************************"
     echo -e "Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir";
 	echo -ne "OPCION: ";read yn
