@@ -141,6 +141,7 @@ case $ppp in
 	figlet ChumoGH
 	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO " $ppp
 	exit
+	;;
 	2)
 	clear
 	figlet ChumoGH
