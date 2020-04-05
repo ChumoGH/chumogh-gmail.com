@@ -341,7 +341,7 @@ txt[327]="AUTENTICACIÓN DEL PROXY SQUID DESACTIVADO."
 txt[328]="El usuario no puede ser nulo."
 txt[329]="¿Desea habilitar la autenticación de proxy squid?"
 txt[330]="¿Desea desactivar la autenticación de proxy squid?"
-txt[331]="SU IP:"
+txt[331]="IP:"
 txt[332]="REINICIAR VPS (REBOOT)"
 txt[333]="¿Realmente desea Reiniciar la VPS?"
 txt[334]="Preparando para reiniciando VPS."
@@ -356,6 +356,7 @@ txt[342]="(Experimental)"
 txt[343]="+593987072611"
 txt[344]="+593982688820"
 txt[345]=" Compra Keys al"
+txt[346]="Cores:"
 
 
 echo "${txt[0]}" > $_dr
