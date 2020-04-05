@@ -357,6 +357,11 @@ txt[343]="+593987072611"
 txt[344]="+593982688820"
 txt[345]=" Compra Keys al"
 txt[346]="Cores:"
+txt[347]="Administracion de Puertos"
+txt[348]="detener Puertos"
+txt[349]="Cerrar Puertos:"
+txt[350]="Desinstalar Puertos:"
+txt[351]="Iniciar Puertos:"
 
 
 echo "${txt[0]}" > $_dr
