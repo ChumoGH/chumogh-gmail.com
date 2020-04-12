@@ -168,8 +168,40 @@ exit
 ;;
 11)
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO"
+echo -e "${cor[2]} \033[1;32mESTA FUNCION AGREGARA EN EL CRONTAB UN AUTOEJECUCION"
+echo -e "${cor[2]} \033[1;32mSI ESTAS DE ACUERDO, PRESIONA 1, CASO CONTRARIO 0"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+read -p " Escoje :" ppp
+case $ppp in
+	0)
+	clear
+	echo -e "${cor[0]}"
+	exit
+	;;
+	1)
+	clear
+	figlet ChumoGH
+	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO" $ppp
+	fun_bar
+	validar1=$(cat < /bin/ejecutar/val1)
+	if[["validar1"="activado"]];then
+	echo -e "${cor[2]} \033[1;32mEsta Funcion ya esta en " $validar1
+	else
+	echo -e "${cor[2]} \033[1;32mEsta Funcion esta en NULL" $validar1
+	bash /etc/adm-lite/optimizador
+	echo "activado" > /bin/ejecutar/val1
+	opti=1
+	echo $opti > /bin/ejecutar/val
+	fi
+	source menu
+	exit
+	;;
+	*)
+	echo "AGREGADA EXITOSAMENTE"
+	source menu
+	;;
+	esac
 sleep 1
 source menu
 ;;
