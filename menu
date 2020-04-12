@@ -185,7 +185,7 @@ case $ppp in
 	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO" $ppp
 	fun_bar
 	validar1=$(cat < /bin/ejecutar/val1)
-	if["validar1"="activado"];then
+	if [ "$validar1" = "activado" ]; then
 	echo -e "${cor[2]} \033[1;32mEsta Funcion ya esta en " $validar1
 	else
 	echo -e "${cor[2]} \033[1;32mEsta Funcion esta en NULL" $validar1
