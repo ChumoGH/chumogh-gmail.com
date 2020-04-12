@@ -38,7 +38,7 @@ rm -rf /tmp/*
 echo -e "${cor[5]} ${txt[117]}"
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 sleep 0.5
-echo -e "$barra"
+fun
 mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
@@ -183,7 +183,6 @@ case $rrr in
 	clear
 	figlet ChumoGH
 	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO" $rrr
-	fun_bar
 	validar1=$(cat < /bin/ejecutar/val1)
 	if [ "$validar1" = "activado" ]; then
 		echo -e "${cor[2]} \033[1;32mEsta Funcion ya esta en " $validar1
@@ -193,6 +192,7 @@ case $rrr in
 		echo "activado" > /bin/ejecutar/val1
 		opti=1
 		echo $opti > /bin/ejecutar/val
+		fun_bar
 	fi
 	source menu
 	exit
