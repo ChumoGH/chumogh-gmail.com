@@ -167,6 +167,7 @@ source menu
 exit
 ;;
 11)
+figlet -p -f slant < /root/name
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 echo -e "${cor[2]} \033[1;32mESTA FUNCION AGREGARA EN EL CRONTAB UN AUTOEJECUCION"
 echo -e "${cor[2]} \033[1;32m. Este Metodo Optimizara y limpiara Tu SERVIDOR"
