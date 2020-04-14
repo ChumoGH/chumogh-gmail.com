@@ -169,6 +169,8 @@ exit
 11)
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 echo -e "${cor[2]} \033[1;32mESTA FUNCION AGREGARA EN EL CRONTAB UN AUTOEJECUCION"
+echo -e "${cor[2]} \033[1;32m. Este Metodo Optimizara y limpiara Tu SERVIDOR"
+echo -e "${cor[2]} \033[1;32mDe manera automatica para evitar Lags y lentitud cada 5/"
 echo -e "${cor[2]} \033[1;32mSI ESTAS DE ACUERDO, PRESIONA 1, CASO CONTRARIO 0"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
@@ -177,6 +179,9 @@ case $rrr in
 	0)
 	clear
 	echo -e "${cor[0]}"
+	read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
+        clear
+        source menu
 	exit
 	;;
 	1)
@@ -185,20 +190,25 @@ case $rrr in
 	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO" $rrr
 	validar1=$(cat < /bin/ejecutar/val1)
 	if [ "$validar1" = "activado" ]; then
+	figlet -p -f slant < /root/name
 		echo -e "${cor[2]} \033[1;32mEsta Funcion ya esta en " $validar1
+		read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
 	else
+	figlet -p -f slant < /root/name
 		echo -e "${cor[2]} \033[1;32mEsta Funcion esta en NULL" $validar1
 		bash /etc/adm-lite/optimizador
 		echo "activado" > /bin/ejecutar/val1
 		opti=1
 		echo $opti > /bin/ejecutar/val
 		fun_bar
+		read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
 	fi
 	source menu
 	exit
 	;;
 	*)
 	echo "AGREGADA EXITOSAMENTE"
+	read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
 	source menu
 	;;
 	esac
