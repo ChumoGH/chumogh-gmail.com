@@ -362,6 +362,7 @@ txt[348]="detener Puertos"
 txt[349]="Cerrar Puertos:"
 txt[350]="Desinstalar Puertos:"
 txt[351]="Iniciar Puertos:"
+txt[351]="Puertas Activas en su Servidor"
 
 
 echo "${txt[0]}" > $_dr
