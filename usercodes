@@ -14,7 +14,8 @@ net_meter () {
 net_dir="/etc/adm-lite/userDIR/usr_cnx"
 if [ ! -e "$net_dir" ]; then
 echo -e "${cor[5]} ${txt[289]}"
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆\033[0m"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[1]}  Controlar Consumo de Cada Usuario Por Separado ${cor[0]}"
 return
 fi
 net_cent="/tmp/porcentagem"
@@ -28,9 +29,9 @@ sed -i '/^$/d' $net_dir
 bb=$(printf '%-18s' "${txt[285]}")
 aa=$(printf '%-19s' "${txt[287]}")
 cc=$(printf '%-18s' "${txt[286]}")
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "\033[1;33m $aa $bb $cc"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 while read u; do
 b=$(printf '%-18s' "$(($(echo $u | awk '{print $2}')/970)) - MB")
 a=$(printf '%-20s' "$(echo $u | awk '{print $1}')")
@@ -45,7 +46,7 @@ echo -e "\033[1;32m $a \033[1;31m$b \033[1;32m$c"
 fi
 done < $net_dir
 [[ "$(cat $net_dir)" = "" ]] && echo -e "${cor[5]} ${txt[289]}"
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆\033[0m"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ \033[0m"
 unset net_dir
 }
 
