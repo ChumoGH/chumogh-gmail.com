@@ -530,7 +530,7 @@ break
 fi
 done
 echo '<h6><font color="purple">»ChumoGH« »COPYRIGHT 2020«</font></h6>' >> $local
-echo '<h1><font>'▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>' >> $local
+echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>' >> $local
 if [ -e "$local2" ]; then
 rm $local2  > /dev/null 2>&1
 cp $local $local2 > /dev/null 2>&1
