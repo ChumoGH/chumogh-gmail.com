@@ -139,7 +139,7 @@ case $ppp in
 	;;
 	1)
 	clear
-	figlet ChumoGH
+	figlet ChumoGH | lolcat
 	echo -e "${cor[2]} \033[1;32mFUNCION EN DISEÑO " $ppp
 	source menu
 	exit
