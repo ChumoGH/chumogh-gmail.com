@@ -6,7 +6,7 @@ echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○�
 echo -e "${cor[2]} |0| >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} |1| >${cor[3]} ${txt[90]}"
 echo -e "${cor[2]} |2| >${cor[3]} ${txt[91]}"
-echo -e "${cor[2]} |3| >${cor[3]} ${txt[92]}"
+echo -e "${cor[2]} |3| >${cor[3]} ${txt[92]}\033[0;33m ${txt[342]} "
 echo -e "${cor[2]} |4| >${cor[3]} ${txt[93]} $_badvpn"
 echo -e "${cor[2]} |5| >${cor[3]} ${txt[94]} $_tcpspeed"
 echo -e "${cor[2]} |6| >${cor[3]} ${txt[95]} (Bloqueo MultiLoguin) $fail_b"
