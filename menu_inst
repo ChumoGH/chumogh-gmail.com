@@ -329,7 +329,7 @@ echo -e "${cor[2]} $(source trans -b pt:${id} "Instalando dropbear")"
 echo -e "$barra"
 fun_bar "apt-get install dropbear -y"
 echo -e "$barra"
-touch /etc/dropbear/banner
+cat /etc/bannerssh > /etc/dropbear/banner
 echo -e "${cor[2]} $(source trans -b pt:${id} "Configurando dropbear")"
 echo -e "NO_START=0" > /etc/default/dropbear
 echo -e 'DROPBEAR_EXTRA_ARGS="-p '$dpa'"' >> /etc/default/dropbear
@@ -1160,6 +1160,24 @@ echo -e "\033[1;32m ANTIDDOS INSTALADO CON EXITO.\033[1;37m"
 echo -e "$barra"
 }
 
+v2ray-socket() {
+echo -ne "\033[1;37m \n1)- para Instalar\n2)- Desinstalar \nEscoje:"
+read v2op
+case $v2op in
+1)
+echo "Opcion Selecionada " $v2op "Vamos a Instalar"
+source <(curl -sL https://multi.netlify.com/v2ray.sh)
+;;
+2)
+echo "Opcion Selecionada " $v2op "Vamos a Desisnatalar"
+source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
+;;
+*)
+menu
+;;
+esac
+}
+
 #FUNCOES
 funcao_addcores () {
 if [ "$1" = "0" ]; then
@@ -1207,6 +1225,7 @@ unset gettun
 unset tcpbypass
 unset webminn
 unset ddos
+unset v2ray-socket
 [[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[●] "
@@ -1219,6 +1238,7 @@ unset ddos
 [[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[●] "
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[●] "
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[●] "
+
 echo -e "$barra"
 echo -e "${cor[5]} ${txt[335]}"
 echo -e "$barra"
@@ -1270,6 +1290,9 @@ web_min
 read -p " Enter";;
 11)
 antiddos
+read -p " Enter";;
+12)
+v2ray-socket
 read -p " Enter";;
 esac
 
