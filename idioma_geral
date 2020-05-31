@@ -9,16 +9,16 @@ done < $_dr
 unset n
 [[ ${txt[0]} = "" ]] && rm $_dr && exit 1
 else
-txt[0]="ChumoGH ☆ Script VPS "
+txt[0]="ChumoGH ☠ Script VPS "
 txt[1]="Conectados:"
 txt[2]="Caducados:"
 txt[3]="OS:"
-txt[4]="¡BIENVENIDO AL MENÚ! @ChumoGH"
+txt[4]="¡BIENVENIDO AL MENÚ! ☯ChumoGH"
 txt[5]="ADMINISTRAR USUARIOS"
 txt[6]="HERRAMIENTAS (Bad/VPN)"
 txt[355]="|(TCP-SPEED)"
 txt[7]="ACTUALIZAR"
-txt[8]="Desinstalar ChumoGH"
+txt[8]="Desinstalar ☯ChumoGH☯"
 txt[9]="Escoje:"
 txt[10]="☑ "
 txt[11]="☒ "
