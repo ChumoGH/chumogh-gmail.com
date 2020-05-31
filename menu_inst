@@ -1161,7 +1161,7 @@ echo -e "$barra"
 }
 
 v2ray-socket() {
-echo -ne "\033[1;37m \n 1)- para Instalar\ n2)- Desinstalar \n 3)- Menu V2ray \nEscoje:" | lolcat
+echo -ne "\033[1;37m \n 1)- para Instalar \n2)- Desinstalar \n 3)- Menu V2ray \nEscoje:" | lolcat
 read v2op
 case $v2op in
 1)
