@@ -1225,7 +1225,7 @@ unset gettun
 unset tcpbypass
 unset webminn
 unset ddos
-#unset v2ray-socket
+unset v2ray
 [[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[●] "
@@ -1238,6 +1238,7 @@ unset ddos
 [[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[●] "
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[●] "
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[●] "
+[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[●] "
 
 echo -e "$barra"
 echo -e "${cor[5]} ${txt[335]}"
@@ -1253,7 +1254,7 @@ echo -e "${cor[2]} [8] > ${cor[3]}TCP OVER BYPASS $tcpbypass"
 echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
 echo -e "${cor[2]} [11] > ${cor[3]}Anti-DDOS $ddos"
-echo -e "${cor[2]} [12] > ${cor[3]}V2ray Socket $ddos"
+echo -e "${cor[2]} [12] > ${cor[3]}V2ray Socket $v2ray"
 echo -e "$barra"
 echo -ne "\033[1;37m ${txt[338]}: "
 read optons
