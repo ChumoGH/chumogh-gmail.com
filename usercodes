@@ -158,9 +158,9 @@ valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
 useradd -M -s /bin/false $name -e $valid
 (echo $pass; echo $pass)|passwd $name 2>/dev/null
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 figlet  $name | lolcat
 echo -e "${cor[5]} * ${txt[351]} *"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 ports_
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
@@ -533,8 +533,8 @@ elif [[ "$sin_nao" = @(n|N) ]]; then
 break
 fi
 done
-echo '<h6><font color="purple">»ChumoGH« »COPYRIGHT 2020«</font></h6>' >> $local
-echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>' >> $local
+echo '<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>' >> $local
+#echo '<h1><font>===================================</font></h1>' >> $local
 if [ -e "$local2" ]; then
 rm $local2  > /dev/null 2>&1
 cp $local $local2 > /dev/null 2>&1
