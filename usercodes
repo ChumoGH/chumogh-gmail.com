@@ -158,10 +158,9 @@ valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
 useradd -M -s /bin/false $name -e $valid
 (echo $pass; echo $pass)|passwd $name 2>/dev/null
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+figlet  $name | lolcat
 echo -e "${cor[5]} * ${txt[351]} *"
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
-figlet  $name
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 ports_
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
