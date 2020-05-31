@@ -1225,7 +1225,7 @@ unset gettun
 unset tcpbypass
 unset webminn
 unset ddos
-unset v2ray-socket
+#unset v2ray-socket
 [[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[●] "
 [[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[●] "
