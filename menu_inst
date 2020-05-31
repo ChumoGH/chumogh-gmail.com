@@ -1161,7 +1161,7 @@ echo -e "$barra"
 }
 
 v2ray-socket() {
-echo -ne "\033[1;37m \n1)- para Instalar\n2)- Desinstalar \nEscoje:"
+echo -ne "\033[1;37m \n1)- para Instalar\n2)- Desinstalar \n3)-Menu V2ray \nEscoje:"
 read v2op
 case $v2op in
 1)
@@ -1171,6 +1171,10 @@ source <(curl -sL https://multi.netlify.com/v2ray.sh)
 2)
 echo "Opcion Selecionada " $v2op "Vamos a Desisnatalar"
 source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
+;;
+3)
+echo "Opcion Selecionada " $v2op "Vamos a Iniciar"
+v2ray
 ;;
 *)
 menu
