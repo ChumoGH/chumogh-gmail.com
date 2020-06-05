@@ -48,72 +48,73 @@ fi
 
 function_1 () {
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[4]} ${txt[99]}"
+echo -e "${cor[4]} Debugeando"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9]`; do
-echo -e "${cor[5]} ${txt[100]}"
-echo -e "\033[1;31m $user"
-if [ -e $dir_user/$user ]; then
-pass=$(cat $dir_user/$user | grep "senha" | awk '{print $2}')
-data=$(cat $dir_user/$user | grep "data" | awk '{print $2}')
-limit=$(cat $dir_user/$user | grep "limite" | awk '{print $2}')
- if [ "$pass" = "" ]; then
-pass="ultimate"
- fi
- if [ "$data" = "" ]; then
-data=$(date '+%C%y-%m-%d' -d "+30 days")
- fi
- if [ "$limit" = "" ]; then
-limit="30"
- fi
- if [ ! -e "$HOME/adm-backup" ]; then
-echo "$user $pass $limit $data" > /root/adm-backup
-echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
- else
-echo "$user $pass $limit $data" >> /root/adm-backup
-echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
- fi
-else
-echo -e "${cor[5]} ${txt[101]}"
-echo -e "${cor[5]} ${txt[102]}"
-read -p " ©$user ${txt[103]} " pass
-read -p " ©$user ${txt[104]} " datas2
-number_var $datas2
-if [ "$var_number" = "" ]; then
- if [ -e $HOME/adm-backup ]; then
-rm $HOME/adm-backup
- fi
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-return
- else
-datas="$var_number"
-fi
-data=$(date '+%C%y-%m-%d' -d "+$datas days")
-read -p " ©$user ${txt[105]} " limit2
-number_var $limit2
-if [ "$var_number" = "" ]; then
- if [ -e $HOME/adm-backup ]; then
-rm $HOME/adm-backup
- fi
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-return
- else
-limit="$var_number"
-fi
- if [ ! -e "$HOME/adm-backup" ]; then
-echo "$user $pass $limit $data" > /root/adm-backup
-echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
- else
-echo "$user $pass $limit $data" >> /root/adm-backup
-echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
- fi
-fi
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-done
-echo "admpro" >> $HOME/adm-backup
-echo -e "${cor[5]} ${txt[106]}"
-echo -e "${cor[5]} ${txt[107]} \033[1;36m$HOME/adm-backup! ${cor[0]}"
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
+export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
+#for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9]`; do
+#echo -e "${cor[5]} ${txt[100]}"
+#echo -e "\033[1;31m $user"
+#if [ -e $dir_user/$user ]; then
+#pass=$(cat $dir_user/$user | grep "senha" | awk '{print $2}')
+#data=$(cat $dir_user/$user | grep "data" | awk '{print $2}')
+#limit=$(cat $dir_user/$user | grep "limite" | awk '{print $2}')
+# if [ "$pass" = "" ]; then
+#pass="ultimate"
+# fi
+# if [ "$data" = "" ]; then
+#data=$(date '+%C%y-%m-%d' -d "+30 days")
+# fi
+# if [ "$limit" = "" ]; then
+#limit="30"
+# fi
+# if [ ! -e "$HOME/adm-backup" ]; then
+#echo "$user $pass $limit $data" > /root/adm-backup
+#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
+# else
+#echo "$user $pass $limit $data" >> /root/adm-backup
+#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
+# fi
+#else
+#echo -e "${cor[5]} ${txt[101]}"
+#echo -e "${cor[5]} ${txt[102]}"
+#read -p " ©$user ${txt[103]} " pass
+#read -p " ©$user ${txt[104]} " datas2
+#number_var $datas2
+#if [ "$var_number" = "" ]; then
+# if [ -e $HOME/adm-backup ]; then
+#rm $HOME/adm-backup
+# fi
+#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
+#return
+# else
+#datas="$var_number"
+#fi
+#data=$(date '+%C%y-%m-%d' -d "+$datas days")
+#read -p " ©$user ${txt[105]} " limit2
+#number_var $limit2
+#if [ "$var_number" = "" ]; then
+# if [ -e $HOME/adm-backup ]; then
+#rm $HOME/adm-backup
+# fi
+#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
+#return
+# else
+#limit="$var_number"
+#fi
+# if [ ! -e "$HOME/adm-backup" ]; then
+#echo "$user $pass $limit $data" > /root/adm-backup
+#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
+# else
+#echo "$user $pass $limit $data" >> /root/adm-backup
+#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
+# fi
+#fi
+#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
+#done
+#echo "admpro" >> $HOME/adm-backup
+#echo -e "${cor[5]} ${txt[106]}"
+#echo -e "${cor[5]} ${txt[107]} \033[1;36m$HOME/adm-backup! ${cor[0]}"
+#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
 }
 
 function_2 () {
