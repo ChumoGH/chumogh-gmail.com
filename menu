@@ -172,7 +172,6 @@ case $ppp in
 		[\033[1;30m12\033[1;33m] V2RAY \033[1;33m
 		[\033[1;30m0\033[1;33m] < REGRESAR \033[1;33m"
 		read -p ": " opcao
-		opcao=$1		
 		case $opcao in
 		1)
 		removerbadvpn;;
@@ -227,7 +226,6 @@ case $ppp in
 		[\033[1;30m9\033[1;33m] OPENVPN             ›   \033[1;32m$xopenvpn \033[1;33m
 		[\033[1;30m0\033[1;33m] < REGRESAR                 \033[1;33m"
 		read -p ": " opcao
-		opcao=$1
 		case $opcao in	
 		1)
 		configssh;;
