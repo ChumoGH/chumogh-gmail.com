@@ -136,6 +136,7 @@ echo -e "${cor[2]} 0] > \033[1;31mVolver"
 echo -e "${cor[2]} 1] > \033[1;31mDetener Puertos"
 echo -e "${cor[2]} 2] > \033[1;31mDesinstalar Puerto."
 echo -e "${cor[2]} 3] > \033[1;31mIniciar Puerto."
+echo -e "${cor[2]} 4] > \033[1;31mMostrar Configuraciones"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje " ppp
 case $ppp in
@@ -209,6 +210,46 @@ case $ppp in
 	source menu
 	exit
 	;;
+	4)
+		figlet -p -f slant < /root/name | lolcat
+		echo -e "\033[1;37m      【     ★ ChumoGH Packet 2020 ★     】\033[0m"
+		echo -e "\033[1;37m      【    Escoje la Config a Mostrar    】\033[0m"
+		echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
+		echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
+		[\033[1;30m1\033[1;33m] SSH                 ›   \033[1;32m$xssh \033[1;33m
+		[\033[1;30m2\033[1;33m] DROPBEAR            ›   \033[1;32m$xdropbear\033[1;33m
+		[\033[1;30m3\033[1;33m] STUNNEL4            ›   \033[1;32m$xstunnel \033[1;33m
+		[\033[1;30m4\033[1;33m] SQUID               ›   \033[1;32m$xsquid \033[1;33m
+		[\033[1;30m5\033[1;33m] PROXY PYTHON        ›   \033[1;32m$xpython \033[1;33m
+		[\033[1;30m6\033[1;33m] SHADOWSOCKS         ››  \033[1;33m
+		[\033[1;30m7\033[1;33m] SOCKS5              ›   \033[1;32m$xsocks5 \033[1;33m
+		[\033[1;30m8\033[1;33m] SOCKD               ›   \033[1;32m$xsocksd \033[1;33m
+		[\033[1;30m9\033[1;33m] OPENVPN             ›   \033[1;32m$xopenvpn \033[1;33m
+		[\033[1;30m0\033[1;33m] < REGRESAR                 \033[1;33m"
+		read -p ": " opcao
+		opcao=$1
+		case $opcao in	
+		1)
+		configssh;;
+		2)
+		configdropbear;;
+		3)
+		configstunnel;;
+		4)
+		configsquid;;
+		5)
+		configproxy;;
+		6)
+		configshadow;;
+		7)
+		configsocks5;;
+		8)
+		configsockd;;
+		9)
+		configopenvpn;;
+		0)
+		exit;;
+		esac
 	*)
 	source menu
 	;;
@@ -389,4 +430,94 @@ echo -e "\033[1;37m  Desinstalacion Completa \033[0m"
 echo -e "\033[1;31mINSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 cgh
+}
+function configssh(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion SSH\033[0m"
+cat /etc/ssh/sshd_config
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configdropbear(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Dropbear\033[0m"
+echo -e "\033[1;37m › /etc/default/dropbear\033[0m"
+cat /etc/default/dropbear
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configstunnel(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Stunnel\033[0m"
+echo -e "\033[1;37m › /etc/stunnel/stunnel.conf\033[0m"
+cat /etc/stunnel/stunnel.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsquid(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Squid\033[0m"
+cat /etc/squid/squid.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configproxy(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Proxy Python\033[0m"
+echo -e "\033[1;37m › /root/proxy.py\033[0m"
+cat /root/proxy.py
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsocks5(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Socks5\033[0m"
+echo -e "\033[1;37m › /etc/danted.conf\033[0m"
+cat /etc/danted.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsockd(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Sockd\033[0m"
+echo -e "\033[1;37m › /home/dante/danted.conf\033[0m"
+cat /home/dante/danted.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configopenvpn(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Openvpn\033[0m"
+echo -e "\033[1;37m › /etc/openvpn/server.conf\033[0m"
+cat /etc/openvpn/server.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configshadow(){
+if [[ $1 == "" ]]
+then
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks\033[0m"
+echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
+[\033[1;30m1\033[1;33m] LIBEV                 ›   \033[1;33m
+[\033[1;30m2\033[1;33m] ROCKET                ›   \033[1;33m
+[\033[1;30m0\033[1;33m] < REGRESAR                 \033[1;33m"
+read -p ": " opcao
+else
+opcao=$1
+fi
+case $opcao in
+1)
+configlibev;;
+2)
+configrocket;;
+0)
+cgh;;
+esac
+}
+function configlibev(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks Libev\033[0m"
+echo -e "\033[1;37m › /etc/shadowsocks-libev/config.json\033[0m"
+cat /etc/shadowsocks-libev/config.json
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configrocket(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks Rocket\033[0m"
+echo -e "\033[1;37m › /etc/shadowsocks-r/config.json\033[0m"
+cat /etc/shadowsocks-r/config.json
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
 }
