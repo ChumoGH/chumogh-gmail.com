@@ -1082,10 +1082,9 @@ echo -e "\033[1;33m $(source trans -b pt:${id} "INSTALADO EXITOSA")"
 echo -e "$barra"
 return 0
 *)
-id="es"
+cgh
 ;;
 esac
-
 }
 
 painel_upload () {
