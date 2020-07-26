@@ -250,6 +250,7 @@ case $ppp in
 		0)
 		exit;;
 		esac
+	;;
 	*)
 	source menu
 	;;
