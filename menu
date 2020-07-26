@@ -228,23 +228,23 @@ case $ppp in
 		read -p ": " opcao
 		case $opcao in	
 		1)
-		configssh;;
+		configssh();;
 		2)
-		configdropbear;;
+		configdropbear();;
 		3)
-		configstunnel;;
+		configstunnel();;
 		4)
-		configsquid;;
+		configsquid();;
 		5)
-		configproxy;;
+		configproxy();;
 		6)
-		configshadow;;
+		configshadow();;
 		7)
-		configsocks5;;
+		configsocks5();;
 		8)
-		configsockd;;
+		configsockd();;
 		9)
-		configopenvpn;;
+		configopenvpn();;
 		0)
 		exit;;
 		esac
