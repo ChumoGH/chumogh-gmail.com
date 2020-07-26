@@ -228,26 +228,117 @@ case $ppp in
 		read -p ": " opcao
 		case $opcao in	
 		1)
-		configssh();;
+		configssh;;
 		2)
-		configdropbear();;
+		configdropbear;;
 		3)
-		configstunnel();;
+		configstunnel;;
 		4)
-		configsquid();;
+		configsquid;;
 		5)
-		configproxy();;
+		configproxy;;
 		6)
-		configshadow();;
+		configshadow;;
 		7)
-		configsocks5();;
+		configsocks5;;
 		8)
-		configsockd();;
+		configsockd;;
 		9)
-		configopenvpn();;
+		configopenvpn;;
 		0)
 		exit;;
 		esac
+		function configssh(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion SSH\033[0m"
+cat /etc/ssh/sshd_config
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configdropbear(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Dropbear\033[0m"
+echo -e "\033[1;37m › /etc/default/dropbear\033[0m"
+cat /etc/default/dropbear
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configstunnel(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Stunnel\033[0m"
+echo -e "\033[1;37m › /etc/stunnel/stunnel.conf\033[0m"
+cat /etc/stunnel/stunnel.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsquid(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Squid\033[0m"
+cat /etc/squid/squid.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configproxy(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Proxy Python\033[0m"
+echo -e "\033[1;37m › /root/proxy.py\033[0m"
+cat /root/proxy.py
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsocks5(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Socks5\033[0m"
+echo -e "\033[1;37m › /etc/danted.conf\033[0m"
+cat /etc/danted.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configsockd(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Sockd\033[0m"
+echo -e "\033[1;37m › /home/dante/danted.conf\033[0m"
+cat /home/dante/danted.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configopenvpn(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Openvpn\033[0m"
+echo -e "\033[1;37m › /etc/openvpn/server.conf\033[0m"
+cat /etc/openvpn/server.conf
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configshadow(){
+if [[ $1 == "" ]]
+then
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks\033[0m"
+echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
+[\033[1;30m1\033[1;33m] LIBEV                 ›   \033[1;33m
+[\033[1;30m2\033[1;33m] ROCKET                ›   \033[1;33m
+[\033[1;30m0\033[1;33m] < REGRESAR                 \033[1;33m"
+read -p ": " opcao
+else
+opcao=$1
+fi
+case $opcao in
+1)
+configlibev;;
+2)
+configrocket;;
+0)
+cgh;;
+esac
+}
+function configlibev(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks Libev\033[0m"
+echo -e "\033[1;37m › /etc/shadowsocks-libev/config.json\033[0m"
+cat /etc/shadowsocks-libev/config.json
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+function configrocket(){
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › Configuracion Shadowsocks Rocket\033[0m"
+echo -e "\033[1;37m › /etc/shadowsocks-r/config.json\033[0m"
+cat /etc/shadowsocks-r/config.json
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+}
+
 	;;
 	*)
 	source menu
@@ -429,94 +520,4 @@ echo -e "\033[1;37m  Desinstalacion Completa \033[0m"
 echo -e "\033[1;31mINSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 cgh
-}
-function configssh(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion SSH\033[0m"
-cat /etc/ssh/sshd_config
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configdropbear(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Dropbear\033[0m"
-echo -e "\033[1;37m › /etc/default/dropbear\033[0m"
-cat /etc/default/dropbear
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configstunnel(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Stunnel\033[0m"
-echo -e "\033[1;37m › /etc/stunnel/stunnel.conf\033[0m"
-cat /etc/stunnel/stunnel.conf
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configsquid(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Squid\033[0m"
-cat /etc/squid/squid.conf
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configproxy(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Proxy Python\033[0m"
-echo -e "\033[1;37m › /root/proxy.py\033[0m"
-cat /root/proxy.py
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configsocks5(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Socks5\033[0m"
-echo -e "\033[1;37m › /etc/danted.conf\033[0m"
-cat /etc/danted.conf
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configsockd(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Sockd\033[0m"
-echo -e "\033[1;37m › /home/dante/danted.conf\033[0m"
-cat /home/dante/danted.conf
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configopenvpn(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Openvpn\033[0m"
-echo -e "\033[1;37m › /etc/openvpn/server.conf\033[0m"
-cat /etc/openvpn/server.conf
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configshadow(){
-if [[ $1 == "" ]]
-then
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Shadowsocks\033[0m"
-echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
-[\033[1;30m1\033[1;33m] LIBEV                 ›   \033[1;33m
-[\033[1;30m2\033[1;33m] ROCKET                ›   \033[1;33m
-[\033[1;30m0\033[1;33m] < REGRESAR                 \033[1;33m"
-read -p ": " opcao
-else
-opcao=$1
-fi
-case $opcao in
-1)
-configlibev;;
-2)
-configrocket;;
-0)
-cgh;;
-esac
-}
-function configlibev(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Shadowsocks Libev\033[0m"
-echo -e "\033[1;37m › /etc/shadowsocks-libev/config.json\033[0m"
-cat /etc/shadowsocks-libev/config.json
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-}
-function configrocket(){
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m › Configuracion Shadowsocks Rocket\033[0m"
-echo -e "\033[1;37m › /etc/shadowsocks-r/config.json\033[0m"
-cat /etc/shadowsocks-r/config.json
-echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
 }
