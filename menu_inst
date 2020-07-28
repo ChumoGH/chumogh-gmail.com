@@ -1019,7 +1019,7 @@ return 0
 }
 
 ssl_stunel () {
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/VpsPackdir/sslports.txt && cat /etc/VpsPackdir/sslports.txt`;
+sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 [[ $(mportas|grep stunnel4|head -1) ]] && {
 # INICIO STUNNEL ACTIVO
 cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ CHUMOGH ☆ ADM SCRIPT "| lolcat
@@ -1043,7 +1043,7 @@ service ssh restart 1>/dev/null 2 /dev/null
 service stunnel4 start 1>/dev/null 2 /dev/null
 service stunnel4 restart 1>/dev/null 2 /dev/null
 echo -e "\033[1;31m ***********REINICIADO...*************"
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/VpsPackdir/sslports.txt && cat /etc/VpsPackdir/sslports.txt`;
+sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 echo -e "${cor[2]}STUNNEL ACTIVO en Puertos:${cor[2]}$sslports "
 #echo "Limpiando sistema y Reiniciando Servicios"
 echo 3 > /proc/sys/vm/drop_caches 1> /dev/null 2> /dev/null
