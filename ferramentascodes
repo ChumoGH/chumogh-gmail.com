@@ -172,7 +172,7 @@ echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○�
 if [ "$pid_badvpn" = "" ]; then
     echo -e "${cor[4]} ${txt[118]}\n ${txt[119]}\n ${txt[120]}\n ${txt[121]}"
     echo -e "${cor[5]} ${txt[122]}"
-    echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
+    echo -e "++++++++++++++++111+1++++++++"
     if [[ ! -e /bin/badvpn-udpgw ]]; then
     cd /etc/adm-lite/
     wget -q https://www.dropbox.com/s/zk5hvrpwkkk2ps6/easyinstall
@@ -184,16 +184,16 @@ if [ "$pid_badvpn" = "" ]; then
     fi
     #screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
     [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
-    echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
+    echo -e "${cor[1]} ××××××××××××××××××××××××××××××××× ${cor[0]}"
     unset pid_badvpn
     return 0
 else
     echo -e "${cor[4]} ${txt[124]}"
-    echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
+    echo -e "${cor[1]} =================================${cor[0]}"
     kill -9 $(ps x | grep badvpn | grep -v grep | awk '{print $1'}) > /dev/null 2>&1
     killall badvpn-udpgw > /dev/null 2>&1
     [[ ! "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[125]}"
-    echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
+    echo -e "${cor[1]} =================================${cor[0]}"
     unset pid_badvpn
     fi
 }
