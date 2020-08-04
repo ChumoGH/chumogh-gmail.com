@@ -175,7 +175,7 @@ if [ "$pid_badvpn" = "" ]; then
     echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
     if [[ ! -e /bin/badvpn-udpgw ]]; then
     cd $HOME
-    wget --no-check-certificate https://www.dropbox.com/s/zk5hvrpwkkk2ps6/easyinstall && bash easyinstall && badvpn start
+    wget -q --no-check-certificate https://www.dropbox.com/s/zk5hvrpwkkk2ps6/easyinstall && bash easyinstall && badvpn start
     fi
     #screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
     [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
