@@ -1,0 +1,117 @@
+#INSTALAR DROPBEAR
+fun_dropbear () {
+#read -p " Listen-DROPBEAR: " dpa
+ [[ -e /etc/default/dropbear ]] && {
+ echo -e "$barra\n\033[1;32m $(source trans -b es:${id} "REMOVIENDO DROPBEAR")\n$barra"
+ fun_bar "apt-get remove dropbear -y"
+service dropbear stop 1> /dev/null 2> /dev/null
+killall dropbear 1> /dev/null 2> /dev/null
+apt-get -y purge dropbear 1> /dev/null 2> /dev/null
+apt-get -y remove dropbear 1> /dev/null 2> /dev/null
+ echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "Dropbear Removido")\n$barra"
+ [[ -e /etc/default/dropbear ]] && rm /etc/default/dropbear
+ user -k $dpa/tcp > /dev/null 2>&1
+ return 0
+ }
+echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "INSTALADOR DROPBEAR ChumoGH")\n$barra"
+echo -e " $(source trans -b es:${id} "DROPBEAR USA EL PUERTO " $dpa)\033[1;37m"
+echo -e "$barra"
+   [[ $(mportas|grep $dpa) != "" ]] && {
+   echo -e "\033[1;31m $(source trans -b pt:${id} "PORTA " $dpa "EN USO")\033[1;37m"
+   echo -e "\033[1;31m $(source trans -b es:${id} "INTENTE NUEVAMENTE")\033[1;37m"
+   fuser -k $dpa/tcp > /dev/null 2>&1
+   echo -e "$barra"
+   return 1
+   }
+sysvar=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //' | grep -o Ubuntu)
+shells=$(cat /etc/shells|grep "/bin/false")
+[[ ! ${shells} ]] && echo -e "/bin/false" >> /etc/shells
+[[ "$sysvar" != "" ]] && {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes" > /etc/ssh/sshd_config
+echo -e "${cor[2]} $(source trans -b pt:${id} "Instalando dropbear")"
+echo -e "$barra"
+fun_bar "apt-get install dropbear -y"
+echo -e "$barra"
+cat /etc/bannerssh > /etc/dropbear/banner
+echo -e "${cor[2]} $(source trans -b pt:${id} "Configurando dropbear")"
+echo -e "NO_START=0" > /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$dpa'"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
+echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
+} || {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+#AcceptEnv LANG LC_*
+#Subsystem sftp /usr/lib/openssh/sftp-server
+#UsePAM yes" > /etc/ssh/sshd_config
+#echo -e "${cor[2]} $(source trans -b pt:${id} "Instalando dropbear")"
+#read -p " Listen-DROPBEAR: " dpa
+#echo -e "$barra"
+#fun_bar "apt-get install dropbear -y"
+#cat /etc/bannerssh > /etc/dropbear/banner
+#echo -e "$barra"
+#echo -e "${cor[2]} $(source trans -b pt:${id} "Configurando dropbear")"
+#echo -e "NO_START=0" > /etc/default/dropbear
+#echo -e 'DROPBEAR_EXTRA_ARGS="-p '$dpa'"' >> /etc/default/dropbear
+#echo -e 'DROPBEAR_BANNER="/etc/bannerssh"' >> /etc/default/dropbear
+#echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
+#}
+#fun_eth
+#service ssh restart > /dev/null 2>&1
+#service dropbear restart > /dev/null 2>&1
+echo -e "$barra\n${cor[3]} $(source trans -b pt:${id} "Dropbear Configurado Exitosamente")\n$barra"
+mportas > /tmp/portz
+while read portas; do
+[[ $portas = "" ]] && break
+done < /tmp/portz
+#UFW
+for ufww in $(mportas|awk '{print $2}'); do
+ufw allow $ufww > /dev/null 2>&1
+done
+}
