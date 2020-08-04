@@ -171,7 +171,7 @@ pid_badvpn=`netstat -tunlp | grep badvpn-udpgw | grep tcp | awk '{print substr($
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
 if [ "$pid_badvpn" = "" ]; then
 OS=`uname -m`;
-sudo wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreakersx/premscript/master/badvpn-udpgw"
+sudo wget -O /bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreakersx/premscript/master/badvpn-udpgw"
     echo -e "${cor[4]} ${txt[118]}\n ${txt[119]}\n ${txt[120]}\n ${txt[121]}"
     echo -e "${cor[5]} ${txt[122]}"
     echo -e "++++++++++++++++111+1++++++++"
@@ -184,9 +184,9 @@ sudo wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreaker
     rm-rf easyinstall
     cd
     fi
-    #screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
-   # [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
-    bash/etc/badvpn-udpgw
+    screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
+    [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
+    bash /etc/badvpn-udpgw
     badvpn start
     echo -e "${cor[1]} ××××××××××××××××××××××××××××××××× ${cor[0]}"
     unset pid_badvpn
