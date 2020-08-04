@@ -170,10 +170,12 @@ function_4 () {
 pid_badvpn=`netstat -tunlp | grep badvpn-udpgw | grep tcp | awk '{print substr($4,11); }' > /tmp/badvpn.txt && echo | cat /tmp/badvpn.txt | tr '\n' ' ' > /etc/adm-lite/badvpnports.txt && cat /etc/adm-lite/badvpnports.txt`;
 echo -e "${cor[1]} ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ ${cor[0]}"
 if [ "$pid_badvpn" = "" ]; then
+OS=`uname -m`;
+sudo wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreakersx/premscript/master/badvpn-udpgw"
     echo -e "${cor[4]} ${txt[118]}\n ${txt[119]}\n ${txt[120]}\n ${txt[121]}"
     echo -e "${cor[5]} ${txt[122]}"
     echo -e "++++++++++++++++111+1++++++++"
-    if [[ ! -e /bin/badvpn-udpgw ]]; then
+    if [ "$OS" == "x86_64" ]; then
     cd /etc/adm-lite/
     wget -q https://www.dropbox.com/s/zk5hvrpwkkk2ps6/easyinstall
     cat easyinstall > badvpn-udpgw
