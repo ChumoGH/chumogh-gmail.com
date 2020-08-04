@@ -185,12 +185,15 @@ sudo wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/daybreaker
     cd
     fi
     #screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
-    [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
+   # [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
+    bash/etc/badvpn-udpgw
+    badvpn start
     echo -e "${cor[1]} ××××××××××××××××××××××××××××××××× ${cor[0]}"
     unset pid_badvpn
     return 0
 else
     echo -e "${cor[4]} ${txt[124]}"
+    badvpn stop
     echo -e "${cor[1]} =================================${cor[0]}"
     kill -9 $(ps x | grep badvpn | grep -v grep | awk '{print $1'}) > /dev/null 2>&1
     killall badvpn-udpgw > /dev/null 2>&1
