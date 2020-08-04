@@ -181,19 +181,19 @@ OS=`uname -m`;
     cat easyinstall > badvpn-udpgw
     bash easyinstall
     badvpn start
-    rm-rf easyinstall
+    rm -rf easyinstall
     cd
     fi
    # screen -dmS screen /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
    # [[ "$(ps x | grep badvpn | grep -v grep | awk '{print $1}')" ]] && echo -e "${cor[4]} ${txt[123]}" || echo -e "${cor[4]} ${txt[284]}"
-    bash /etc/badvpn-udpgw
+   # bash /etc/badvpn-udpgw
     badvpn start
     echo -e "${cor[1]} ××××××××××××××××××××××××××××××××× ${cor[0]}"
     unset pid_badvpn
     return 0
 else
     echo -e "${cor[4]} ${txt[124]}"
-    badvpn stop
+    badvpn stop 1> /dev/null 2> /dev/null
     unset pid_badvpn
     fi
 }
