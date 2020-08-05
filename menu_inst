@@ -464,7 +464,7 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 # INICIO STUNNEL ACTIVO
 cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ CHUMOGH ☆ ADM SCRIPT "| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
-echo -e "${cor[2]}DROPBEAR ACTIVO en Puertos: $dropbearports \n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]- Instalar DROPBEAR \n[2]- Cerrar Puerto (s)" | lolcat
+echo -e "${cor[2]}DROPBEAR ACTIVO en Puertos: $dropbearports \n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]- Instalar DROPBEAR \n[2]- Cerrar Puerto (s)\n[3]- Adicionar Port DROPBEAR " | lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
 echo -ne " ESCOJE: "; read lang
 case $lang in
@@ -487,6 +487,25 @@ apt-get -y remove dropbear 1> /dev/null 2> /dev/null
  user -k $dpa/tcp > /dev/null 2>&1
  return 0
  }
+;;
+3)
+[[ -e /etc/default/dropbear ]] && {
+echo "Nuevo Puerto a Agregar:"
+read -p ": " portdrop
+if lsof -Pi :$portdrop -sTCP:LISTEN -t >/dev/null ; then
+echo "Ya esta en uso ese puerto"
+else
+sed -i "8d" /etc/default/dropbear
+sed -i '8i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
+sleep 10
+echo "Reiniciando Dropbear para ejecutar cambios"
+service dropbear restart
+sleep 10
+cgh
+fi
+ return 0
+ }
+echo "Desgraciado, No HAS INSTALADO EL SERVICIO AUN ;C"
 ;;
 *)
 cgh
