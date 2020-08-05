@@ -547,16 +547,22 @@ apt-get -y remove dropbear 1> /dev/null 2> /dev/null
 ;;
 3)
 [[ -e /etc/default/dropbear ]] && {
-echo "Nuevo Puerto a Agregar:"
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+echo "Puertos que Corren en DROPBEAR " $dropbearports 
+cp /etc/default/dropbear /etc/default/dropbear.or
+echo "Ingresa Nuevo Puerto a Escuchar:"
 read -p ": " portdrop
+fun_bar
 if lsof -Pi :$portdrop -sTCP:LISTEN -t >/dev/null ; then
-echo "Ya esta en uso ese puerto"
+echo "Puerto Seleccionado Ocupado | Reintenta"
 else
-sed -i "8d" /etc/default/dropbear
-sed -i '8i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
-sleep 10
+sed -i "3d" /etc/default/dropbear
+sed -i '3i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
 echo "Reiniciando Dropbear para ejecutar cambios"
+fun_bar
 service dropbear restart
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+echo "Puertos que Corren en DROPBEAR " $dropbearports 
 sleep 10
 cgh
 fi
