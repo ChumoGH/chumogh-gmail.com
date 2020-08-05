@@ -9,6 +9,7 @@ service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
+[[ -e /etc/bannerssh ]] && {
 echo "› Instalando Dropbear"
 fun_bar "apt-get -y install dropbear"
 service dropbear stop 1> /dev/null 2> /dev/null
@@ -32,13 +33,30 @@ service ssh restart 1> /dev/null 2> /dev/null
 service sshd restart 1> /dev/null 2> /dev/null
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 service dropbear start 1> /dev/null 2> /dev/null
-fun_eth
+#fun_eth
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
+return 0
+ }
+echo "BANNER INEXISTENTE"
+fun_bar 
+echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h1><font color="green">
+Banner ChumoGH 2020 Temporal
+</font></h1>
+<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h6><font color="green">
+Verified【 ★ ChumoGH ★ 】 ADM 2020
+</h6></font>
+<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
+' > /etc/bannerssh
+echo "BANNER AGREGADO |||| REINTENTE"
+return 1
 cgh 10
 }
 function dropbear14(){
 clear
+[[ -e /etc/bannerssh ]] && {
 echo "› Preparando Instalacion"
 service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
@@ -70,10 +88,27 @@ fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
+return 0
+ }
+echo "BANNER INEXISTENTE"
+fun_bar 
+echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h1><font color="green">
+Banner ChumoGH 2020 Temporal
+</font></h1>
+<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h6><font color="green">
+Verified【 ★ ChumoGH ★ 】 ADM 2020
+</h6></font>
+<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
+' > /etc/bannerssh
+echo "BANNER AGREGADO |||| REINTENTE"
+return 1
 cgh 10
 }
 function dropbear16(){
 clear
+[[ -e /etc/bannerssh ]] && {
 echo "› Preparando Instalacion"
 service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
@@ -105,6 +140,22 @@ fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
+return 0
+ }
+echo "BANNER INEXISTENTE"
+fun_bar 
+echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h1><font color="green">
+Banner ChumoGH 2020 Temporal
+</font></h1>
+<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h6><font color="green">
+Verified【 ★ ChumoGH ★ 】 ADM 2020
+</h6></font>
+<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
+' > /etc/bannerssh
+echo "BANNER AGREGADO |||| REINTENTE"
+return 1
 cgh 10
 }
 function dropbeardebian9(){
