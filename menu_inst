@@ -32,6 +32,7 @@ service ssh restart 1> /dev/null 2> /dev/null
 service sshd restart 1> /dev/null 2> /dev/null
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 service dropbear start 1> /dev/null 2> /dev/null
+fun_eth
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 cgh 10
@@ -44,7 +45,7 @@ killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
 echo "› Instalando Dropbear"
-apt-get -y install dropbear 1> /dev/null 2> /dev/null
+fun_bar "apt-get -y install dropbear"
 rm /etc/default/dropbear
 cp /etc/adm-lite/confdropbear /etc/default/dropbear
 echo -e "\033[1;31m › ESCRIBE UN PUERTO PARA DROPBEAR\033[0m"
@@ -64,7 +65,8 @@ echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
 service ssh restart 1> /dev/null 2> /dev/null
 service sshd restart 1> /dev/null 2> /dev/null
-echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports
+echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
+fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
@@ -78,7 +80,7 @@ killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
 echo "› Instalando Dropbear"
-apt-get -y install dropbear=2016.72-1 1> /dev/null 2> /dev/null
+fun_bar "apt-get -y install dropbear=2016.72-1"
 rm /etc/default/dropbear
 cp /etc/adm-lite/confdropbear /etc/default/dropbear
 echo -e "\033[1;31m › ESCRIBE UN PUERTO PARA DROPBEAR\033[0m"
@@ -98,7 +100,8 @@ echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
 service ssh restart 1> /dev/null 2> /dev/null
 service sshd restart 1> /dev/null 2> /dev/null
-echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports
+echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
+fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
