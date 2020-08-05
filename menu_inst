@@ -29,8 +29,9 @@ sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-service ssh restart 1> /dev/null 2> /dev/null
-service sshd restart 1> /dev/null 2> /dev/null
+#service ssh restart 1> /dev/null 2> /dev/null
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+#service sshd restart 1> /dev/null 2> /dev/null
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 service dropbear start 1> /dev/null 2> /dev/null
 #fun_eth
@@ -81,8 +82,9 @@ sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-service ssh restart 1> /dev/null 2> /dev/null
-service sshd restart 1> /dev/null 2> /dev/null
+#service ssh restart 1> /dev/null 2> /dev/null
+#service sshd restart 1> /dev/null 2> /dev/null
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
@@ -133,8 +135,9 @@ sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-service ssh restart 1> /dev/null 2> /dev/null
-service sshd restart 1> /dev/null 2> /dev/null
+#service ssh restart 1> /dev/null 2> /dev/null
+#service sshd restart 1> /dev/null 2> /dev/null
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 fun_eth
 service dropbear start 1> /dev/null 2> /dev/null
