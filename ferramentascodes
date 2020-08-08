@@ -177,8 +177,7 @@ OS=`uname -m`;
     echo -e "++++++++++++++++111+1++++++++"
     if [ "$OS" == "x86_64" ]; then
     cd /etc/adm-lite/
-    wget -q https://www.dropbox.com/s/zk5hvrpwkkk2ps6/easyinstall
-    cat easyinstall > badvpn-udpgw
+    wget -q https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/easyinstall
     bash easyinstall
     badvpn start
     rm -rf easyinstall
