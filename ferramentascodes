@@ -51,102 +51,16 @@ echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶�
 echo -e "${cor[4]} Debugeando"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
-#for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9]`; do
-#echo -e "${cor[5]} ${txt[100]}"
-#echo -e "\033[1;31m $user"
-#if [ -e $dir_user/$user ]; then
-#pass=$(cat $dir_user/$user | grep "senha" | awk '{print $2}')
-#data=$(cat $dir_user/$user | grep "data" | awk '{print $2}')
-#limit=$(cat $dir_user/$user | grep "limite" | awk '{print $2}')
-# if [ "$pass" = "" ]; then
-#pass="ultimate"
-# fi
-# if [ "$data" = "" ]; then
-#data=$(date '+%C%y-%m-%d' -d "+30 days")
-# fi
-# if [ "$limit" = "" ]; then
-#limit="30"
-# fi
-# if [ ! -e "$HOME/adm-backup" ]; then
-#echo "$user $pass $limit $data" > /root/adm-backup
-#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
-# else
-#echo "$user $pass $limit $data" >> /root/adm-backup
-#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
-# fi
-#else
-#echo -e "${cor[5]} ${txt[101]}"
-#echo -e "${cor[5]} ${txt[102]}"
-#read -p " ©$user ${txt[103]} " pass
-#read -p " ©$user ${txt[104]} " datas2
-#number_var $datas2
-#if [ "$var_number" = "" ]; then
-# if [ -e $HOME/adm-backup ]; then
-#rm $HOME/adm-backup
-# fi
-#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-#return
-# else
-#datas="$var_number"
-#fi
-#data=$(date '+%C%y-%m-%d' -d "+$datas days")
-#read -p " ©$user ${txt[105]} " limit2
-#number_var $limit2
-#if [ "$var_number" = "" ]; then
-# if [ -e $HOME/adm-backup ]; then
-#rm $HOME/adm-backup
-# fi
-#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-#return
-# else
-#limit="$var_number"
-#fi
-# if [ ! -e "$HOME/adm-backup" ]; then
-#echo "$user $pass $limit $data" > /root/adm-backup
-#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
-# else
-#echo "$user $pass $limit $data" >> /root/adm-backup
-#echo -e "${cor[4]} $user\n $pass\n $limit\n $data"
-# fi
-#fi
-#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-#done
-#echo "admpro" >> $HOME/adm-backup
-#echo -e "${cor[5]} ${txt[106]}"
-#echo -e "${cor[5]} ${txt[107]} \033[1;36m$HOME/adm-backup! ${cor[0]}"
-#echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
+exit
 }
 
 function_2 () {
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-echo -e "${cor[4]} ${txt[108]}
- ${txt[109]}"
-echo -e "${cor[1]} ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●● ${cor[0]}"
-_ba="/root/adm-backup"
-read -p " [${txt[110]}]: " -e -i $_ba arq
-[[ ! -e "$arq" ]] && {
-       cd $HOME
-       wget -O backup-adm $arq -o /dev/null
-       [[ ! -e "$HOME/backup-adm" ]] && echo -e "${cor[5]} ${txt[111]}" && return 1
-       [[ ! $(cat $HOME/backup-adm | egrep -o "admpro") ]] && echo -e "${cor[5]} ${txt[112]}" && return 1
-       arq_bkp="$HOME/backup-adm"
-       } || {
-      [[ ! $(cat $arq | egrep -o "admpro") ]] && echo -e "${cor[5]} ${txt[112]}" && return 1
-      arq_bkp="$arq"
-      }
-echo -e "\033[1;37m ${txt[113]}"
-cd /etc/adm-lite
-while read backup_adm; do
-[[ $(echo "$backup_adm" | egrep -o "admpro") ]] && break
-usuario=$(echo "$backup_adm" | awk '{print $1}')
-senha=$(echo "$backup_adm" | awk '{print $2}')
-limite=$(echo "$backup_adm" | awk '{print $3}')
-data=$(echo "$backup_adm" | awk '{print $4}')
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
-auto_add_user "$usuario" "$senha" "$limite" "$data"
-done < $arq_bkp
-echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
-cd /etc/adm-lite
+echo -e 'Aplicando FIX para Vultr VPS Passwd'
+echo -e "Añadiendo Registro a PAM.D"
+sed -i 's/.*pam_cracklib.so.*/password sufficient pam_unix.so sha512 shadow nullok try_first_pass #use_authtok/' /etc/pam.d/common-password
+echo -e "Registro agregado"
+sleep 4
+cgh
 }
 
 function_3 () {
@@ -192,7 +106,8 @@ OS=`uname -m`;
     return 0
 else
     echo -e "${cor[4]} ${txt[124]}"
-    badvpn stop #1> /dev/null 2> /dev/null
+    badvpn stop 1> /dev/null 2> /dev/null
+    killall badvpn-udpgw 1> /dev/null 2> /dev/null
     unset pid_badvpn
     fi
 }
