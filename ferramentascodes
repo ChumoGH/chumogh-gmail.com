@@ -106,7 +106,7 @@ OS=`uname -m`;
     return 0
 else
     echo -e "${cor[4]} ${txt[124]}"
-    badvpn stop 1> /dev/null 2> /dev/null
+    badvpn stop
     killall badvpn-udpgw 1> /dev/null 2> /dev/null
     unset pid_badvpn
     fi
