@@ -490,7 +490,7 @@ function_7 () {
 echo -e "${cor[3]} "Esta SEGURO:""
 read -p " [S/N]: " -e -i n sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
-local2="/etc/dropbear/banner"
+local2="/etc/bannerssh"
 chk=$(cat /etc/ssh/sshd_config | grep Banner)
 if [ "$(echo "$chk" | grep -v "#Banner" | grep Banner)" != "" ]; then
 local=$(echo "$chk" |grep -v "#Banner" | grep Banner | awk '{print $2}')
@@ -535,10 +535,6 @@ fi
 done
 echo '<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
-if [ -e "$local2" ]; then
-rm $local2  > /dev/null 2>&1
-cp $local $local2 > /dev/null 2>&1
-fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
 service sshd restart > /dev/null 2>&1 & 
