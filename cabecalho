@@ -803,11 +803,9 @@ echo -e "ON"
 else
 echo -e "OFF"
 fi`;
-echo -e " \033[1;37m BADVPN                 ›   \033[1;32m$xbadvpn \033[1;33m
+echo -e " \033[1;37m BADVPN    ›   \033[1;32m$xbadvpn \033[1;33m
 \033[1;33m 【 SSH 】\033[1;32m$sshports\033[1;33m【SSL】 \033[1;32m$sslports \033[1;33m
-\033[1;33m 【 DropBear 】\033[1;32m$dropbearports\033[1;33m 【Squid】 \033[1;32m$squidports \033[1;33m
-\033[1;33m DropBear › \033[1;32m$dropbearports\033[1;33m Squid › \033[1;32m$squidports \033[1;33m"
-
+\033[1;33m 【 DropBear 】\033[1;32m$dropbearports\033[1;33m 【Squid】 \033[1;32m$squidports \033[1;33m"
 }
 
 ports_ () {
@@ -828,12 +826,12 @@ i=1
 while true; do
 a=$(sed -n "$i"p $porta_var | awk '{print $1}')
 b=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$a" != "" ]] && texto="\033[1;34m ● \033[1;37m$a: \033[1;31m$b" || texto=""
+[[ "$a" != "" ]] && texto="\033[1;34m * $i \033[1;37m$a: \033[1;31m$b" || texto=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
 c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$c" != "" ]] && texto_="\033[1;34m ★ \033[1;37m$c: \033[1;31m$d" || texto_=""
+[[ "$c" != "" ]] && texto_="\033[1;34m ★ $i \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
 echo -e "$texto $texto_"
@@ -858,6 +856,6 @@ echo -e "${cor[2]} ••••••••••••••••••••�
 echo -e "${cor[1]}\033[1;37m Key:${cor[1]}$exitokey "
 echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 ports_
-#puertos
+puertos
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} ${vesaoSCT} ${cor[0]}"
