@@ -196,7 +196,7 @@ useradd -M -s /bin/false $name -e $valid
 figlet  $name | lolcat
 echo -e "${cor[5]} * ${txt[351]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
-ports_
+puertos
 #echo -e "SSL : " $sslports "DROPBEAR : " $dropbearports
 #echo -e "Bad-VPN : " "Squid : " 
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
