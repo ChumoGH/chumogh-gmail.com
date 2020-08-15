@@ -620,6 +620,7 @@ return
 [[ "$1" = "7" ]] && function_7
 [[ "$1" = "8" ]] && net_meter
 [[ "$1" = "9" ]] && limiter_fun
+[[ "$1" = "10" ]] && criarusuarioteste
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
 [[ -e $_tmp2 ]] && rm $_tmp2
