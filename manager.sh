@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -f /bin/ejecutar/mn];
+if [ -f /bin/ejecutar/mn ];
 then
 cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR - - - - - - - -【 ★ ChumoGH ★ 】 ADM 2020 "| lolcat
 else
@@ -40,7 +40,6 @@ then
 echo "CADUCIDAD AGREADA ANTERIORMENTE, NO SE DEBE MODIFICAR"
 echo -e 'DATE=$(date +"%d-%m-%y");
 	TIME=$(date +"%T");
-	
 	echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) 
 	if cat /bin/ejecutar/date | grep $DATE $TIME  ; then
 	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log
@@ -49,10 +48,7 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	else
 	echo " Analizando... " $DATE $TIME >> /root/time.log
 	fi' > /bin/ejecutar/new.sh
-	chmod +x /bin/ejecutar
-	echo "cd /bin/ejecutar && bash ./mn" > /bin/mn
-	chmod +x /bin/ejecutar/*
-	chmod +x /bin/mn
+	chmod +x /bin/ejecutar/new.sh
 else 
 SHELL=/bin/sh 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
