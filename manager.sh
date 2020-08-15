@@ -43,7 +43,9 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	
 	echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) 
 	if cat /bin/ejecutar/date | grep $DATE $TIME  ; then
-	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log	
+	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log
+	sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab
+	cat /bin/ejecutar/crontab > /etc/crontab
 	else
 	echo " Analizando... " $DATE $TIME >> /root/time.log
 	fi' > /bin/ejecutar/new.sh
