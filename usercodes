@@ -24,19 +24,28 @@ do
 echo "$testus"
 done
 printf "\n"
-printf "Nombre del usuario: "; read nome
+echo -e "${cor[5]} ${txt[28]}"; read -p " ⌐╦╦═─ : " nome
+if [ -z $nome ]; then
+echo -e "${cor[5]} ${txt[29]} ${cor[0]}" 
+return
+fi
 printf "Contraseña del usuario: "; read pass
 echo -e "\nUse s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
 printf "Cuanto tiempo la cuenta $nome debe durar: ";read tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 useradd -M -s /bin/false $nome
-(echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
+(echo $pass;echo $pass) |passwd $nome 2>/dev/null
 echo "#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
 rm -rf /etc/usuariosteste/$nome.sh
 exit" > /etc/usuariosteste/$nome.sh
+figlet  $nome | lolcat
+echo -e "${cor[5]} * ${txt[351]} *"
+echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
+puertos
+echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "Usuario: $nome
 Contraseña: $pass
 Validez: $tempo\n
@@ -197,8 +206,6 @@ figlet  $name | lolcat
 echo -e "${cor[5]} * ${txt[351]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 puertos
-#echo -e "SSL : " $sslports "DROPBEAR : " $dropbearports
-#echo -e "Bad-VPN : " "Squid : " 
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
 echo -e "${cor[5]} ${txt[34]} ${cor[4]}$name"
