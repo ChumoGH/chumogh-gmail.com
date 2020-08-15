@@ -23,7 +23,9 @@ echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE
 read -p "› : " cadu
 echo $cadu $TIME > /bin/ejecutar/date
 echo $DATE $TIME > /bin/ejecutar/dateI
-echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
+cp /etc/crontab /bin/ejecutar/crontab.original
+echo '* * * * *	root 	bash /bin/ejecutar/new.sh' >> /etc/crontab
+#echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
 /etc/init.d/cron restart
 echo -e "Finalizando activacion"
 fi
