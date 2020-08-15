@@ -1,5 +1,38 @@
 #!/bin/bash
+if [ -f /bin/ejecutar/mn];
+then
+cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR - - - - - - - -【 ★ ChumoGH ★ 】 ADM 2020 "| lolcat
+else
 cat /root/manager.sh > /bin/ejecutar/mn
+fi
+#FUNCION DE BARRA INSTALA
+fun_bar () {
+comando[0]="$1"
+comando[1]="$2"
+(
+[[ -e $HOME/fim ]] && rm $HOME/fim
+${comando[0]} -y > /dev/null 2>&1
+${comando[1]} -y > /dev/null 2>&1
+touch $HOME/fim
+) > /dev/null 2>&1 &
+tput civis
+echo -ne "  \033[1;33mESPERE \033[1;37m- \033[1;33m["
+while true; do
+for((i=0; i<18; i++)); do
+echo -ne "\033[1;31m#"
+sleep 0.1s
+done
+[[ -e $HOME/fim ]] && rm $HOME/fim && break
+echo -e "\033[1;33m]"
+sleep 1s
+tput cuu1
+tput dl1
+echo -ne "  \033[1;33mESPERE \033[1;37m- \033[1;33m["
+done
+echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+tput cnorm
+}
+#FIN FUNCION BARRA INSTALA
 DATE=$(date +"%d-%m-%y")
 TIME=$(date +"%T")
 if [ -f /bin/ejecutar/date ];
@@ -19,16 +52,25 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	chmod +x /bin/ejecutar/*
 	chmod +x /bin/mn
 else 
+SHELL=/bin/sh 
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 clear
-echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE
-read -p "› : " cadu
-echo $cadu $TIME > /bin/ejecutar/date
+export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
+cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR - - - - - - - -【 ★ ChumoGH ★ 】 ADM 2020 "| lolcat
+echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE '  Ejemplo > DD-MM-AA ' 
+echo -ne " Fecha › : "; read cadu
+fun_bar
+echo 'Ingrese la HORA de Caducidad en Formato :  00:00:01  Ejemplo > HH-MM-01' 
+echo -ne " HORA  › : "; read cadu1
+fun_bar
+echo $cadu $cadu1 > /bin/ejecutar/date
 echo $DATE $TIME > /bin/ejecutar/dateI
 cp /etc/crontab /bin/ejecutar/crontab.original
 echo '*/1 * * * *	root	bash /bin/ejecutar/new.sh' >> /etc/crontab
 #echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
 #/etc/init.d/cron restart
 echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date)
+fun_bar
 echo -e "Finalizando activacion"
 fi
 rm -f manager.*
