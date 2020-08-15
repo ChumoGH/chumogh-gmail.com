@@ -39,6 +39,7 @@ read -p " ${txt[37]} " read tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 useradd -M -s /bin/false $nome
 (echo $pass;echo $pass) |passwd $nome 2>/dev/null
+meu_ip
 echo "#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
@@ -56,10 +57,9 @@ echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$tempo"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo "senha: $pass" > $dir_user/$nome
-echo "data: $valid" >> $dir_user/$nome
+echo "data: $tempo" >> $dir_user/$nome
 echo -e "Despues de expirar, los usuarios seran desconectados."
 echo -ne "${cor[2]}"
-echo -e "Despues de expirar, los usuarios seran desconectados."
 bash /etc/usuariosteste/$nome.sh &
 return
 }
