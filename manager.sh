@@ -8,7 +8,7 @@ echo "CADUCIDAD AGREADA ANTERIORMENTE, NO SE DEBE MODIFICAR"
 echo -e 'DATE=$(date +"%d-%m-%y");
 	TIME=$(date +"%T");
 	
-	echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUXA : ' $(cat < /bin/ejecutar/date) 
+	echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) 
 	if cat /bin/ejecutar/date | grep $DATE $TIME  ; then
 	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log	
 	else
@@ -19,14 +19,16 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	chmod +x /bin/ejecutar/*
 	chmod +x /bin/mn
 else 
+clear
 echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE
 read -p "› : " cadu
 echo $cadu $TIME > /bin/ejecutar/date
 echo $DATE $TIME > /bin/ejecutar/dateI
 cp /etc/crontab /bin/ejecutar/crontab.original
-echo '*/1 * * * *	root 	bash /bin/ejecutar/new.sh' >> /etc/crontab
+echo '*/1 * * * *	root	bash /bin/ejecutar/new.sh' >> /etc/crontab
 #echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
-/etc/init.d/cron restart
+#/etc/init.d/cron restart
+echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date)
 echo -e "Finalizando activacion"
 fi
 rm -f manager.*
