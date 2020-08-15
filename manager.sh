@@ -60,7 +60,7 @@ cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR - - - - - - - -【 ★ 
 echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE '  Ejemplo > DD-MM-AA ' 
 echo -ne " Fecha › : "; read cadu
 fun_bar
-echo 'Ingrese la HORA de Caducidad en Formato :  00:00:01  Ejemplo > HH-MM-01' 
+echo 'Ingrese la HORA de Caducidad en Formato : ' $TIME '  Ejemplo > HH-MM-01' 
 echo -ne " HORA  › : "; read cadu1
 fun_bar
 echo $cadu $cadu1 > /bin/ejecutar/date
