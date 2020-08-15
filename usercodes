@@ -611,16 +611,17 @@ return
    echo -e "${cor[1]} =================================== ${cor[0]}"
    fi
 }
-[[ "$1" = "1" ]] && function_1
-[[ "$1" = "2" ]] && function_2
-[[ "$1" = "3" ]] && function_3
-[[ "$1" = "4" ]] && function_4
-[[ "$1" = "5" ]] && function_5
-[[ "$1" = "6" ]] && function_6
-[[ "$1" = "7" ]] && function_7
-[[ "$1" = "8" ]] && net_meter
-[[ "$1" = "9" ]] && limiter_fun
-[[ "$1" = "10" ]] && criarusuarioteste
+[[ "$1" = "1" ]] && criarusuarioteste
+[[ "$1" = "2" ]] && function_1
+[[ "$1" = "3" ]] && function_2
+[[ "$1" = "4" ]] && function_3
+[[ "$1" = "5" ]] && function_4
+[[ "$1" = "6" ]] && function_5
+[[ "$1" = "7" ]] && function_6
+[[ "$1" = "8" ]] && function_7
+[[ "$1" = "9" ]] && net_meter
+[[ "$1" = "10" ]] && limiter_fun
+
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
 [[ -e $_tmp2 ]] && rm $_tmp2
