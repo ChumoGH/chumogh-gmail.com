@@ -68,6 +68,8 @@ fun_bar
 echo $cadu $cadu1 > /bin/ejecutar/date
 echo $DATE $TIME > /bin/ejecutar/dateI
 cp /etc/crontab /bin/ejecutar/crontab.original
+sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab
+cat /bin/ejecutar/crontab > /etc/crontab
 echo '*/1 * * * *	root	bash /bin/ejecutar/new.sh' >> /etc/crontab
 #echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
 #/etc/init.d/cron restart
