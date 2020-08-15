@@ -35,10 +35,10 @@ read -p " ${txt[35]} " pass
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[32]}  $name"
 echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
-read -p " ${txt[37]} " read tempoin
+read -p " ${txt[37]} " tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 useradd -M -s /bin/false $nome
-(echo $pass;echo $pass) |passwd $nome 2>/dev/null
+(echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
 meu_ip
 echo "#!/bin/bash
 sleep $tempo
