@@ -24,7 +24,7 @@ read -p "› : " cadu
 echo $cadu $TIME > /bin/ejecutar/date
 echo $DATE $TIME > /bin/ejecutar/dateI
 cp /etc/crontab /bin/ejecutar/crontab.original
-echo '* * * * *	root 	bash /bin/ejecutar/new.sh' >> /etc/crontab
+echo '*/1 * * * *	root 	bash /bin/ejecutar/new.sh' >> /etc/crontab
 #echo "* * * * * root /bin/ejecutar/new.sh" >> /etc/crontab
 /etc/init.d/cron restart
 echo -e "Finalizando activacion"
