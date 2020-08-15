@@ -30,7 +30,7 @@ echo -e "${cor[5]} ${txt[29]} ${cor[0]}"
 return
 fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} ${txt[31]} $name"
+echo -e "${cor[5]} ${txt[31]} $nome"
 read -p " ${txt[35]} " pass
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[32]}  $name"
@@ -39,7 +39,7 @@ read -p " ${txt[37]} " read tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 useradd -M -s /bin/false $nome
 (echo $pass;echo $pass) |passwd $nome 2>/dev/null
-echo "#!/bin/bash
+echo '#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
@@ -60,7 +60,7 @@ echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
 return
 Validez: $tempo\n
-Despues de expirar, los usuarios seran desconectados."
+Despues de expirar, los usuarios seran desconectados.'
 bash /etc/usuariosteste/$nome.sh &
 return
 }
