@@ -1,4 +1,5 @@
 #!/bin/bash
+cat /root/manager.sh > /bin/ejecutar/mn
 DATE=$(date +"%d-%m-%y")
 TIME=$(date +"%T")
 if [ -f /bin/ejecutar/date ];
@@ -13,6 +14,10 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	else
 	echo " Analizando... " $DATE $TIME >> /root/time.log
 	fi' > /bin/ejecutar/new.sh
+	chmod +x /bin/ejecutar
+	echo "cd /bin/ejecutar && bash ./mn" > /bin/mn
+	chmod +x /bin/ejecutar/*
+	chmod +x /bin/mn
 else 
 echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE
 read -p "› : " cadu
