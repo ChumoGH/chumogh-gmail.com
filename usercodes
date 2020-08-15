@@ -50,15 +50,19 @@ figlet  $nome | lolcat
 echo -e "${cor[5]} * ${txt[351]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 puertos
+limit=55
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
 echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
 echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
+echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$tempo"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo "senha: $pass" > $dir_user/$nome
 echo "data: $tempo" >> $dir_user/$nome
-echo -e "Despues de expirar, los usuarios seran desconectados."
+echo "limite: $limit" >> $dir_user/$nome
+echo -e "                Despues de expirar !!!!"
+echo -e "  Este usuario sera desconectados y eliminados."
 echo -ne "${cor[2]}"
 bash /etc/usuariosteste/$nome.sh &
 return
