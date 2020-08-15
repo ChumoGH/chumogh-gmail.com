@@ -48,7 +48,7 @@ def menu():
 
 \033[91m 0 \033[92m)\033[96m Salir
 '''
-slowprint("\033[1;91mpwr.org.mx" + "\n - toolmaster")
+slowprint("\033[1;91mchumogh.xyz" + "\n - toolmaster")
 
 menu()
 def ext():
@@ -130,7 +130,7 @@ def  select():
       slowprint(".....................")
       slowprint("@PowerMX \033[96m")
       slowprint(".........................")
-      slowprint("website : pwr.org.mx \033[91m")
+      slowprint("website : chumogh.xyz \033[91m")
       ext() 
     elif joker == 0:
       print "Exiting!!"
