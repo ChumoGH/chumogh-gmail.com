@@ -50,8 +50,13 @@ function_1 () {
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 echo -e "${cor[4]} Debugeando"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+fun_bar
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
-exit
+echo " Presiona Enter para Continuar"
+read -p " "
+cgh
 }
 
 function_2 () {
