@@ -38,18 +38,19 @@ TIME=$(date +"%T")
 if [ -f /bin/ejecutar/date ];
 then
 echo "CADUCIDAD AGREADA ANTERIORMENTE, NO SE DEBE MODIFICAR"
-echo -e 'DATE=$(date +"%d-%m-%y");
-	TIME=$(date +"%T");
-	echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) 
-	if cat /bin/ejecutar/date | grep $DATE $TIME  ; then
-	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log
-	sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab
-	cat /bin/ejecutar/crontab > /etc/crontab
-	sed '/MODIFICADO/ d' /etc/crontab > /bin/ejecutar/crontab
-	cat /bin/ejecutar/crontab > /etc/crontab
-	else
-	echo " Analizando... " $DATE $TIME >> /root/time.log
-	fi' > /bin/ejecutar/new.sh
+echo -e 
+echo -e 'DATE=$(date +"%d-%m-%y");' > /bin/ejecutar/new.sh
+echo -e 'TIME=$(date +"%T");' >> /bin/ejecutar/new.sh
+echo -e 'echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) ' >> /bin/ejecutar/new.sh
+echo -e 'if cat /bin/ejecutar/date | grep $DATE $TIME  ; then' >> /bin/ejecutar/new.sh
+echo -e 'echo -e " Aceptado el " $DATE $TIME >> /root/ok.log' >> /bin/ejecutar/new.sh
+echo -e 'sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab' >> /bin/ejecutar/new.sh
+echo -e 'cat /bin/ejecutar/crontab > /etc/crontab' >> /bin/ejecutar/new.sh
+echo -e 'sed '/MODIFICADO/ d' /etc/crontab > /bin/ejecutar/crontab'  >> /bin/ejecutar/new.sh
+echo -e 'cat /bin/ejecutar/crontab > /etc/crontab'  >> /bin/ejecutar/new.sh
+echo -e 'else'  >> /bin/ejecutar/new.sh
+echo -e 'echo " Analizando... " $DATE $TIME >> /root/time.log' >> /bin/ejecutar/new.sh
+echo -e 'fi' >> /bin/ejecutar/new.sh
 	#chmod +x /bin/ejecutar/new.sh
 else 
 SHELL=/bin/sh 
