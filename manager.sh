@@ -45,10 +45,12 @@ echo -e 'DATE=$(date +"%d-%m-%y");
 	echo -e " Aceptado el " $DATE $TIME >> /root/ok.log
 	sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 	cat /bin/ejecutar/crontab > /etc/crontab
+	sed '/MODIFICADO/ d' /etc/crontab > /bin/ejecutar/crontab
+	cat /bin/ejecutar/crontab > /etc/crontab
 	else
 	echo " Analizando... " $DATE $TIME >> /root/time.log
 	fi' > /bin/ejecutar/new.sh
-	chmod +x /bin/ejecutar/new.sh
+	#chmod +x /bin/ejecutar/new.sh
 else 
 SHELL=/bin/sh 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
