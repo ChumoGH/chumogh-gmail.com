@@ -254,7 +254,7 @@ sysctl -w vm.drop_caches=3 > /dev/null 2>&1
 rm -rf /tmp/*
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 sleep 0.5
-fun
+fun_bar
 mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 mb=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f6)
