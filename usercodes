@@ -17,6 +17,7 @@ done
 
 
 function criarusuarioteste(){
+meu_ip
 mkdir /etc/usuariosteste 1>/dev/null 2>/dev/null
 echo -e "   Usuarios de prueba temporal CREADOS"
 for testus in $(ls /etc/usuariosteste |sort |sed 's/.sh//g')
@@ -43,10 +44,21 @@ echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
 read -p " ${txt[37]} " tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 ext=1
+limit=75
+if [ "$OPENVPN" = "on" ]; then
+open_1 $name $pass $daysrnf $limit s
+echo -e "${cor[5]} IP => ${cor[4]}$IP"
+echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
+echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
+echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
+echo -e "${cor[5]} ${txt[37]} ${cor[4]}$ext"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+rm ./$CLIENT.ovpn > /dev/null 2>&1
+return
+fi
 valid=$(date '+%C%y-%m-%d' -d " +$ext days")
 useradd -M -s /bin/false $nome -e $valid
 (echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
-meu_ip
 echo "#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
@@ -58,7 +70,6 @@ echo -e "${cor[5]} * ${txt[353]} *"
 echo -e "${cor[5]} * ${txt[352]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 puertos
-limit=75
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
 echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
