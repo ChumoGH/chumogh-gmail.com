@@ -29,6 +29,11 @@ if [ -z $nome ]; then
 echo -e "${cor[5]} ${txt[29]} ${cor[0]}" 
 return
 fi
+if cat /etc/passwd |grep $nome: |grep -vi [a-z]$nome |grep -v [0-9]$nome > /dev/null
+then
+echo -e "${cor[5]} ${txt[30]} ${cor[0]}"
+return
+fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[31]} $nome"
 read -p " ${txt[35]} " pass
