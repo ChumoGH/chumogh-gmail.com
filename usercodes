@@ -37,7 +37,9 @@ echo -e "${cor[5]} ${txt[32]}  $name"
 echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
 read -p " ${txt[37]} " tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
-useradd -M -s /bin/false $nome
+ext=1
+valid=$(date '+%C%y-%m-%d' -d " +$ext days")
+useradd -M -s /bin/false $nome -e $valid
 (echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
 meu_ip
 echo "#!/bin/bash
@@ -47,7 +49,8 @@ userdel --force $nome
 rm -rf /etc/usuariosteste/$nome.sh
 exit" > /etc/usuariosteste/$nome.sh
 figlet  $nome | lolcat
-echo -e "${cor[5]} * ${txt[351]} *"
+echo -e "${cor[5]} * ${txt[353]} *"
+echo -e "${cor[5]} * ${txt[352]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 puertos
 limit=75
@@ -58,10 +61,9 @@ echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$tempo"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-ext=1
 echo "senha: $pass" > $dir_user/$nome
 echo "limite: $limit" >> $dir_user/$nome
-echo "data: $ext" >> $dir_user/$nome
+echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
 echo -e "                Despues de expirar !!!!"
 echo -e "  Este usuario sera desconectados y eliminados."
@@ -219,7 +221,7 @@ datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
 useradd -M -s /bin/false $name -e $valid
 (echo $pass; echo $pass)|passwd $name 2>/dev/null
 figlet  $name | lolcat
-echo -e "${cor[5]} * ${txt[351]} *"
+echo -e "${cor[5]} * ${txt[352]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 puertos
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
