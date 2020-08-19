@@ -362,8 +362,8 @@ txt[348]="detener Puertos"
 txt[349]="Cerrar Puertos:"
 txt[350]="Desinstalar Puertos:"
 txt[351]="Iniciar Puertos:"
-txt[351]="Puertas Activas en su Servidor"
-txt[351]="Registrar Usuario Temporal"
+txt[352]="Puertas Activas en su Servidor"
+txt[353]="Registrar Usuario Temporal"
 echo "${txt[0]}" > $_dr
 for((_cont=1; _cont<${#txt[@]}; _cont++)); do
 echo "${txt[$_cont]}" >> $_dr
