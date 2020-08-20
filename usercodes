@@ -567,26 +567,26 @@ echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano"
 echo -e " \033[1;31m[ * ]\033[1;33m - Negro"
 read -p " Digite A Cor [ 1 - 5 ]: " ban_ner2_cor
 if [ "$ban_ner2_cor" = "1" ]; then
-echo '<h$_size><font color="green">' >> $local
+echo '<h'$_size'><font color="green">' >> $local
 elif [ "$ban_ner2_cor" = "2" ]; then
 echo '<h$_size><font color="red">' >> $local
 elif [ "$ban_ner2_cor" = "3" ]; then
-echo '<h$_size><font color="blue">' >> $local
+echo '<h'$_size'><font color="blue">' >> $local
 elif [ "$ban_ner2_cor" = "4" ]; then
-echo '<h$_size><font color="yellow">' >> $local
+echo '<h'$_size'><font color="yellow">' >> $local
 elif [ "$ban_ner2_cor" = "5" ]; then
-echo '<h$_size><font color="purple">' >> $local
+echo '<h'$_size'><font color="purple">' >> $local
 elif [ "$ban_ner2_cor" = "6" ]; then
-echo '<h$_size><font color="#FF7F00">' >> $local
+echo '<h'$_size'><font color="#FF7F00">' >> $local
 elif [ "$ban_ner2_cor" = "7" ]; then
-echo '<h$_size><font color="#AEB404">' >> $local
+echo '<h'$_size'><font color="#AEB404">' >> $local
 elif [ "$ban_ner2_cor" = "8" ]; then
-echo '<h$_size><font color="cyan">' >> $local
+echo '<h'$_size'><font color="cyan">' >> $local
 else
-echo '<h$_size><font color="black">' >> $local
+echo '<h'$_size'><font color="black">' >> $local
 fi
 echo "$ban_ner2" >> $local
-echo "</h$_size></font>" >> $local
+echo "</h"$_size"></font>" >> $local
 }
 
 function_7 () {
@@ -630,29 +630,29 @@ echo -e " \033[1;31m[ 7 ]\033[1;33m - Crema"
 echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano"
 echo -e " \033[1;31m[ * ]\033[1;33m - Negro"
 read -p " [ 1 - 5 ]: " ban_ner_cor
-echo '<h1><font>××××××××××××××××××××××××××××××</font></h1>' > $local
+echo '<h1><font>🏠××××××××××××××××××××××××××××</font></h1>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
-echo '<h$_size><font color="green">' >> $local
+echo '<h'$_size'><font color="green">' >> $local
 elif [[ "$ban_ner_cor" = "2" ]]; then
-echo '<h$_size><font color="red">' >> $local
+echo '<h'$_size'><font color="red">' >> $local
 elif [[ "$ban_ner_cor" = "3" ]]; then
-echo '<h$_size><font color="blue">' >> $local
+echo '<h'$_size'><font color="blue">' >> $local
 elif [[ "$ban_ner_cor" = "4" ]]; then
-echo '<h$_size><font color="yellow">' >> $local
+echo '<h'$_size'><font color="yellow">' >> $local
 elif [[ "$ban_ner_cor" = "5" ]]; then
-echo '<h$_size><font color="purple">' >> $local
+echo '<h'$_size'><font color="purple">' >> $local
 elif [ "$ban_ner2_cor" = "6" ]; then
-echo '<h$_size><font color="#FF7F00">' >> $local
+echo '<h'$_size'><font color="#FF7F00">' >> $local
 elif [ "$ban_ner2_cor" = "7" ]; then
-echo '<h$_size><font color="#AEB404">' >> $local
+echo '<h'$_size'><font color="#AEB404">' >> $local
 elif [ "$ban_ner2_cor" = "8" ]; then
-echo '<h$_size><font color="cyan">' >> $local
+echo '<h'$_size'><font color="cyan">' >> $local
 else
-echo '<h$_size><font color="blue">' >> $local
+echo '<h'$_size'><font color="blue">' >> $local
 fi
 echo "$ban_ner" >> $local
-echo '</font></h$_size>' >> $local
-echo '<h1><font>××××××××××××××××××××××××××××××</font></h1>' >> $local
+echo '</font></h'$_size'>' >> $local
+echo '<h1><font>"🏠××××××××××××××××××××××××××××</font></h1>' >> $local
 while true; do
 echo -e " ${txt[233]}"
 read -p " [ s | n ]: " sin_nao
@@ -662,7 +662,7 @@ elif [[ "$sin_nao" = @(n|N) ]]; then
 break
 fi
 done
-echo '<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>' >> $local
+echo '<font color="purple">© 2020 ChumoGH, Inc«</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
