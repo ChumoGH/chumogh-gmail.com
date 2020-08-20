@@ -18,16 +18,16 @@ figlet ChumoGH-ADM
 echo -e "${f}"
 sleep 2
 echo
-echo -e "${ver}            +++++ ATENÇÃO +++++${am}     
-TODAS AS SENHA A SEGUIR COLOQUE SEMPRE A MESMA${f}"
+echo -e "${ver}            +++++ ATENCION +++++${am}     
+TODAS LAS CONTRASENAS A SEGUIR COLOQUE SIEMPRE A MISMA${f}"
 read -p "Enter, Para Prosseguir!"
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
 apt-get install mysql-server php5-mysql -y
 mysql_install_db
 echo ""
-echo -e "${am}Sempre que solicitado${ver}[Y/N]${am}escolha a opção${ver}Y${am} e de ${ve}OK.${am} para tudo que pedir.
+echo -e "${am}Sempre que solicitado${ver}[Y/N]${am}escoje una opcion${ver}Y${am} e de ${ve}OK.${am} para todo.
 ...
-${am}O proximo procedimento de instalaçao vai te pedir uma senha
+${am}O proximo procedimento de instalacion te va a pedir una contraseña
 ai vcs digita a senha que digitou antes e reconfirma ela ai depois do ir apertando ${ver}Y${f}"
 read -p "Enter, Para Prosseguir!"
 mysql_secure_installation
@@ -38,7 +38,7 @@ php5enmod mcrypt
 service apache2 restart
 echo ""
 stty -echo
-tput setaf 7 ; tput bold ; read -p "Digita a mesma senha (MySQL Password): " var7 ; tput sgr0
+tput setaf 7 ; tput bold ; read -p "Digita la misma contrasena (MySQL Password): " var7 ; tput sgr0
 echo ""
 stty echo ; echo
 mysql -h localhost -u root -p$var7 -e "CREATE DATABASE adm"
@@ -46,7 +46,7 @@ echo -e "${ver}ATENÇÃO - LOGIN ASEGUIR É PESSOAL NAO DIVULGUEM ${f}"
 echo ""
 echo -e "${am}Agora vamos colocar um LOGIN e SENHA de acesso a pagina de upload${ve}"
 	read -p "Login: " var2
-	read -p "Senha: " var3
+	read -p "Pass: " var3
 	echo -ne "${f}"
 
 cd /var/www/
