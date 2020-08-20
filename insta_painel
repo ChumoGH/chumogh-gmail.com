@@ -21,6 +21,9 @@ echo
 echo -e "${ver}            +++++ ATENCION +++++${am}     
 TODAS LAS CONTRASENAS A SEGUIR COLOQUE SIEMPRE A MISMA${f}"
 read -p "Enter, Para Prosseguir!"
+sudo apt-get install -y php5 php5-cli
+sudo apt-get install -y libapache2-mod-php5
+sudo apt-get install mysql-server -y
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
 apt-get install mysql-server php5-mysql -y
 mysql_install_db
