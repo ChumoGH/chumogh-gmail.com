@@ -1474,7 +1474,7 @@ echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
 echo -e "${cor[2]} [11] > ${cor[3]}Anti-DDOS $ddos"
 echo -e "${cor[2]} [12] > ${cor[3]}V2ray Socket $v2ray"
-echo -e "${cor[2]} [12] > ${cor[3]}Instalar Pannel WEB "
+echo -e "${cor[2]} [13] > ${cor[3]}Instalar Pannel WEB "
 echo -e "$barra"
 echo -ne "\033[1;37m ${txt[338]}: "
 read optons
