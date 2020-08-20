@@ -194,7 +194,7 @@ function_1 () {
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[4]} ${txt[38]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 echo -e "${cor[5]} $u"
 done
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
@@ -292,7 +292,7 @@ echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪�
 return
 fi
  if [ "$opc_del" = "2" ]; then
-for name in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for name in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[46]} $name ?"
 read -p " [S/N]: " _remover_
@@ -398,7 +398,7 @@ _cont="0"
 if [ ! -e $tempousers ]; then
 touch $tempousers
 fi
-for namer in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for namer in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 if [ "$namer" = "" ]; then
 break
 fi
@@ -451,7 +451,7 @@ txto[3]=$(printf '%-10s' "$_limit")
 txto[4]=$(printf '%-10s' "${HOR}h:${MIN}m:${SEC}s")
 txto[5]=$(printf '%-2s' "$dias_user")
 unset open_vpn
-echo "$(cat /etc/passwd | grep -v ovpn | awk -F : '$3 > 900 { print $1 }' |grep -v "nobody" | grep -vi polkitd |grep -vi system-)" > $_tmp
+echo "$(cat /etc/passwd | grep -v ovpn | awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort)" > $_tmp
 open_vpn=$(cat $_tmp | grep "$namer")
 rm $_tmp
 if [ "$open_vpn" != "" ]; then
@@ -479,7 +479,7 @@ unset msga
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ ! -e $tempousers ]] && touch $tempousers
 _data_now=$(date +%s)
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 unset ssh
 ssh+="$(ps -u $user|grep sshd|wc -l)+"
 ssh+="$(function_dropb|grep "$user"|wc -l)+"
