@@ -553,6 +553,8 @@ elif [[ "$opc" = "3" ]] || [[ "$opc" = "03" ]]; then
 _size='3'
 elif [[ "$opc" = "4" ]] || [[ "$opc" = "04" ]]; then
 _size='1'
+else
+_size='6'
 fi
 echo -ne "\033[1;37m"
 read -p " ${txt[226]}: " ban_ner2
@@ -616,6 +618,8 @@ elif [[ "$opc" = "3" ]] || [[ "$opc" = "03" ]]; then
 _size='3'
 elif [[ "$opc" = "4" ]] || [[ "$opc" = "04" ]]; then
 _size='1'
+else
+_size='6'
 fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -ne "\033[1;37m"
@@ -652,7 +656,7 @@ echo '<h'$_size'><font color="blue">' >> $local
 fi
 echo "$ban_ner" >> $local
 echo '</font></h'$_size'>' >> $local
-echo '<h1><font>"🏠××××××××××××××××××××××××××××</font></h1>' >> $local
+echo '<h1><font>🏠××××××××××××××××××××××××××××</font></h1>' >> $local
 while true; do
 echo -e " ${txt[233]}"
 read -p " [ s | n ]: " sin_nao
@@ -662,7 +666,7 @@ elif [[ "$sin_nao" = @(n|N) ]]; then
 break
 fi
 done
-echo '<font color="purple">© 2020 ChumoGH, Inc«</font>' >> $local
+echo '<font color="purple">© 2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
