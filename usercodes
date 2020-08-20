@@ -45,17 +45,17 @@ read -p " ${txt[37]} " tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
 ext=1
 limit=75
-if [ "$OPENVPN" = "on" ]; then
-open_1 $name $pass $daysrnf $limit s
-echo -e "${cor[5]} IP => ${cor[4]}$IP"
-echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
-echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
-echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
-echo -e "${cor[5]} ${txt[37]} ${cor[4]}$ext"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-rm ./$CLIENT.ovpn > /dev/null 2>&1
-return
-fi
+#if [ "$OPENVPN" = "on" ]; then
+#open_1 $name $pass $daysrnf $limit s
+#echo -e "${cor[5]} IP => ${cor[4]}$IP"
+#echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
+#echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
+#echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
+#echo -e "${cor[5]} ${txt[37]} ${cor[4]}$ext"
+#echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+#rm ./$CLIENT.ovpn > /dev/null 2>&1
+#return
+#fi
 valid=$(date '+%C%y-%m-%d' -d " +$ext days")
 useradd -M -s /bin/false $nome -e $valid
 (echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
