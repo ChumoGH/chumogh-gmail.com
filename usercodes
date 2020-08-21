@@ -189,7 +189,7 @@ done
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[4]} ${txt[27]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} ${txt[28]}"; read -p " ⌐╦╦═─ : " name
+echo -e "${cor[5]} ${txt[28]}"; read -p " ||---> " name
 if [ -z $name ]; then
 echo -e "${cor[5]} ${txt[29]} ${cor[0]}" 
 return
