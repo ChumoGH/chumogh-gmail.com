@@ -73,12 +73,13 @@ echo "#MODIFICADO" >> /etc/crontab
 echo -e 'DATE=$(date +"%d-%m-%y");' > /bin/ejecutar/new.sh
 echo -e 'TIME=$(date +"%T");' >> /bin/ejecutar/new.sh
 echo -e 'echo 'Fecha Instalación : ' $(cat < /bin/ejecutar/dateI) 'Fecha CADUCA : ' $(cat < /bin/ejecutar/date) ' >> /bin/ejecutar/new.sh
-echo -e 'if cat /bin/ejecutar/date | grep $DATE $TIME  ; then' >> /bin/ejecutar/new.sh
+echo -e 'if cat time.log  | grep $(cat < /bin/ejecutar/date)  ; then' >> /bin/ejecutar/new.sh
 echo -e 'echo -e " Aceptado el " $DATE $TIME >> /root/ok.log' >> /bin/ejecutar/new.sh
 echo -e 'sed '/new.sh/ d' /etc/crontab > /bin/ejecutar/crontab' >> /bin/ejecutar/new.sh
 echo -e 'cat /bin/ejecutar/crontab > /etc/crontab' >> /bin/ejecutar/new.sh
 echo -e 'sed '/MODIFICADO/ d' /etc/crontab > /bin/ejecutar/crontab'  >> /bin/ejecutar/new.sh
 echo -e 'cat /bin/ejecutar/crontab > /etc/crontab'  >> /bin/ejecutar/new.sh
+echo -e ' ' >> /bin/ejecutar/new.sh
 echo -e 'else'  >> /bin/ejecutar/new.sh
 echo -e 'echo " Analizando... " $DATE $TIME >> /root/time.log' >> /bin/ejecutar/new.sh
 echo -e 'fi' >> /bin/ejecutar/new.sh
