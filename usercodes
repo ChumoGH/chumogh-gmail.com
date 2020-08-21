@@ -1,10 +1,5 @@
 #!/bin/bash
 #user=$(echo ${saks:0:5})
-squidports=`netstat -tunlp | grep squid | grep -vE 'udp' | awk '{print substr($4,4); }' > /tmp/squid.txt && echo | cat /tmp/squid.txt | tr '\n' ' ' > /etc/adm-lite/squidports.txt && cat /etc/adm-lite/squidports.txt`;
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
-sshports=`netstat -tunlp | grep sshd | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssh.txt && echo | cat /tmp/ssh.txt | tr '\n' ' ' > /etc/adm-lite/sshports.txt && cat /etc/adm-lite/sshports.txt`;
-dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
-
 fun_ovpn_onl () {
 for userovpn in `cat /etc/passwd | grep ovpn | awk -F: '{print $1}'`; do
 us=$(cat /etc/openvpn/openvpn-status.log | grep $userovpn | wc -l)
