@@ -57,7 +57,7 @@ SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 clear
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
-cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR - - - - - - - -【 ★ ChumoGH ★ 】 ADM 2020 "| lolcat
+cowsay -f stegosaurus " Fecha : $DATE | | | Hora : $TIME - - - - -【 ★ ChumoGH ★ 】 ADM 2020 - - - - "| lolcat
 echo 'Ingrese la Fecha de Caducidad en Formato : ' $DATE '  Ejemplo > DD-MM-AA ' 
 echo -ne " Fecha › : "; read cadu
 fun_bar
