@@ -542,25 +542,24 @@ _size='6'
 fi
 echo -ne "\033[1;37m"
 read -p " ${txt[226]}: " ban_ner2
-echo -e " \033[1;31m[ 1 ]\033[1;33m - ${txt[227]}"
-echo -e " \033[1;31m[ 2 ]\033[1;33m - ${txt[228]}"
-echo -e " \033[1;31m[ 3 ]\033[1;33m - ${txt[229]}"
-echo -e " \033[1;31m[ 4 ]\033[1;33m - ${txt[230]}"
-echo -e " \033[1;31m[ 5 ]\033[1;33m - ${txt[231]}"
-echo -e " \033[1;31m[ 6 ]\033[1;33m - Naranja"
-echo -e " \033[1;31m[ 7 ]\033[1;33m - Crema"
-echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano"
-echo -e " \033[1;31m[ * ]\033[1;33m - Negro"
-read -p " Digite A Cor [ 1 - 5 ]: " ban_ner2_cor
-if [ "$ban_ner2_cor" = "1" ]; then
+echo -e " \033[1;31m[ 1 ]\033[1;33m - ${txt[227]}        \033[1;31m[ 9 ]\033[1;33m - AZUL PIZARRA OSCURO"
+echo -e " \033[1;31m[ 2 ]\033[1;33m - ${txt[228]}        \033[1;31m[ 10 ]\033[1;33m - PURPURA"
+echo -e " \033[1;31m[ 3 ]\033[1;33m - ${txt[229]}        \033[1;31m[ 11 ]\033[1;33m - CHOCOLATE"
+echo -e " \033[1;31m[ 4 ]\033[1;33m - ${txt[230]}        \033[1;31m[ 12 ]\033[1;33m - VERDE CLARO"
+echo -e " \033[1;31m[ 5 ]\033[1;33m - ${txt[231]}        \033[1;31m[ 13 ]\033[1;33m - GRIS"
+echo -e " \033[1;31m[ 6 ]\033[1;33m - Naranja        \033[1;31m[ 14 ]\033[1;33m - VERDE MAR"
+echo -e " \033[1;31m[ 7 ]\033[1;33m - Crema        \033[1;31m[ 15 ]\033[1;33m - CIAN OSCURO"
+echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano         \033[1;31m[ * ]\033[1;33m - Negro"
+read -p " Digite A Cor [ 1 - 15 ]: " ban_ner2_cor
+if [[ "$ban_ner2_cor" = "1" ]]; then
 echo '<h'$_size'><font color="green">' >> $local
-elif [ "$ban_ner2_cor" = "2" ]; then
-echo '<h$_size><font color="red">' >> $local
-elif [ "$ban_ner2_cor" = "3" ]; then
+elif [[ "$ban_ner2_cor" = "2" ]]; then
+echo '<h'$_size'><font color="red">' >> $local
+elif [[ "$ban_ner2_cor" = "3" ]]; then
 echo '<h'$_size'><font color="blue">' >> $local
-elif [ "$ban_ner2_cor" = "4" ]; then
+elif [[ "$ban_ner2_cor" = "4" ]]; then
 echo '<h'$_size'><font color="yellow">' >> $local
-elif [ "$ban_ner2_cor" = "5" ]; then
+elif [[ "$ban_ner2_cor" = "5" ]]; then
 echo '<h'$_size'><font color="purple">' >> $local
 elif [ "$ban_ner2_cor" = "6" ]; then
 echo '<h'$_size'><font color="#FF7F00">' >> $local
@@ -568,6 +567,20 @@ elif [ "$ban_ner2_cor" = "7" ]; then
 echo '<h'$_size'><font color="#AEB404">' >> $local
 elif [ "$ban_ner2_cor" = "8" ]; then
 echo '<h'$_size'><font color="cyan">' >> $local
+elif [ "$ban_ner2_cor" = "9" ]; then
+echo '<h'$_size'><font color="#483D8B">' >> $local
+elif [ "$ban_ner2_cor" = "10" ]; then
+echo '<h'$_size'><font color="#800080">' >> $local
+elif [ "$ban_ner2_cor" = "11" ]; then
+echo '<h'$_size'><font color="#D2691E">' >> $local
+elif [ "$ban_ner2_cor" = "12" ]; then
+echo '<h'$_size'><font color="#90EE90">' >> $local
+elif [ "$ban_ner2_cor" = "13" ]; then
+echo '<h'$_size'><font color="#BEBEBE">' >> $local
+elif [ "$ban_ner2_cor" = "14" ]; then
+echo '<h'$_size'><font color="#2E8B57">' >> $local
+elif [ "$ban_ner2_cor" = "15" ]; then
+echo '<h'$_size'><font color="#008B8B">' >> $local
 else
 echo '<h'$_size'><font color="black">' >> $local
 fi
@@ -608,16 +621,15 @@ fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -ne "\033[1;37m"
 read -p " ${txt[232]}: " ban_ner
-echo -e " \033[1;31m[ 1 ]\033[1;33m - ${txt[227]}"
-echo -e " \033[1;31m[ 2 ]\033[1;33m - ${txt[228]}"
-echo -e " \033[1;31m[ 3 ]\033[1;33m - ${txt[229]}"
-echo -e " \033[1;31m[ 4 ]\033[1;33m - ${txt[230]}"
-echo -e " \033[1;31m[ 5 ]\033[1;33m - ${txt[231]}"
-echo -e " \033[1;31m[ 6 ]\033[1;33m - Naranja"
-echo -e " \033[1;31m[ 7 ]\033[1;33m - Crema"
-echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano"
-echo -e " \033[1;31m[ * ]\033[1;33m - Negro"
-read -p " [ 1 - 5 ]: " ban_ner_cor
+echo -e " \033[1;31m[ 1 ]\033[1;33m - ${txt[227]}        \033[1;31m[ 9 ]\033[1;33m - AZUL PIZARRA OSCURO"
+echo -e " \033[1;31m[ 2 ]\033[1;33m - ${txt[228]}        \033[1;31m[ 10 ]\033[1;33m - PURPURA"
+echo -e " \033[1;31m[ 3 ]\033[1;33m - ${txt[229]}        \033[1;31m[ 11 ]\033[1;33m - CHOCOLATE"
+echo -e " \033[1;31m[ 4 ]\033[1;33m - ${txt[230]}        \033[1;31m[ 12 ]\033[1;33m - VERDE CLARO"
+echo -e " \033[1;31m[ 5 ]\033[1;33m - ${txt[231]}        \033[1;31m[ 13 ]\033[1;33m - GRIS"
+echo -e " \033[1;31m[ 6 ]\033[1;33m - Naranja        \033[1;31m[ 14 ]\033[1;33m - VERDE MAR"
+echo -e " \033[1;31m[ 7 ]\033[1;33m - Crema        \033[1;31m[ 15 ]\033[1;33m - CIAN OSCURO"
+echo -e " \033[1;31m[ 8 ]\033[1;33m - Cyano         \033[1;31m[ * ]\033[1;33m - Negro"
+read -p " [ 1 - 15 ]: " ban_ner_cor
 echo '<h1><font>🏠××××××××××××××××××××××××××××</font></h1>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
 echo '<h'$_size'><font color="green">' >> $local
@@ -629,14 +641,28 @@ elif [[ "$ban_ner_cor" = "4" ]]; then
 echo '<h'$_size'><font color="yellow">' >> $local
 elif [[ "$ban_ner_cor" = "5" ]]; then
 echo '<h'$_size'><font color="purple">' >> $local
-elif [ "$ban_ner2_cor" = "6" ]; then
+elif [ "$ban_ner_cor" = "6" ]; then
 echo '<h'$_size'><font color="#FF7F00">' >> $local
-elif [ "$ban_ner2_cor" = "7" ]; then
+elif [ "$ban_ner_cor" = "7" ]; then
 echo '<h'$_size'><font color="#AEB404">' >> $local
-elif [ "$ban_ner2_cor" = "8" ]; then
+elif [ "$ban_ner_cor" = "8" ]; then
 echo '<h'$_size'><font color="cyan">' >> $local
+elif [ "$ban_ner_cor" = "9" ]; then
+echo '<h'$_size'><font color="#483D8B">' >> $local
+elif [ "$ban_ner_cor" = "10" ]; then
+echo '<h'$_size'><font color="#800080">' >> $local
+elif [ "$ban_ner_cor" = "11" ]; then
+echo '<h'$_size'><font color="#D2691E">' >> $local
+elif [ "$ban_ner_cor" = "12" ]; then
+echo '<h'$_size'><font color="#90EE90">' >> $local
+elif [ "$ban_ner_cor" = "13" ]; then
+echo '<h'$_size'><font color="#BEBEBE">' >> $local
+elif [ "$ban_ner_cor" = "14" ]; then
+echo '<h'$_size'><font color="#2E8B57">' >> $local
+elif [ "$ban_ner_cor" = "15" ]; then
+echo '<h'$_size'><font color="#008B8B">' >> $local
 else
-echo '<h'$_size'><font color="blue">' >> $local
+echo '<h'$_size'><font color="black">' >> $local
 fi
 echo "$ban_ner" >> $local
 echo '</font></h'$_size'>' >> $local
@@ -650,7 +676,7 @@ elif [[ "$sin_nao" = @(n|N) ]]; then
 break
 fi
 done
-echo '<font color="purple">© 2020 ChumoGH, Inc</font>' >> $local
+echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
