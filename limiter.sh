@@ -50,7 +50,7 @@ return
 function_onlines () {
 (
 unset _on
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 usurnum=$(ps -u $user | grep sshd |wc -l)
 [[ "$usurnum" -gt 0 ]] && _on+="$usurnum+"
 usurnum=$(function_dropb | grep "$user" | wc -l)
@@ -99,7 +99,7 @@ tempousers="./tempo_conexao"
 usr_pids_var="./userDIR"
 [[ ! -e $tempousers ]] && touch $tempousers
 _data_now=$(date +%s)
- for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+ for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
  unset ssh
  [[ -e $usr_pids_var/$user.pid ]] && source $usr_pids_var/$user.pid
 ssh+="$(ps -u $user | grep sshd |wc -l)+"
@@ -134,7 +134,7 @@ fi
 
 function_killmultiloguin () {
 (
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 unset pid_limite && unset sshd_on && unset drop_on
 sshd_on=$(ps -u $user|grep sshd|wc -l)
 drop_on=$(function_dropb|grep "$user"|wc -l)
@@ -177,7 +177,7 @@ done
 tcpdump -s 50 -n 1> /tmp/tcpdump 2> /dev/null &
 [[ ! -e /tmp/tcpdump ]] && touch /tmp/tcpdump
 #ANALIZA USER
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 touch /tmp/$user
 ip_openssh $user > /dev/null 2>&1
 ip_drop $user > /dev/null 2>&1
