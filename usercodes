@@ -685,29 +685,39 @@ service dropbear restart > /dev/null 2>&1 &
 }
 return 0
 }
+
+
+
+verifi_fun () {
+
+if [[ $limiter_on = "" ]]; then
+unset limiter_on
+chmod +x /etc/adm-lite/limiter.sh &
+/etc/adm-lite/limiter.sh &
+screen -dmS Limiter-ssh /etc/adm-lite/limiter.sh
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[5]} LIMITADOR INICIADO ${cor[0]}"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+else
+unset limiter_on
+killall limiter.sh > /dev/null 2>&1
+kill -9 $(ps x|grep -v grep|grep limiter.sh|awk '{print $1}')
+echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[5]} LIMITADOR DETENIDO ${cor[0]}"
+echo -e "${cor[1]} =================================== ${cor[0]}"
+fi
+
+}
+
+
 limiter_fun () {
 [[ "$VERIFICAR" = "on" ]] && {
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} VERIFICANDO LIMITADOR ${cor[0]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-return
+verifi_fun
 }
-   if [[ $limiter_on = "" ]]; then
-   unset limiter_on
-   chmod +x /etc/adm-lite/limiter.sh &
-   /etc/adm-lite/limiter.sh &
-   screen -dmS Limiter-ssh /etc/adm-lite/limiter.sh
-   echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-   echo -e "${cor[5]} LIMITADOR INICIADO ${cor[0]}"
-   echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-   else
-   unset limiter_on
-   killall limiter.sh > /dev/null 2>&1
-   kill -9 $(ps x|grep -v grep|grep limiter.sh|awk '{print $1}')
-   echo -e "${cor[1]} =================================== ${cor[0]}"
-   echo -e "${cor[5]} LIMITADOR DETENIDO ${cor[0]}"
-   echo -e "${cor[1]} =================================== ${cor[0]}"
-   fi
+
 }
 [[ "$1" = "1" ]] && criarusuarioteste
 [[ "$1" = "2" ]] && function_1
