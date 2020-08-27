@@ -875,21 +875,22 @@ echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
 echo -ne " ESCOJE: "; read lang
 case $lang in
 1)
+if [ -f /etc/adm-lite/GENERADOR_BIN.sh ];
+then
+echo "PAQUETE YA INSTALADO"
+ msgen=`if [ -f /etc/adm-lite/GENERADOR_BIN.sh ];
+ then
+ echo -e "ON"
+ else
+ echo -e "OFF"
+ fi`;
+sleep 3s
+else
+wget -o /dev/null -O- wget https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/GENERADOR_BIN.sh > /etc/adm-lite/GENERADOR_BIN.sh
+fi
 bash /etc/adm-lite/GENERADOR_BIN.sh
 ;;
 2)
-echo 'Use la Opcion 1'
-cgh
-;;
-3)
-bash /etc/adm-lite/MasterBin.sh
-;;
-0)
-cgh
-;;
-esac
-
-
 if [ -f /etc/adm-lite/generadorcc.py ];
 then
 echo "PAQUETE YA INSTALADO"
@@ -900,8 +901,12 @@ echo "PAQUETE YA INSTALADO"
  echo -e "OFF"
  fi`;
 sleep 3s
+else
 wget -o /dev/null -O- wget https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/generadorcc.py > /etc/adm-lite/generadorcc.py
 fi
+python /etc/adm-lite/generadorcc.py
+;;
+3)
 if [ -f /etc/adm-lite/MasterBin.sh ];
 then
 echo "PAQUETE YA INSTALADO"
@@ -913,18 +918,12 @@ echo "PAQUETE YA INSTALADO"
  fi`;
  sleep 3s
 fi
-if [ -f /etc/adm-lite/GENERADOR_BIN.sh ];
-then
-echo "PAQUETE YA INSTALADO"
- msgen=`if [ -f /etc/adm-lite/GENERADOR_BIN.sh ];
- then
- echo -e "ON"
- else
- echo -e "OFF"
- fi`;
-sleep 3s
-wget -o /dev/null -O- wget https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/GENERADOR_BIN.sh > /etc/adm-lite/GENERADOR_BIN.sh
-fi
+bash /etc/adm-lite/MasterBin.sh
+;;
+0)
+cgh
+;;
+esac
 }
 
 ############################
