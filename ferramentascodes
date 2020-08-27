@@ -886,8 +886,6 @@ echo "PAQUETE YA INSTALADO"
  echo -e "OFF"
  fi`;
  sleep 3s
-else
-#wget -o /dev/null -O- wget https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/generadorcc.py > /etc/adm-lite/generadorcc.py
 fi
 if [ -f /etc/adm-lite/GENERADOR_BIN.sh ];
 then
