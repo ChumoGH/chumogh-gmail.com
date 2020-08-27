@@ -161,6 +161,14 @@ cd /etc/adm-lite
 source ferramentas
 exit
 ;;
+20)
+source ferramentascodes 20
+echo -ne "${cor[5]}"
+read -p " ${txt[47]}"
+cd /etc/adm-lite
+source ferramentas
+exit
+;;
 *)
 cd /etc/adm-lite
 source ferramentas
