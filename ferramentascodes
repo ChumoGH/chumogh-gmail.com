@@ -906,13 +906,12 @@ fi
 if [[ $1 == "" ]]
 then
 figlet -p -f slant < /root/name
-echo -e "\033[1;37m      【     ★ VPSPack v. $vpspackversion ★     】\033[0m"
+echo -e "\033[1;37m      【     ★ VPSPack v. ChumoGH★     】\033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
 echo -e "\033[1;37m › Linux Dist:	$distribution › Version: $os_version\033[0m"
-echo -e "\033[1;37m › IP VPS:       $ip \033[0m"
 echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
-echo -e "\033[1;37m       VPSPack $vpspackversion @ INSTALADORES EXTRAS \033[0m"
-echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m › IP VPS:       $ip \033[0m"
 echo -e "\033[1;37mSeleccione una opcion:    Para Salir Ctrl + C\033[1;33m
 [\033[1;30m1\033[1;33m] Generador de BIN       › \033[1;32m$msbin \033[1;33m
 [\033[1;30m2\033[1;33m] Generar CC             › \033[1;33m$mscc \033[1;33m
@@ -958,7 +957,7 @@ esac
 [[ "$1" = "15" ]] && block_torrent
 [[ "$1" = "16" ]] && function_16
 [[ "$1" = "17" ]] && function_17
-[[ "$1" = "18" ]] && namsobin
+[[ "$1" = "20" ]] && namsobin
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
 [[ -e $_tmp2 ]] && rm $_tmp2
