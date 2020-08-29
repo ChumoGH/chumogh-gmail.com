@@ -70,7 +70,7 @@ clear
 echo -e "\033[1;34m ###################################"
 echo -e "\033[1;31mCONFIGURACION SSL CREADA CON EXITO"
 echo -e "\033[1;34m ###################################"
-echo -e "\033[1;31m- - - - -> \033[01;31mSU IP HOST:\037[0m $ip"
+echo -e "\033[1;31m- - - - -> SU IP HOST: $ip"
 sleep 1
 echo -e "\033[1;31mReinicie su VPS (Opcional) - sudo reboot"
 sleep 2
