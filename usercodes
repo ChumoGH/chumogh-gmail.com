@@ -641,11 +641,11 @@ fi
 while true; do
 echo -e " ESTAS SEGURO QUE TIENES TU BANNER BIEN ESTRUCTURADO "
 read -p " [ s | n ]: " sin_nao
-if [[ "$sin_nao" = @(s|S|y|Y) ]]; then
-ban_per
-elif [[ "$sin_nao" = @(n|N) ]]; then
-break
-fi
+ if [[ "$sin_nao" = @(s|S|y|Y) ]]; then
+ ban_per
+ elif [[ "$sin_nao" = @(n|N) ]]; then
+ break
+ fi
 done
 ;;
 2)
@@ -731,12 +731,12 @@ echo '<h1 style="text-align:center;"><font>××××××××××××××××××�
 while true; do
 echo -e " ${txt[233]}"
 read -p " [ s | n ]: " sin_nao
-if [[ "$sin_nao" = @(s|S|y|Y) ]]; then
-txt_font
-elif [[ "$sin_nao" = @(n|N) ]]; then
-break
-fi
-done
+ if [[ "$sin_nao" = @(s|S|y|Y) ]]; then
+ txt_font
+ elif [[ "$sin_nao" = @(n|N) ]]; then
+ break
+ fi
+ done
 echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
