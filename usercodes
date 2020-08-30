@@ -11,8 +11,6 @@ fi
 done
 }
 
-
-
 function criarusuarioteste(){
 meu_ip
 mkdir /etc/usuariosteste 1>/dev/null 2>/dev/null
@@ -752,6 +750,7 @@ return 0
 cgh
 ;;
 esac
+#TERMINA CASE
 }
 
 
