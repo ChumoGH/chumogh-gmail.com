@@ -647,6 +647,7 @@ read -p " [ s | n ]: " sin_nao
  break
  fi
 done
+}
 ;;
 2)
 echo -e "${cor[3]} "Buena ELECCION, Tienes un 99% mas Garantia""
