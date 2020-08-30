@@ -1295,7 +1295,8 @@ DPORT="$(mportas|grep $portx|awk '{print $2}'|head -1)"
 echo -e "\033[1;33m $(source trans -b pt:${id} "Digite el Puerto SSL, que Va a USAR:")"
 echo -e "$barra"
     while true; do
-    echo -ne "Ingresa el Puerto SSl/TLS que vas a Usar en tu VPS "
+    echo -ne "\033[1;37m"
+    echo "Ingresa el Puerto SSl/TLS que vas a Usar en tu VPS "
     read -p " Listen-SSL: " SSLPORT
     [[ $(mportas|grep $SSLPORT) ]] || break
     echo -e "\033[1;33m $(source trans -b es:${id} "El puerto seleccionado ya se encuentra en uso")"
