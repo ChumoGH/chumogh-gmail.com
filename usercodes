@@ -1,5 +1,7 @@
 #!/bin/bash
 #user=$(echo ${saks:0:5})
+os_version=$(lsb_release -sr);
+distribution=$(lsb_release -si);
 fun_ovpn_onl () {
 for userovpn in `cat /etc/passwd | grep ovpn | awk -F: '{print $1}'`; do
 us=$(cat /etc/openvpn/openvpn-status.log | grep $userovpn | wc -l)
@@ -524,9 +526,28 @@ echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆�
 
 
 ban_per () {
-
+clear
+local="/etc/bannerssh"
+figlet -p -f slant < /root/name
+echo -e "\033[1;37m      【     ★ ChumoGH - ADM 2020 ★     】\033[0m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m ∆ Linux Dist:	$distribution › Version: $os_version\033[0m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;30m =======================================\033[1;33m"
+echo -e "\033[1;37m - BANNER Manipulado -  \033[0m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
+echo -e "\033[1;37mSeleccione su Sistema:    Para Salir Ctrl + C o 0 Para Regresar\033[1;33m"
+echo -e " \033[1;31m[ !!! ]\033[1;33m PEGA AQUI TU BANNER   \033[1;31m\033[1;33m"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -ne "\033[1;37m"
+read -p " ${txt[226]}: " ban_ner2
+echo '$ban_ner2' >> $local
+echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
+echo '<h1><font>===================================</font></h1>' >> $local
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+service ssh restart > /dev/null 2>&1 &
+service sshd restart > /dev/null 2>&1 & 
+service dropbear restart > /dev/null 2>&1 &
 }
-
 
 
 txt_font () {
@@ -596,6 +617,40 @@ echo "</h"$_size"></font>" >> $local
 }
 
 function_7 () {
+cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ChumoGH☆ ADM SCRIPT "| lolcat
+echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
+echo -e "${cor[2]}MENU BANNER  (RECOMENDADO 2):\n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]-Pegar BANNER Personalizado (\n[2]-Crear con Menu del SCRIPT| lolcat
+echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
+echo -ne " ESCOJE: "; read lang
+case $lang in
+1)
+echo -e "${cor[3]} " Al escojer que coloques tu Banner creado fuera del Script, ADM no se ""
+echo -e "${cor[3]} "    Responsabiliza por el Fallo de ciertos recursos del SISTEMA""
+echo -e "${cor[3]} "RECUERDA QUE EL SCRIPT ESTA REALIZADO PARA FUNCIONAR CON SUS FUNCIONES""
+echo -e "${cor[3]} "    Y esta es EXPERIMENTAL""
+echo -e "${cor[3]} "Esta SEGURO de usar esta funcion ?:""
+read -p " [S/N]: " -e -i n sshsn
+[[ "$sshsn" = @(s|S|y|Y) ]] && {
+local2="/etc/bannerssh"
+chk=$(cat /etc/ssh/sshd_config | grep Banner)
+if [ "$(echo "$chk" | grep -v "#Banner" | grep Banner)" != "" ]; then
+local=$(echo "$chk" |grep -v "#Banner" | grep Banner | awk '{print $2}')
+ else
+echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
+local="/etc/bannerssh"
+fi
+while true; do
+echo -e " ESTAS SEGURO QUE TIENES TU BANNER BIEN ESTRUCTURADO "
+read -p " [ s | n ]: " sin_nao
+if [[ "$sin_nao" = @(s|S|y|Y) ]]; then
+ban_per
+elif [[ "$sin_nao" = @(n|N) ]]; then
+break
+fi
+done
+;;
+2)
+echo -e "${cor[3]} "Buena ELECCION, Tienes un 99% mas Garantia""
 echo -e "${cor[3]} "Esta SEGURO:""
 read -p " [S/N]: " -e -i n sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
@@ -607,17 +662,6 @@ local=$(echo "$chk" |grep -v "#Banner" | grep Banner | awk '{print $2}')
 echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
 local="/etc/bannerssh"
 fi
-cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ChumoGH☆ ADM SCRIPT "| lolcat
-echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
-echo -e "${cor[2]}Desea Crear su Propio BANNER (Default: ChumoGH) :\n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]-Pegar BANNER Personalizado (\n[2]-Crear con Menu del SCRIPT| lolcat
-echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
-echo -ne " ESCOJE: "; read lang
-case $lang in
-1)
-echo -e "Ingresa tu banner Personalizado"
-cgh
-;;
-2)
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;33m Letra Pequeña"
 echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;33m Letra Media"
