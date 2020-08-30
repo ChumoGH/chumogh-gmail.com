@@ -572,7 +572,7 @@ rm /bin/ejecutar/bannerssh
 #echo $ban_ner2 > $local
 fun_barcgh
 #echo '<h1><font>===================================</font></h1>' >> $local
-echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
+echo '<br><font color="green">© 2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
