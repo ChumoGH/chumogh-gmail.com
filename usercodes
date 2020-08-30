@@ -561,9 +561,14 @@ echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #####################################
 echo -e "\033[1;37mSeleccione su Sistema:    Para Salir Ctrl + C o 0 Para Regresar\033[1;33m"
 echo -e " \033[1;31m[ !!! ]\033[1;33m PEGA AQUI TU BANNER   \033[1;31m\033[1;33m"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e " \033[1;31mLuego de Pegar tu banner Presiona Ctrl + O y Enter \033[1;33m \033[1;31m\033[1;33m"
 echo -ne "\033[1;37m"
-read -p " ${txt[226]}: " ban_ner2
-echo $ban_ner2 > $local
+read -p " Presiona Enter para Continuar "
+nano /bin/ejecutar/bannerssh
+cat /bin/ejecutar/bannerssh > $local
+rm /bin/ejecutar/bannerssh
+#read -p " ${txt[226]}: " ban_ner2
+#echo $ban_ner2 > $local
 fun_barcgh
 #echo '<h1><font>===================================</font></h1>' >> $local
 echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
