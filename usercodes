@@ -620,16 +620,16 @@ echo "</h"$_size"></font>" >> $local
 function_7 () {
 cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ChumoGH☆ ADM SCRIPT "| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
-echo -e "${cor[2]}MENU BANNER  (RECOMENDADO 2):\n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]-Pegar BANNER Personalizado (\n[2]-Crear con Menu del SCRIPT| lolcat
+echo -e "${cor[2]}MENU BANNER  (RECOMENDADO 2):\n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]-Pegar BANNER Personalizado (No Recomendado)\n[2]-Crear con Menu del SCRIPT"| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
 echo -ne " ESCOJE: "; read lang
 case $lang in
 1)
-echo -e "${cor[3]} " Al escojer que coloques tu Banner creado fuera del Script, ADM no se ""
-echo -e "${cor[3]} "    Responsabiliza por el Fallo de ciertos recursos del SISTEMA""
-echo -e "${cor[3]} "RECUERDA QUE EL SCRIPT ESTA REALIZADO PARA FUNCIONAR CON SUS FUNCIONES""
-echo -e "${cor[3]} "    Y esta es EXPERIMENTAL""
-echo -e "${cor[3]} "Esta SEGURO de usar esta funcion ?:""
+echo -e " Al escojer que coloques tu Banner creado fuera del Script, ADM no se "
+echo -e "    Responsabiliza por el Fallo de ciertos recursos del SISTEMA"
+echo -e "RECUERDA QUE EL SCRIPT ESTA REALIZADO PARA FUNCIONAR CON SUS FUNCIONES"
+echo -e "                          Y esta es EXPERIMENTAL"
+echo -e "Esta SEGURO de usar esta funcion ?:"
 read -p " [S/N]: " -e -i n sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
 local2="/etc/bannerssh"
