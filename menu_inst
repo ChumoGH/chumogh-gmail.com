@@ -2,6 +2,25 @@
 os_version=$(lsb_release -sr);
 distribution=$(lsb_release -si);
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+
+ban_inex () {
+
+echo "BANNER INEXISTENTE"
+fun_bar 
+echo '<h1><center><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h1><font color="green">
+Banner ChumoGH 2020 Temporal
+</font></h1>
+<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
+<h6><font color="green">
+Verified【 ★ ChumoGH ★ 】 ADM 2020
+</h6></font>
+<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font></center>
+' > /etc/bannerssh
+echo "BANNER AGREGADO |||| REINTENTE"
+
+}
+
 function dropbearuniversal(){
 clear
 echo "› Preparando Instalacion"
@@ -39,19 +58,7 @@ echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 return 0
  }
-echo "BANNER INEXISTENTE"
-fun_bar 
-echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h1><font color="green">
-Banner ChumoGH 2020 Temporal
-</font></h1>
-<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h6><font color="green">
-Verified【 ★ ChumoGH ★ 】 ADM 2020
-</h6></font>
-<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
-' > /etc/bannerssh
-echo "BANNER AGREGADO |||| REINTENTE"
+ban_inex
 return 1
 cgh 10
 }
@@ -92,19 +99,7 @@ echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 return 0
  }
-echo "BANNER INEXISTENTE"
-fun_bar 
-echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h1><font color="green">
-Banner ChumoGH 2020 Temporal
-</font></h1>
-<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h6><font color="green">
-Verified【 ★ ChumoGH ★ 】 ADM 2020
-</h6></font>
-<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
-' > /etc/bannerssh
-echo "BANNER AGREGADO |||| REINTENTE"
+ban_inex
 return 1
 cgh 10
 }
@@ -145,19 +140,7 @@ echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 return 0
  }
-echo "BANNER INEXISTENTE"
-fun_bar 
-echo '<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h1><font color="green">
-Banner ChumoGH 2020 Temporal
-</font></h1>
-<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h6><font color="green">
-Verified【 ★ ChumoGH ★ 】 ADM 2020
-</h6></font>
-<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font>
-' > /etc/bannerssh
-echo "BANNER AGREGADO |||| REINTENTE"
+ban_inex
 return 1
 cgh 10
 }
