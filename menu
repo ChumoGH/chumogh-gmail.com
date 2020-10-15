@@ -283,7 +283,6 @@ return
 
 rootpass () {
 clear
-msg -bar
 echo -e "${cor[3]}  Esta herramienta cambia a usuario root las VPS de "
 echo -e "${cor[3]}             GoogleCloud y Amazon"
 echo -ne " Desea Seguir? [S/N]: "; read x
@@ -295,7 +294,6 @@ fun_bar "service ssh restart"
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
-msg -bar
 echo -e "Escriba su contraseña root actual o cambiela"
 read  -p " Nuevo passwd: " pass
 (echo $pass; echo $pass)|passwd 2>/dev/null
@@ -602,7 +600,7 @@ case $ppp in
 	6)
 	reiniciar_ser;;
 	7)
-	;;
+	reiniciar_vps;;
 	8)
 	host_name;;
 	9)
