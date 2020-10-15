@@ -598,15 +598,15 @@ case $ppp in
 		
 	;;
 	5)
-	update_pak
+	update_pak;;
 	6)
-	reiniciar_ser
+	reiniciar_ser;;
 	7)
 	;;
 	8)
-	host_name
+	host_name;;
 	9)
-	rootpass
+	rootpass;;
 	*)
 	source menu
 	;;
