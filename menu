@@ -292,8 +292,10 @@ echo -e "                 Aplicando Configuraciones"
 fun_bar "service ssh restart"
 #Parametros Aplicados
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
+sed -i "s;#PermitRootLogin;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
+sed -i "s;#PasswordAuthentication;PasswordAuthentication yes;g" /etc/ssh/sshd_config
 echo -e "Escriba su contraseña root actual o cambiela"
 read  -p " Nuevo passwd: " pass
 (echo $pass; echo $pass)|passwd 2>/dev/null
@@ -302,6 +304,8 @@ fun_bar
 echo -e "${cor[3]} Configuraciones aplicadas con exito!"
 echo -e "${cor[2]} Su contraseña ahora es: ${cor[4]}$pass"
 service ssh restart > /dev/null 2>&1
+service sshd restart > /dev/null 2>&1
+sleep 5s
 #msg -bar
 return
 }
