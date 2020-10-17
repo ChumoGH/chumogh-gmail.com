@@ -303,8 +303,8 @@ fun_bar
 echo '#######CONFIG NATURAL' >> /bin/ejecutar/sshd_config
 cat /etc/ssh/sshd_config >> /bin/ejecutar/sshd_config
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
-#sed -i "s;#PermitRootLogin;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
+sed -i "s;#PermitRootLogin yes;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
 #sed -i "s;#PasswordAuthentication;PasswordAuthentication yes;g" /etc/ssh/sshd_config
 echo -e ' '
