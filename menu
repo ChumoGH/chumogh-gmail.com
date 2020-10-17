@@ -290,11 +290,11 @@ echo -ne " Desea Seguir? [S/N]: "; read x
 #Inicia Procedimentos
 echo -e "                 Aplicando Configuraciones"
 #Parametros Aplicados
-#sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
-sed -i "s;#PermitRootLogin;PermitRootLogin yes;g" /etc/ssh/sshd_config
-#sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
-#sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
-sed -i "s;#PasswordAuthentication;PasswordAuthentication yes;g" /etc/ssh/sshd_config
+sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
+#sed -i "s;#PermitRootLogin;PermitRootLogin yes;g" /etc/ssh/sshd_config
+sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
+sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
+#sed -i "s;#PasswordAuthentication;PasswordAuthentication yes;g" /etc/ssh/sshd_config
 echo -ne " \033[1;31m[ ! ] Services ssh restart"
 service ssh restart > /dev/null 2>&1
 [[ -e /etc/init.d/ssh ]] && /etc/init.d/ssh restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
