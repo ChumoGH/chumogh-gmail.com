@@ -267,15 +267,20 @@ return
 }
 
 cambiopass () {
+figlet -p -f slant < /root/name | lolcat
+echo -e "\033[1;37m      【     ★ ChumoGH Packet 2020 ★     】\033[0m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
+echo -e "\033[1;37mSeleccione una opcion :    Para Salir Ctrl + C\033[1;33m"
 echo -e "${cor[3]} Esta herramienta cambia la contraseña de su servidor vps"
 echo -e "${cor[3]} Esta contraseña es utilizada como usuario root"
-echo -ne " Desea Seguir? [S/N]: "; read x
+echo -ne "\033[1;32m Desea Seguir? [S/N]: "; read x
 [[ $x = @(n|N) ]] && fun_bar && return
 #Inicia Procedimentos
 echo -e "${cor[0]} Escriba su nueva contraseña"
 read  -p " Nuevo passwd: " pass
 (echo $pass; echo $pass)|passwd 2>/dev/null
 sleep 1s
+fun_bar
 echo -e "${cor[3]} Contraseña cambiada con exito!"
 echo -e "${cor[2]} Su contraseña ahora es : ${cor[4]}$pass"
 return
@@ -283,22 +288,31 @@ return
 
 rootpass () {
 clear
-echo -e "${cor[3]}  Esta herramienta cambia a usuario root las VPS de "
-echo -e "${cor[3]}             GoogleCloud y Amazon"
-echo -ne " Desea Seguir? [S/N]: "; read x
+figlet -p -f slant < /root/name | lolcat
+echo -e "\033[1;37m      【     ★ ChumoGH Packet 2020 ★     】\033[0m"
+echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
+echo -e "\033[1;37mSeleccione una opcion :    Para Salir Ctrl + C\033[1;33m"
+echo -e "${cor[5]}  Esta herramienta cambia a usuario root las VPS de "
+echo -e "${cor[4]}             GoogleCloud y Amazon"
+echo -ne "\033[1;32m Desea Seguir? [S/N]: "; read x
 [[ $x = @(n|N) ]] && fun_bar && return
 #Inicia Procedimentos
-echo -e "                 Aplicando Configuraciones"
+echo -e "\033[1;33m                 Aplicando Configuraciones"
+fun_bar
 #Parametros Aplicados
+echo '#######CONFIG NATURAL' >> /bin/ejecutar/sshd_config
+cat /etc/ssh/sshd_config >> /bin/ejecutar/sshd_config
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 #sed -i "s;#PermitRootLogin;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
 #sed -i "s;#PasswordAuthentication;PasswordAuthentication yes;g" /etc/ssh/sshd_config
+echo -e ' '
 echo -ne " \033[1;31m[ ! ] Services ssh restart"
 service ssh restart > /dev/null 2>&1
 [[ -e /etc/init.d/ssh ]] && /etc/init.d/ssh restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
-echo -e "Escriba su contraseña root actual o cambiela"
+echo -e ' '
+echo -e "Escriba su contraseña ROOT actual o cambiela"
 read  -p " Nuevo passwd: " pass
 (echo $pass; echo $pass)|passwd 2>/dev/null
 sleep 1s
