@@ -748,6 +748,9 @@ a=$(sed -n "$i"p $porta_var | awk '{print $1}')
 b=$(sed -n "$i"p $porta_var | awk '{print $2}')
 [[ "$a" != "" ]] && texto="\033[1;34m * \033[1;37m$a: \033[1;31m$b" || texto=""
 [[ "$a" = "" ]] && break
+if [[ $a = "systemd-r" ]];then
+texto=""
+fi
 if [[ $a = "stunnel4" ]];then
 texto="\033[1;34m * \033[1;37mSSL: \033[1;31m$b"
 fi
@@ -756,6 +759,9 @@ c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 [[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
+if [[ $c = "systemd-r" ]];then
+texto_=""
+fi
 if [[ $c = "stunnel4" ]];then
 texto_="\033[1;34m * \033[1;37mSSL: \033[1;31m$d"
 fi
