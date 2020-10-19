@@ -754,7 +754,7 @@ fi
 i=$(($i+1))
 c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c [[: \033[1;31m$d ttt" || texto_=""
+[[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 if [[ $c = "stunnel4" ]];then
 texto_="\033[1;34m * \033[1;37mSSL: \033[1;31m$d"
