@@ -754,7 +754,12 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 [[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
-[[ $texto = "stunnel4" ]] && $texto="SSL" || $texto=$texto
+texto=`if netstat -tunlp |grep stunnel4 1> /dev/null 2> /dev/null; then
+echo -e "SSL"
+else
+texto=$texto
+fi`;
+#[[ $texto = "stunnel4" ]] && $texto="SSL" || $texto=$texto
 echo -e "$texto $texto_"
 done
 rm $portas_var
