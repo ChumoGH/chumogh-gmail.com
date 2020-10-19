@@ -729,6 +729,9 @@ echo -e " \033[1;37m  BADVPN › \033[1;32m$xbadvpn \033[1;33m \033[1;37m  Netfl
 }
 
 ports_ () {
+if [[ $texto = "stunnel4" ]]then
+texto="SSL"
+fi
 portas_var="/tmp/portas"
 porta_var="/tmp/portas2"
 lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" > $portas_var
@@ -754,12 +757,6 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 [[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
-texto=`if netstat -tunlp |grep stunnel4 1> /dev/null 2> /dev/null; then
-echo -e "SSL"
-else
-texto=$texto
-fi`;
-#[[ $texto = "stunnel4" ]] && $texto="SSL" || $texto=$texto
 echo -e "$texto $texto_"
 done
 rm $portas_var
