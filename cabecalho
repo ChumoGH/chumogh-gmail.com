@@ -754,11 +754,13 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 [[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 i=$(($i+1))
+[[ $texto = "stunnel4" ]] && $texto="SSL" || $texto=$texto
 echo -e "$texto $texto_"
 done
 rm $portas_var
 rm $porta_var
 }
+
 [[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]}" || vesaoSCT="\033[1;31m${txt[316]}"
 exitokey=$(cat < /root/exito)
 #ipserv=$(curl ifconfig.me)
