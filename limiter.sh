@@ -2,34 +2,44 @@
 while true
 do
 clear
-killing () {
-for pid in `(head -n $1 /tmp/pid)`
-do
-kill $pid
-done
-}
+touch /root/user
 cat /etc/passwd |grep -v ovpn > /tmp/ussh
-usr22=$(printf '%-18s' "LOGUINS")
-usr11=$(printf ' %-21s' "USUARIO")
-echo -e "\033[42;30m $usr11 $usr22\033[0m"
-echo -e "\033[1;32m______________________________________"
-for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`
+for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`
 do
-num=$(dropb | grep "$user" | wc -l)
-limit=$(cat /etc/adm-lite/userDIR/$user | grep "limite" | awk '{print $2}')
-if [ "$num" -gt "$limit" ]; then
-kill=$(( $nun - $limit))
-dropb | grep "$user" | awk '{print $2}' > /tmp/pid
-killing $kill
-echo -e "\033[1;31m$kill Usuarios Desconectados"
-rm -rf /tmp/pid
-fi
-usr2=$(printf '%-18s' "$num")
-usr1=$(printf ' %-21s' "$user")
-echo -e "\033[1;33m$usr1     $usr2 \033[1;32m"
-echo -e "______________________________________ "
+daaab=$(cat /etc/adm-lite/userDIR/$u | grep "limite:" | awk '{print $2}')
+echo "$u $daaab" >> /root/user
 done
-echo -e "\033[42;30m $usr11 $usr22\033[0m"
-rm -rf /tmp/ussh
-sleep 2s
+
+database="/root/user"
+echo $$ > /tmp/pids
+if [ ! -f "$database" ]
+then
+	echo "não ha usuarios"
+	exit 1
+fi
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%28s%s%-18s\n' "SSH Limiter"
+tput setaf 7 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexão/Limite " ; echo "" ; tput sgr0
+	while read usline
+	do
+		user="$(echo $usline | cut -d' ' -f1)"
+		s2ssh="$(echo $usline | cut -d' ' -f2)"
+		if [ -z "$user" ] ; then
+			echo "" > /dev/null
+		else
+			ps x | grep [[:space:]]$user[[:space:]] | grep -v grep | grep -v pts > /tmp/tmp2
+			s1ssh="$(cat /tmp/tmp2 | wc -l)"
+			tput setaf 3 ; tput bold ; printf '  %-35s%s\n' $user $s1ssh/$s2ssh; tput sgr0
+			if [ "$s1ssh" -gt "$s2ssh" ]; then
+				tput setaf 7 ; tput setab 1 ; tput bold ; echo " Usuário desconectado por ultrapassar o limite!" ; tput sgr0
+				while read line
+				do
+					tmp="$(echo $line | cut -d' ' -f1)"
+					kill $tmp
+				done < /tmp/tmp2
+				rm /tmp/tmp2
+			fi
+		fi
+	done < "$database"
+rm -rf /root/user
+sleep 5s
 done
