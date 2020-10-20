@@ -645,9 +645,10 @@ case $ppp in
 	5)
 	update_pak;;
 	6)
-	reiniciar_ser;;
-	7)
 	verifi_fun;;
+	7)
+	reiniciar_vps
+	;;
 	8)
 	host_name;;
 	9)
