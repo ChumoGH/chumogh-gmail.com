@@ -25,7 +25,7 @@ echo -e "\033[1;34m ●\033[1;31m M Total:\033[1;32m "$mt "\033[1;34m   ●  \03
 echo -e "\033[1;34m ●\033[1;31m M Cache:\033[1;32m" $mb "\033[1;34m   ●  \033[1;32m Uso CPU:\033[1;31m" $CPU"%"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[5]} "
-echo -e "${cor[2]} [2] >${cor[3]} ${txt[6]}$_badvpn${cor[3]}${txt[355]}$_tcpspeed"
+echo -e "${cor[2]} [2] >${cor[3]} ${txt[6]}$_badvpn${cor[3]}${txt[455]}$_tcpspeed"
 echo -e "${cor[2]} [3] >${cor[0]}\033[0;33m [!]\033[1;32m OPTIMIZAR VPS "
 echo -e "${cor[2]} [4] >${cor[0]}\033[1;31m [!] ${txt[339]}"
 echo -e "${cor[2]} [5] >${cor[3]} ${txt[12]}"
