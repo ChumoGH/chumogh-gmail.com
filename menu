@@ -344,7 +344,6 @@ kill -9 $pids > /dev/null 2>&1
 done
 killall limitera
 else
-
 nohup limitera &
 touch /etc/cgh/modulo/limiter
 fi
