@@ -325,6 +325,32 @@ sleep 5s
 #msg -bar
 return
 }
+verifi_fn () {
+echo "VAMOS A VER QUE SUCEDE"
+cat /etc/adm-lite/limiterb > /bin/limiterb
+chmod +x /bin/limiterb
+if [ -d /etc/cgh/modulo ]; then
+echo ""
+else
+rm -rf /etc/cgh/modulo
+mkdir /etc/cgh/modulo
+fi
+if [ -e /etc/cgh/modulo/limiter ]; then
+rm -rf /etc/cgh/modulo/limiter
+for pids in `ps x | grep limiterb | grep -v grep | grep bin | awk '{print $1'}`
+do
+kill -9 $pids > /dev/null 2>&1
+done
+killall limiterb
+else
+nohup limiterb &
+touch /etc/cgh/modulo/limiter
+fi
+if [ "$1" != "" ]; then
+cgh
+break
+fi
+}
 
 verifi_fun () {
 echo "VAMOS A VER QUE SUCEDE"
@@ -333,8 +359,8 @@ chmod +x /bin/limitera
 if [ -d /etc/cgh/modulo ]; then
 echo ""
 else
-mkdir /etc/cgh/
-chmod +x /etc/cgh/*
+rm -rf /etc/cgh/modulo
+mkdir /etc/cgh/modulo
 fi
 if [ -e /etc/cgh/modulo/limiter ]; then
 rm -rf /etc/cgh/modulo/limiter
@@ -346,6 +372,7 @@ killall limitera
 else
 nohup limitera &
 touch /etc/cgh/modulo/limiter
+verifi_fn
 fi
 if [ "$1" != "" ]; then
 cgh
