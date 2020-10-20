@@ -326,6 +326,33 @@ sleep 5s
 return
 }
 
+verifi_fun () {
+echo "VAMOS A VER QUE SUCEDE"
+cat /etc/adm-lite/limitera > /bin/limitera
+chmod +x /bin/limitera
+if [ -d /etc/cgh/modulo ]; then
+echo ""
+else
+mkdir /etc/cgh/modulo
+chmod +x /etc/cgh/*
+fi
+if [ -e /etc/cgh/modulo/limiter ]; then
+rm -rf /etc/cgh/modulo/limiter
+for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
+do
+kill -9 $pids > /dev/null 2>&1
+done
+killall limitera
+else
+
+nohup limitera &
+touch /etc/cgh/modulo/limiter
+fi
+if [ "$1" != "" ]; then
+cgh
+break
+fi
+}
 
 pamcrack () {
 echo -e "Liberar passwd para VURTL"
@@ -505,6 +532,7 @@ case $ppp in
 		echo -e "[\033[1;31m-\033[1;33m]\033[1;31m #######################################\033[1;33m"
 		echo -e "\033[1;37mSeleccione una opcion :    Para Salir Ctrl + C\033[1;33m
 		[\033[1;30m1\033[1;33m] REINICIAR SERVICIOS \033[1;33m
+		[\033[1;30m2\033[1;33m] KILL MULTILOGIN\033[1;33m
 		[\033[1;30m0\033[1;33m] < REGRESAR \033[1;33m"
 		read -p ": " opcao
 		case $opcao in
@@ -512,7 +540,8 @@ case $ppp in
 		reiniciar_ser
 		break;;
 		2)
-		source menu;;
+		verifi_fun
+		;;
 		0)
 		source menu;;
 		esac
