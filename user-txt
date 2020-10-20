@@ -18,7 +18,7 @@ echo -e "${cor[2]} [6] >${cor[3]} ${txt[19]}"
 echo -e "${cor[2]} [7] >${cor[3]} ${txt[87]}"
 echo -e "${cor[2]} [8] >${cor[3]} ${txt[234]}"
 echo -e "${cor[2]} [9] >${cor[3]} ${txt[288]}"
-if [ -e /etc/adm/modulo/limiter ]; then
+if [ -e /etc/cgh/modulo/limiter ]; then
 echo -e "\033[1;31m [10]\033[1;36m > \033[1;32m(ATIVO)\033[1;36m ${txt[354]}"
 else
 echo -e "\033[1;31m [10]\033[1;36m > \033[1;31m(DESATIVADO) \033[1;36m ${txt[355]}\033[0m"
