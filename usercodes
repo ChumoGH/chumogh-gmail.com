@@ -794,6 +794,7 @@ esac
 
 
 verifi_fun () {
+echo "VAMOS A VER QUE SUCEDE"
 if [ -e /etc/adm/modulo/limiter ]; then
 rm -rf /etc/adm/modulo/limiter
 for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
@@ -829,7 +830,7 @@ verifi_fun
 [[ "$1" = "7" ]] && function_6
 [[ "$1" = "8" ]] && function_7
 [[ "$1" = "9" ]] && net_meter
-[[ "$1" = "10" ]] && limiter_fun
+[[ "$1" = "10" ]] && verifi_fun
 
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
