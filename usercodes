@@ -796,22 +796,6 @@ esac
 verifi_fun () {
 if [ -e /etc/adm/modulo/limiter ]; then
 rm -rf /etc/adm/modulo/limiter
-for pids in `ps x | grep limiterb | grep -v grep | grep bin | awk '{print $1'}`
-do
-kill -9 $pids > /dev/null 2>&1
-done
-killall limiterb
-else
-nohup limiterb &
-touch /etc/adm/modulo/limiter
-fi
-if [ "$1" != "" ]; then
-cgh
-break
-fi
-
-if [ -e /etc/adm/modulo/limiter ]; then
-rm -rf /etc/adm/modulo/limiter
 for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
 do
 kill -9 $pids > /dev/null 2>&1
@@ -825,12 +809,10 @@ if [ "$1" != "" ]; then
 cgh
 break
 fi
-
 }
 
 
 limiter_fun () {
-[[ "$VERIFICAR" = "on" ]] && {
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} VERIFICANDO LIMITADOR ${cor[0]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
@@ -838,7 +820,6 @@ sleep 2s
 verifi_fun
 }
 
-}
 [[ "$1" = "1" ]] && criarusuarioteste
 [[ "$1" = "2" ]] && function_1
 [[ "$1" = "3" ]] && function_2
