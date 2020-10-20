@@ -536,7 +536,7 @@ case $ppp in
 		case $opcao in
 		1)
 		reiniciar_ser
-		break;;
+		;;
 		2)
 		verifi_fun
 		;;
