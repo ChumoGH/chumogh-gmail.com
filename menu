@@ -332,8 +332,8 @@ chmod +x /bin/limiterb
 if [ -d /etc/cgh/modulo ]; then
 echo ""
 else
-rm -rf /etc/cgh/modulo
-mkdir /etc/cgh/modulo
+#rm -rf /etc/cgh/modulo
+mkdir -p /etc/cgh/modulo/
 fi
 if [ -e /etc/cgh/modulo/limiterb ]; then
 rm -rf /etc/cgh/modulo/limiterb
@@ -359,8 +359,10 @@ chmod +x /bin/limitera
 if [ -d /etc/cgh/modulo ]; then
 echo ""
 else
-rm -rf /etc/cgh/modulo
-mkdir /etc/cgh/modulo
+# "VALIDADO" > /etc/cgh/modulo/x.mx
+#rm -rf /etc/cgh/modulo
+mkdir -p /etc/cgh/modulo
+echo "VALIDADO" > /etc/cgh/modulo/x.mx
 fi
 if [ -e /etc/cgh/modulo/limiter ]; then
 rm -rf /etc/cgh/modulo/limiter
@@ -372,7 +374,15 @@ killall limitera
 else
 nohup limitera &
 touch /etc/cgh/modulo/limiter
+
+tr=`if netstat -tunlp |grep dropbear 1> /dev/null 2> /dev/null; then
+echo -e "ON"
+else
+echo -e "OFF"
+fi`;
+if [[ $tr = "ON" ]];then
 verifi_fn
+fi
 fi
 if [ "$1" != "" ]; then
 cgh
