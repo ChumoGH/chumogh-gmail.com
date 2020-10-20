@@ -795,13 +795,13 @@ esac
 
 verifi_fun () {
 echo "VAMOS A VER QUE SUCEDE"
-if [ -d /etc/adm/modulo ]; then
+if [ -d /etc/cgh/modulo ]; then
 echo ""
 else
-mkdir /etc/adm/modulo
+mkdir /etc/cgh/modulo
 fi
-if [ -e /etc/adm/modulo/limiter ]; then
-rm -rf /etc/adm/modulo/limiter
+if [ -e /etc/cgh/modulo/limiter ]; then
+rm -rf /etc/cgh/modulo/limiter
 for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
 do
 kill -9 $pids > /dev/null 2>&1
@@ -809,7 +809,7 @@ done
 killall limitera
 else
 nohup limitera &
-touch /etc/adm/modulo/limiter
+touch /etc/cgh/modulo/limiter
 fi
 if [ "$1" != "" ]; then
 cgh
