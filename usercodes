@@ -795,6 +795,11 @@ esac
 
 verifi_fun () {
 echo "VAMOS A VER QUE SUCEDE"
+if [ -d /etc/adm/modulo ]; then
+echo ""
+else
+mkdir /etc/adm/modulo
+fi
 if [ -e /etc/adm/modulo/limiter ]; then
 rm -rf /etc/adm/modulo/limiter
 for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
@@ -818,6 +823,7 @@ echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪�
 echo -e "${cor[5]} VERIFICANDO LIMITADOR ${cor[0]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 sleep 2s
+
 verifi_fun
 }
 
