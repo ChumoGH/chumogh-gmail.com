@@ -794,22 +794,36 @@ esac
 
 
 verifi_fun () {
-
-if [[ $limiter_on = "" ]]; then
-unset limiter_on
-chmod +x /etc/adm-lite/limiter.sh &
-/etc/adm-lite/limiter.sh &
-screen -dmS Limiter-ssh /etc/adm-lite/limiter.sh
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} LIMITADOR INICIADO ${cor[0]}"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+if [ -e /etc/adm/modulo/limiter ]; then
+rm -rf /etc/adm/modulo/limiter
+for pids in `ps x | grep limiterb | grep -v grep | grep bin | awk '{print $1'}`
+do
+kill -9 $pids > /dev/null 2>&1
+done
+killall limiterb
 else
-unset limiter_on
-killall limiter.sh > /dev/null 2>&1
-kill -9 $(ps x|grep -v grep|grep limiter.sh|awk '{print $1}')
-echo -e "${cor[1]} =================================== ${cor[0]}"
-echo -e "${cor[5]} LIMITADOR DETENIDO ${cor[0]}"
-echo -e "${cor[1]} =================================== ${cor[0]}"
+nohup limiterb &
+touch /etc/adm/modulo/limiter
+fi
+if [ "$1" != "" ]; then
+cgh
+break
+fi
+
+if [ -e /etc/adm/modulo/limiter ]; then
+rm -rf /etc/adm/modulo/limiter
+for pids in `ps x | grep limitera | grep -v grep | grep bin | awk '{print $1'}`
+do
+kill -9 $pids > /dev/null 2>&1
+done
+killall limitera
+else
+nohup limitera &
+touch /etc/adm/modulo/limiter
+fi
+if [ "$1" != "" ]; then
+cgh
+break
 fi
 
 }
