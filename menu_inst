@@ -499,6 +499,33 @@ ufw allow $ufww > /dev/null 2>&1
 done
 }
 #INSTALAR DROPBEAR
+
+addnewd (){
+echo "Ingresa Nuevo Puerto a Escuchar:"
+read -p ": " dnew
+if lsof -Pi :$dnew -sTCP:LISTEN -t >/dev/null ; then
+echo "Puerto Seleccionado Ocupado | Reintenta"
+else
+dvj=$(cat < /etc/default/dadd)
+sed -i "s/$dvj/$dnew -p $dvj/g" 
+echo "Reiniciando Dropbear para ejecutar cambios"
+service dropbear restart
+dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
+echo "Puertos que Corren en DROPBEAR " $dropbearports 
+echo -e "\033[1;32mDeseas Adicionar alguno mas?? " 
+while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
+read -p "[S/N]: " yesno
+tput cuu1 && tput dl1
+done
+if [[ ${yesno} = @(s|S|y|Y) ]]; then
+addnewd
+else
+echo "EXITO GARRAPATOSO"
+sleep 3s
+menu
+fi
+fi
+}
 fun_dropbear () {
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 # INICIO STUNNEL ACTIVO
@@ -541,12 +568,20 @@ echo "Puerto Seleccionado Ocupado | Reintenta"
 else
 sed -i "3d" /etc/default/dropbear
 sed -i '3i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
+echo $portdrop > /etc/default/dadd
 echo "Reiniciando Dropbear para ejecutar cambios"
 fun_bar
 service dropbear restart
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo "Puertos que Corren en DROPBEAR " $dropbearports 
-sleep 10
+echo -e "\033[1;32mDeseas Adicionar alguno mas?? " 
+while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
+read -p "[S/N]: " yesno
+tput cuu1 && tput dl1
+done
+if [[ ${yesno} = @(s|S|y|Y) ]]; then
+addnewd
+fi
 cgh
 fi
  return 0
