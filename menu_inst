@@ -503,6 +503,7 @@ done
 addnewd (){
 while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
 read -p "[S/N]: " yesno
+foc=foc+1
 tput cuu1 && tput dl1
 done
 if [[ ${yesno} = @(s|S|y|Y) ]]; then
@@ -514,6 +515,7 @@ read -p ": " dnew
 	dvj=$(cat < /etc/default/dadd)
 	sed -i "s/$dvj/$dnew -p $dvj/g" /etc/default/dropbear
 	echo "Reiniciando Dropbear para ejecutar cambios"
+	echo "Numero de Intento :" $foc
 	service dropbear restart
 	dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 	echo "Puertos que Corren en DROPBEAR " $dropbearports 
@@ -573,6 +575,7 @@ fun_bar
 service dropbear restart
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo "Puertos que Corren en DROPBEAR " $dropbearports 
+foc=1
 addnewd
 cgh
 fi
