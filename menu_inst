@@ -524,7 +524,6 @@ fi
 echo "EXITO GARRAPATOSO"
 sleep 3s
 menu
-fi
 }
 fun_dropbear () {
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
