@@ -501,9 +501,10 @@ done
 #INSTALAR DROPBEAR
 
 addnewd (){
+echo -e "\033[1;32mDeseas Adicionar alguno mas?? " 
 while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
 read -p "[S/N]: " yesno
-foc=foc+1
+foc=$foc+1
 tput cuu1 && tput dl1
 done
 if [[ ${yesno} = @(s|S|y|Y) ]]; then
@@ -519,13 +520,12 @@ read -p ": " dnew
 	service dropbear restart
 	dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 	echo "Puertos que Corren en DROPBEAR " $dropbearports 
-	echo -e "\033[1;32mDeseas Adicionar alguno mas?? " 
-	addnewd
 	fi
 fi
+#echo -e "\033[1;32mDeseas Adicionar alguno mas?? " 
 echo "EXITO GARRAPATOSO"
 sleep 3s
-menu
+addnewd
 }
 fun_dropbear () {
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
