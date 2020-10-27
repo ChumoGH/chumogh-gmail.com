@@ -7,7 +7,7 @@ ban_inex () {
 
 echo "BANNER INEXISTENTE"
 fun_bar 
-<font>××××××××××××××××××××××××××××</font></h1>
+echo '<font>××××××××××××××××××××××××××××</font></h1>
 <h1 style="text-align:center;"><font color="#FF00FF">
 【 ᐯ 卩 丂   -   匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】
 </font></h1>
