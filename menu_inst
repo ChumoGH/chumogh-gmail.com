@@ -7,18 +7,24 @@ ban_inex () {
 
 echo "BANNER INEXISTENTE"
 fun_bar 
-echo '<h1><center><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h1><font color="green">
-Banner ChumoGH 2020 Temporal
+<font>××××××××××××××××××××××××××××</font></h1>
+<h1 style="text-align:center;"><font color="#FF00FF">
+【 ᐯ 卩 丂   -   匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】
 </font></h1>
-<h1><font>▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪</font></h1>
-<h6><font color="green">
-Verified【 ★ ChumoGH ★ 】 ADM 2020
+<h1 style="text-align:center;"><font>××××××××××××××××××××××××××××</font></h1>
+<h6><font color="blue">
+ˢᵉʳᵛⁱᶜⁱᵒ ᴾʳᵉᵐⁱᵘᵐ
 </h6></font>
-<font color="purple">ChumoGH ☠ »COPYRIGHT 2020«</font></center>
+<h6><font color="#FF7F00">
+【＋５９３９８７０７２６１１】
+</h6></font>
+<h6><font color="#2E8B57">
+Gracias Por Usar ChumoGH VPS
+</h6></font>
+<font color="purple">Verified【 ★ ChumoGH ★ 】 ADM 2020</font></center>
 ' > /etc/bannerssh
 echo "BANNER AGREGADO |||| REINTENTE"
-
+fun_dropbear
 }
 
 function dropbearuniversal(){
