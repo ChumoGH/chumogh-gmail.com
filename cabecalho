@@ -766,6 +766,9 @@ fi
 if [[ $a = "badvpn-ud" ]];then
 texto="\033[1;34m * \033[1;37mBadVPN: \033[1;31mON"
 fi
+if [[ $b = "7200" ]];then
+texto="\033[1;34m * \033[1;37mNetflix: \033[1;31mON"
+fi
 i=$(($i+1))
 c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
@@ -788,6 +791,9 @@ texto_="\033[1;34m * \033[1;37mSSL: \033[1;31m$d"
 fi
 if [[ $c = "badvpn-ud" ]];then
 texto_="\033[1;34m * \033[1;37mBadVPN: \033[1;31mON"
+fi
+if [[ $d = "7200" ]];then
+texto_="\033[1;34m * \033[1;37mNetflix: \033[1;31mON"
 fi
 i=$(($i+1))
 echo -e "$texto      -      $texto_"
