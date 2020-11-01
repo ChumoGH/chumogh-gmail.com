@@ -772,7 +772,7 @@ fi
 i=$(($i+1))
 c=$(sed -n "$i"p $porta_var | awk '{print $1}')
 d=$(sed -n "$i"p $porta_var | awk '{print $2}')
-[[ "$c" != "" ]] && texto_="\033[1;34m * \033[1;37m$c: \033[1;31m$d" || texto_=""
+[[ "$c" != "" ]] && texto_="\033[1;34m ◂ \033[1;37m$c: \033[1;31m$d" || texto_=""
 [[ "$a" = "" ]] && break
 #if [[ $c = "systemd-r" ]];then
 #texto_=""
@@ -781,22 +781,22 @@ if [[ $c = "apache2" ]];then
 texto_="\033[1;34m * \033[1;37mWEB: \033[1;31mON"
 fi
 if [[ $c = "sshd" ]];then
-texto_="\033[1;34m * \033[1;37mSSH: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSSH: \033[1;31m$d"
 fi
 if [[ $c = "systemd-r" ]];then
-texto_="\033[1;34m * \033[1;37mKernel: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mKernel: \033[1;31m$d"
 fi
 if [[ $c = "stunnel4" ]];then
-texto_="\033[1;34m * \033[1;37mSSL: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSSL: \033[1;31m$d"
 fi
 if [[ $c = "badvpn-ud" ]];then
-texto_="\033[1;34m * \033[1;37mBadVPN: \033[1;31mON"
+texto_="\033[1;34m ◂ \033[1;37mBadVPN: \033[1;31mON"
 fi
 if [[ $d = "7200" ]];then
-texto_="\033[1;34m * \033[1;37mNetflix: \033[1;31mON"
+texto_="\033[1;34m ◂ \033[1;37mNetflix: \033[1;31mON"
 fi
 i=$(($i+1))
-echo -e "$texto      -      $texto_"
+echo -e "$texto  $texto_"
 done
 rm $portas_var
 rm $porta_var
