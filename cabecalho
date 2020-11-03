@@ -786,10 +786,10 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 if [[ $c = "apache2" ]];then
 texto_="\033[1;34m ◂ \033[1;37mWEB: \033[1;31mON"
 fi
-if [[ $a = "dropbear" ]];then
+if [[ $c = "dropbear" ]];then
 texto_="\033[1;34m ▸ \033[1;37mDROPBEAR: \033[1;31m$d"
 fi
-if [[ $a = "obfs-serv" ]];then
+if [[ $c = "obfs-serv" ]];then
 texto_="\033[1;34m ▸ \033[1;37mSSR (OBFS): \033[1;31m$d"
 fi
 if [[ $c = "sshd" ]];then
