@@ -1425,10 +1425,9 @@ source <(curl -sL https://multi.netlify.com/v2ray.sh)
 ;;
 2)
 echo "Opcion Selecionada " $v2op "Vamos a Instalar" | lolcat
-#source <(curl -sL https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/cgh-v2ray.sh)
 wget -q https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/cgh-v2ray.sh
 chmod +x cgh-v2ray.sh
-./cgh-v2ray.sh
+bash cgh-v2ray.sh
 rm -f cgh-v2ray.*
 echo -e "${cor[1]} INSTALACION FINALIZADA!!!!! ${cor[0]}"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
