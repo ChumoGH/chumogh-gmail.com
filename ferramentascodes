@@ -188,6 +188,10 @@ fi
 
 function_6 () {
 source fai2ban
+fail2ban-testcases -x start 2>/dev/null
+fail2ban-regex -x start 2>/dev/null
+fail2ban-server -x start 2>/dev/null
+fail2ban-client -x start 2>/dev/null
 }
 
 function_7 () {
