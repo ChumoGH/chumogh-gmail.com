@@ -1287,7 +1287,7 @@ cgh
 esac
 #FIN VERIFICA STUNNEL4 ACTIVO 
 }
-cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆RUSSEL☆ ADM SCRIPT "| lolcat
+cowsay -f stegosaurus "BIENVENIDO Y GRACIAS POR UTILIZAR  ⌐╦╦═─ ☆ChumoGH☆ ADM SCRIPT "| lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
 echo -e "${cor[2]}Desea Crear su Propio Certificado SSL/TLS (Default: ChumoGH) :\n${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠\n${cor[2]}[1]-Crear Su Certificado\n[2]-Default" | lolcat
 echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠" | lolcat
@@ -1404,18 +1404,42 @@ echo -e "$barra"
 }
 
 v2ray-socket() {
-echo -ne "\033[1;37m \n 1)- para Instalar \n 2)- Desinstalar \n 3)- Menu V2ray \nEscoje:" | lolcat
-read v2op
+clear
+echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
+echo -e "${cor[2]} \033[1;32m          * ESTA OPCION ES EXPERIMENTAL *"
+echo -e "${cor[2]} \033[1;32mPara continuar debes tener configurado un dominio en el VPS"
+echo -e "${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP"
+echo -e "${cor[2]} \033[1;35m***********************************************************"
+echo -e "Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir"
+while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
+read -p "[S/N]: " yesno
+tput cuu1 && tput dl1
+done
+if [[ ${yesno} = @(s|S|y|Y) ]]; then
+echo -ne "\033[1;37m \n 1)- Instalar edicion Local \n 2)- Instalar edicion WEB \n 3)- Desinstalar \n 4)- Menu V2ray" | lolcat
+echo -ne " ESCOJE: "; read v2op
 case $v2op in
 1)
 echo "Opcion Selecionada " $v2op "Vamos a Instalar" | lolcat
 source <(curl -sL https://multi.netlify.com/v2ray.sh)
 ;;
 2)
-echo "Opcion Selecionada " $v2op "Vamos a Desisnatalar" | lolcat
-source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
+echo "Opcion Selecionada " $v2op "Vamos a Instalar" | lolcat
+#source <(curl -sL https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/cgh-v2ray.sh)
+wget -q https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/cgh-v2ray.sh
+chmod +x cgh-v2ray.sh
+./cgh-v2ray.sh
+rm -f cgh-v2ray.*
+echo -e "${cor[1]} INSTALACION FINALIZADA!!!!! ${cor[0]}"
+echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
 ;;
 3)
+echo "Opcion Selecionada " $v2op "Vamos a Desisnatalar" | lolcat
+source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
+source <(curl -sL https://git.io/fNgqx) --remove
+;;
+4)
 echo "Opcion Selecionada " $v2op "Vamos a Iniciar" | lolcat
 v2ray
 ;;
@@ -1423,6 +1447,7 @@ v2ray
 menu
 ;;
 esac
+fi
 }
 
 #FUNCOES
