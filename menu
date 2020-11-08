@@ -234,6 +234,12 @@ return
 }
 
 reiniciar_ser () {
+echo 3 > /proc/sys/vm/drop_caches 1> /dev/null 2> /dev/null
+sysctl -w vm.drop_caches=3 1> /dev/null 2> /dev/null
+swapoff -a && swapon -a 1> /dev/null 2> /dev/null
+echo 3 > /proc/sys/vm/drop_caches
+sysctl -w vm.drop_caches=3 > /dev/null 2>&1
+rm -rf /tmp/*
 echo -ne " \033[1;31m[ ! ] Services stunnel4 restart"
 service stunnel4 restart > /dev/null 2>&1
 [[ -e /etc/init.d/stunnel4 ]] && /etc/init.d/stunnel4 restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
