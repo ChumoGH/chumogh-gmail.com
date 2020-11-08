@@ -741,7 +741,7 @@ case $ppp in
 	rootpass;;
 	10)
 	mtraff;;
-	10)
+	11)
 	RSLL;;
 	*)
 	source menu
