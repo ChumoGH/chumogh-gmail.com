@@ -151,6 +151,8 @@ EOF
  
 echo -e "${blue}ESTOS DATOS SE USARAN PARA ENRAR AL PANEL${plain}"
 echo -e "$BARRA1"
+read -p "ingrese su dominio o URL del servidor [OPCIONAL]: " ur
+echo -e "$BARRA"
 read -p "ingrese el nombre de usuario [predeterminado admin]: " un
 echo -e "$BARRA"
 read -p "Ingrese la contrasena de inicio de sesion [predeterminado admin]: " pw
@@ -176,6 +178,9 @@ else
         echo -e "${blan}Por favor, ingrese un número. Aplique el número de puerto predeterminado 5000${plain}"
         uport="5000"
     fi
+fi
+if [[ -z "${un}" ]];then
+    ur="$IP"
 fi
 if [[ -z "${un}" ]];then
     un="admin"
@@ -206,8 +211,9 @@ echo -e "${blan}Nombre de usuario:${plain} ${un}"
 echo -e "$BARRA"
 echo -e "${blan}Contrasena:${plain} ${pw}"
 echo -e "$BARRA"
-echo -e "${blan}Acceso al panel: http://$IP:${uport}${plain}"
+echo -e "${blan}Acceso al panel WEB : http://$IP:${uport}${plain}"
 echo -e "${blan}O use la direccion de su dominio mas el puerto${plain}"
+echo -e "${blan}Acceso al panel WEB : http://$ur:${uport}${plain}"
 echo -e "$BARRA1"
 echo ''
 echo "Gracias por utilizar ChumoGH-v2ray"
