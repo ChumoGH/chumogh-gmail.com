@@ -128,7 +128,7 @@ def  select():
     elif joker == 11:
       slowprint("ToolMaster \033[92m")
       slowprint(".....................")
-      slowprint("@PowerMX \033[96m")
+      slowprint("@ChumoGH \033[96m")
       slowprint(".........................")
       slowprint("website : chumogh.xyz \033[91m")
       ext() 
