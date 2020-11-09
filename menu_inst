@@ -1247,11 +1247,14 @@ echo -e "Escriba un nombre para el Redireccionador SSL"
 read -p ": " nombressl
 echo -e "\033[1;33m $(source trans -b pt:${id} "Selecione un Puerto De Redirecionamento Interna")"
 echo -ne "\033[1;37m"
-echo " Ingresa el Puerto Local de tu VPS (Port a Redireccionar) "
+echo " Ingresa el Puerto de Redireccionamiento (Default 22) "
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ \033[1;37m"
 port_
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ \033[1;37m"
 read -p " Local-Port: " portserv
+if [[ -z "${portserv}" ]];then
+    portserv=22
+fi
 echo -e "\033[1;33m $(source trans -b pt:${id} "Digite el Puerto SSL, que Va a USAR:")"
 echo " Ingresa Nuevo Puerto SSL/TLS a USAR (Recomendado 110-442-444)  "
 read -p " Listen-SSL: " portssl
