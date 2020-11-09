@@ -819,10 +819,22 @@ fi
 
 
 limiter_fun () {
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} VERIFICANDO LIMITADOR ${cor[0]}"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-sleep 2s
+ unset limiter_on	
+ if [[ $limiter_on = "" ]]; then
+   chmod +x /etc/adm-lite/limiter.sh &	
+   /etc/adm-lite/limiter.sh &	
+   screen -dmS Limiter-ssh /etc/adm-lite/limiter.sh	
+   echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"	
+   echo -e "${cor[5]} LIMITADOR INICIADO ${cor[0]}"	
+   echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"	
+   else	
+   unset limiter_on	
+   killall limiter.sh > /dev/null 2>&1	
+   kill -9 $(ps x|grep -v grep|grep limiter.sh|awk '{print $1}')	
+   echo -e "${cor[1]} =================================== ${cor[0]}"	
+   echo -e "${cor[5]} LIMITADOR DETENIDO ${cor[0]}"	
+   echo -e "${cor[1]} =================================== ${cor[0]}"
+ fi
 verifi_fun
 }
 
@@ -835,7 +847,7 @@ verifi_fun
 [[ "$1" = "7" ]] && function_6
 [[ "$1" = "8" ]] && function_7
 [[ "$1" = "9" ]] && net_meter
-[[ "$1" = "10" ]] && verifi_fun
+[[ "$1" = "10" ]] && limiter_fun
 
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
