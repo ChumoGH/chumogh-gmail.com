@@ -59,7 +59,7 @@ echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪�
 echo -e "${cor[5]} ${txt[31]} $nome"
 read -p " ${txt[35]} " pass
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} ${txt[32]}  $name"
+echo -e "${cor[5]} ${txt[32]}  $nome"
 echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
 read -p " ${txt[37]} " tempoin
 tempo=$(echo "$tempoin" |sed 's/ //g')
@@ -68,10 +68,22 @@ limit=75
 valides=$(date '+%C%y-%m-%d' -d " +$ext days")
 useradd -M -s /bin/false $nome -e $valides
 (echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
+if [ "$OPENVPN" = "on" ]; then
+open_1 $nome $pass $daysrnf $limit s
+echo -e "${cor[5]} IP => ${cor[4]}$IP"
+echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
+echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
+echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
+echo -e "${cor[5]} ${txt[37]} ${cor[4]}$datexp"
+echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+rm -f ./$CLIENT.ovpn > /dev/null 2>&1
+return
+fi
 echo "#!/bin/bash
 sleep $tempo
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
+rm -f ./$CLIENT.ovpn > /dev/null 2>&1
 rm -rf /etc/usuariosteste/$nome.sh
 exit" > /etc/usuariosteste/$nome.sh
 figlet  $nome | lolcat
@@ -238,7 +250,7 @@ echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$datexp"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-rm ./$CLIENT.ovpn > /dev/null 2>&1
+rm -f ./$CLIENT.ovpn > /dev/null 2>&1
 return
 fi
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
