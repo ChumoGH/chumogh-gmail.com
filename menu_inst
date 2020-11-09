@@ -1262,25 +1262,20 @@ echo "[$nombressl] " >> /etc/stunnel/stunnel.conf
 echo "cert = /etc/stunnel/stunnel.pem " >> /etc/stunnel/stunnel.conf
 echo "accept = $portssl " >> /etc/stunnel/stunnel.conf
 echo "connect = 127.0.0.1:$portserv" >> /etc/stunnel/stunnel.conf
-sleep 5
 echo -e "\033[1;34m ##############################"
 echo -e "\033[1;37m R E I N I C I A N D O  -  STUNNEL4 - SSL"
 echo -e "\033[1;34m ##############################"
-service stunnel4 restart 1> /dev/null 2> /dev/null
 sleep 2
+fi
 service ssh restart 1>/dev/null 2 /dev/null
 service stunnel4 start 1>/dev/null 2 /dev/null
 service stunnel4 restart 1>/dev/null 2 /dev/null
-echo -e "\033[1;31m ***********REINICIADO...*************"
 sslkk
 echo -e "${cor[2]}STUNNEL ACTIVO en Puertos:${cor[2]}$sslports "
 #echo "Limpiando sistema y Reiniciando Servicios"
 echo 3 > /proc/sys/vm/drop_caches 1> /dev/null 2> /dev/null
 sysctl -w vm.drop_caches=3 1> /dev/null 2> /dev/null
 swapoff -a && swapon -a 1> /dev/null 2> /dev/null
-service ssh restart 1> /dev/null 2> /dev/null
-service squid restart 1> /dev/null 2> /dev/null
-service squid3 restart 1> /dev/null 2> /dev/null
 #echo "Limpieza Finalizada"
 cgh
 ;;
