@@ -1243,6 +1243,7 @@ case $lang in
 1)
 clear
 ###
+source cabecalho
 echo -e "Escriba un nombre para el Redireccionador SSL"
 read -p ": " nombressl
 echo -e "\033[1;33m $(source trans -b pt:${id} "Selecione un Puerto De Redirecionamento Interna")"
