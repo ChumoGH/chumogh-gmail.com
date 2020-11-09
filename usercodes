@@ -78,7 +78,7 @@ figlet  $nome | lolcat
 echo -e "${cor[5]} * ${txt[353]} *"
 echo -e "${cor[5]} * ${txt[352]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
-puertos
+ports_
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
 echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
@@ -166,7 +166,7 @@ fi
 function_dropb () {  
 port_dropbear=`ps aux | grep dropbear | awk NR==1 | awk '{print $17;}'`
 [[ $port_dropbear = "" ]] && return
-log=/var/log/auth.log
+log='/var/log/auth.log'
 loginsukses='Password auth succeeded'
 echo ' '
 pids=`ps ax |grep dropbear |grep  " $port_dropbear" |awk -F" " '{print $1}'`
@@ -248,7 +248,7 @@ useradd -M -s /bin/false $name -e $valid
 figlet  $name | lolcat
 echo -e "${cor[5]} * ${txt[352]} *"
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
-puertos
+ports_
 echo -e "${cor[1]} ×××××××××××××××××××××××××××××××××××××××××××××××× ${cor[0]}"
 echo -e "${cor[5]} IP => ${cor[4]}$IP"
 echo -e "${cor[5]} ${txt[34]} ${cor[4]}$name"
@@ -823,7 +823,6 @@ echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪�
 echo -e "${cor[5]} VERIFICANDO LIMITADOR ${cor[0]}"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 sleep 2s
-
 verifi_fun
 }
 
