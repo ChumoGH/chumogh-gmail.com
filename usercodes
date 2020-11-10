@@ -591,8 +591,8 @@ service ssh restart > /dev/null 2>&1 &
 service sshd restart > /dev/null 2>&1 & 
 service dropbear restart > /dev/null 2>&1 &
 echo "EXITO"
-sleep 5s
-cgh
+sleep 2s
+exit 
 }
 
 
