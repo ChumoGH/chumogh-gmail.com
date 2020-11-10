@@ -670,6 +670,8 @@ echo -e "${cor[1]}=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=�
 echo -ne " ESCOJE: "; read lang
 case $lang in
 1)
+unset sshsn
+unset sin_nao
 echo -e " Al escojer que coloques tu Banner creado fuera del Script, ADM no se "
 echo -e "    Responsabiliza por el Fallo de ciertos recursos del SISTEMA"
 echo -e "RECUERDA QUE EL SCRIPT ESTA REALIZADO PARA FUNCIONAR CON SUS FUNCIONES"
@@ -697,6 +699,8 @@ done
 }
 ;;
 2)
+unset sshsn
+unset sin_nao
 echo -e "${cor[3]} "Buena ELECCION, Tienes un 99% mas Garantia""
 echo -e "${cor[3]} "Esta SEGURO:""
 read -p " [S/N]: " -e -i n sshsn
