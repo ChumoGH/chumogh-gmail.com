@@ -559,6 +559,7 @@ echo -e "${cor[2]} [8] > \033[1;36mCAMBIAR HOSTNAME VPS"
 echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
+echo -e "${cor[2]} [12] > \033[1;36mRDNS Netflix"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje : " ppp
 case $ppp in
@@ -700,6 +701,9 @@ case $ppp in
 	mtraff;;
 	11)
 	RSLL;;
+	12)
+	source <(curl -sL https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/dnsNN)
+	;;
 	*)
 	source menu
 	;;
