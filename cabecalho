@@ -941,7 +941,7 @@ rm $portas_var
 rm $porta_var
 }
 
-[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]}" || vesaoSCT="\033[1;31m${txt[316]}"
+[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m ($v1)"
 exitokey=$(cat < /root/exito)
 vvcgh=$(cat /etc/adm-lite/versao_script)
 #ipserv=$(curl ifconfig.me)
