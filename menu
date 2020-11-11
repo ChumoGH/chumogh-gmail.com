@@ -541,66 +541,6 @@ exit
 ;;
 7)
 clear
-    echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-    echo -e "${cor[2]} \033[1;32m          * ESTA OPCION ES EXPERIMENTAL *"
-    echo -e "${cor[2]} \033[1;32mPara continuar debes tener configurado un dominio en el VPS"
-    echo -e "${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP"
-    echo -e "${cor[2]} \033[1;35m***********************************************************"
-    echo -e "Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir";
-	echo -ne "OPCION: ";read yn
-    if [[ $yn = @(s|S|y|Y) ]];
-	then
-        echo -e "Dijitaste que Si, Vamos a Proseguir" 
-        mkdir -p chumogh
-        cd chumogh
-		wget -q https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/cgh-v2ray.sh
-        chmod +x cgh-v2ray.sh
-        ./cgh-v2ray.sh
-        cd
-        cd
-        rm -rf chumogh
-		exit
-		else
-        echo "NO CUMPLES REQUISITOS, Vamos a volver al menu"
-		source menu
-    fi
-echo -e "${cor[1]} INSTALACION FINALIZADA!!!!! ${cor[0]}"
-echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
-read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 5;
-souce menu
-;;
-8)
-if [[ -e /etc/bash.bashrc-bakup ]]; then
-mv -f /etc/bash.bashrc-bakup /etc/bash.bashrc
-cat /etc/bash.bashrc | grep -v "/bin/adm" > /tmp/bash
-mv -f /tmp/bash /etc/bash.bashrc
-echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[2]} \033[1;32mAUTOEJECUCION DESACTIVADA"
-echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
-elif [[ -e /etc/bash.bashrc ]]; then
-cat /etc/bash.bashrc|grep -v /bin/cgh > /etc/bash.bashrc.2
-echo '/bin/adm' >> /etc/bash.bashrc.2
-cp /etc/bash.bashrc /etc/bash.bashrc-bakup
-mv -f /etc/bash.bashrc.2 /etc/bash.bashrc
-echo 'menu' > /bin/adm
-chmod +x /bin/adm
-echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[2]} \033[1;32mAUTOEJECUCION ACTIVADA"
-echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
-fi
-sleep 2s
-source menu
-exit
-;;
-9)
-$value > /dev/null 2>&1
-chmod +x /etc/adm-lite/*
-[[ -e /etc/adm-lite/idioma_menuinst ]] && idioma=$(cat /etc/adm-lite/idioma_menuinst|head -1) || idioma="pt"
-value=$(vary_rex "2f6574632f61646d2d6c6974652f6d656e755f696e7374")
-${value} ${idioma}
-;;
-10)	
-clear
 source cabecalho
 figlet -p -f slant < /root/name | lolcat
 echo -e "\033[1;37m      【     ★ ChumoGH Packet 2020 ★     】\033[0m"
@@ -768,7 +708,37 @@ read -rsp $'Presiona una TECLA o Espere 5 segundos para continuar...\n' -n 1 -t 
 source menu
 exit
 ;;
-11)
+8)
+if [[ -e /etc/bash.bashrc-bakup ]]; then
+mv -f /etc/bash.bashrc-bakup /etc/bash.bashrc
+cat /etc/bash.bashrc | grep -v "/bin/adm" > /tmp/bash
+mv -f /tmp/bash /etc/bash.bashrc
+echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
+echo -e "${cor[2]} \033[1;32mAUTOEJECUCION DESACTIVADA"
+echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+elif [[ -e /etc/bash.bashrc ]]; then
+cat /etc/bash.bashrc|grep -v /bin/cgh > /etc/bash.bashrc.2
+echo '/bin/adm' >> /etc/bash.bashrc.2
+cp /etc/bash.bashrc /etc/bash.bashrc-bakup
+mv -f /etc/bash.bashrc.2 /etc/bash.bashrc
+echo 'menu' > /bin/adm
+chmod +x /bin/adm
+echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
+echo -e "${cor[2]} \033[1;32mAUTOEJECUCION ACTIVADA"
+echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+fi
+sleep 2s
+source menu
+exit
+;;
+9)
+$value > /dev/null 2>&1
+chmod +x /etc/adm-lite/*
+[[ -e /etc/adm-lite/idioma_menuinst ]] && idioma=$(cat /etc/adm-lite/idioma_menuinst|head -1) || idioma="pt"
+value=$(vary_rex "2f6574632f61646d2d6c6974652f6d656e755f696e7374")
+${value} ${idioma}
+;;
+10)	
 figlet -p -f slant < /root/name
 echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 echo -e "${cor[2]} \033[1;32mESTA FUNCION AGREGARA EN EL CRONTAB UN AUTOEJECUCION"
@@ -823,6 +793,7 @@ case $rrr in
 	esac
 sleep 1
 source menu
+;;
 ;;
 99)
 fun_atualizar
