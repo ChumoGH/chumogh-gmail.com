@@ -241,7 +241,7 @@ echo 3 > /proc/sys/vm/drop_caches
 sysctl -w vm.drop_caches=3 > /dev/null 2>&1
 rm -rf /tmp/*
 ##
-echo -ne " \033[1;31m[ ! ] Services BadVPN restart" >> /root/lm.log
+echo -ne " \033[1;31m[ ! ] Services BadVPN restart"
 kill -9 $(ps x | grep badvpn | grep -v grep | awk '{print $1'}) > /dev/null 2>&1
 killall badvpn-udpgw > /dev/null 2>&1
 unset pid_badvpn
