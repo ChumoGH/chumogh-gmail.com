@@ -830,7 +830,7 @@ b=$(sed -n "$i"p $porta_var | awk '{print $2}')
 #texto=""
 #fi
 if [[ $a = "apache2" ]];then
-texto="\033[1;34m ▸ \033[1;37mAPACHE: \033[1;31mON"
+texto="\033[1;34m ▸ \033[1;37mAPACHE: \033[1;31m$b"
 fi
 if [[ $a = "openvpn" ]];then
 texto="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$b"
@@ -879,9 +879,6 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 #if [[ $c = "systemd-r" ]];then
 #texto_=""
 #fi
-if [[ $c = "apache2" ]];then
-texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31mON"
-fi
 if [[ $c = "apache2" ]];then
 texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31m$d"
 fi
@@ -939,11 +936,11 @@ __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{
 figlet -p -f slant < /root/name | lolcat
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
-echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}  ‣ \033[1;37m${txt[346]} \033[1;31m$cpuss" 
-echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]}  ‣ \033[1;37m${txt[2]} $__vencidos"
+echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}       ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
+echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]}            ‣ \033[1;37m${txt[2]} $__vencidos"
 echo -e "${cor[2]} ‣ \033[1;37m${txt[3]} $_os ${cor[2]}  ‣  \033[1;37m Base: \033[1;31m$modelo1 "
-msg -bar#echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
-echo -e "${cor[1]}\033[1;37m Key:${cor[1]}$exitokey "
+msg -bar #echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
+echo -e "${cor[1]}\033[1;37m Key: ${cor[1]}$exitokey "
 msg -bar
 ports_
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪•••••••••••• ${cor[0]}"
