@@ -16,7 +16,16 @@ obfsports=`netstat -tunlp | grep obfs | grep 0.0.0.0: | awk '{print substr($4,9)
 v2rayports=`netstat -tunlp | grep v2ray | grep LISTEN | grep -vE '127.0.0.1' | awk '{print substr($4,4); }' > /tmp/v2.txt && echo | cat /tmp/v2.txt | tr '\n' ' ' > /etc/adm-lite/v2ports.txt && cat /etc/adm-lite/v2ports.txt`;
 cloakports=`netstat -tunlp | grep ck-server | grep LISTEN | grep -vE '127.0.0.1' | awk '{print substr($4,4); }' > /tmp/cloak.txt && echo | cat /tmp/cloak.txt | tr '\n' ' ' > /etc/adm-lite/cloakports.txt && cat /etc/adm-lite/cloakports.txt`;
 shadowrports=`netstat -tunlp | grep python | grep ::: | awk '{print substr($4,4); }' > /tmp/shadowr.txt && echo | cat /tmp/shadowr.txt | tr '\n' ' ' > /etc/adm-lite/shadowrports.txt && cat /etc/adm-lite/shadowrports.txt`;
-
+_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+##
+ram1=$(free -h | grep -i mem | awk {'print $2'})
+ram2=$(free -h | grep -i mem | awk {'print $4'})
+ram3=$(free -h | grep -i mem | awk {'print $3'})
+##
+_ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
+_usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+##
 # Funcoes Globais
 msg () {
 local colors="/etc/new-adm-color"
@@ -937,9 +946,9 @@ __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{
 figlet -p -f slant < /root/name | lolcat
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
-echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}       ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
-echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]}            ‣ \033[1;37m${txt[2]} $__vencidos"
-echo -e "${cor[2]} ‣ \033[1;37m${txt[3]} $_os ${cor[2]}  ‣  \033[1;37m Base: \033[1;31m$modelo1 "
+echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]} ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
+echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]} ‣ \033[1;37m${txt[2]} $__vencidos"
+echo -e "${cor[2]} ‣ \033[1;37m${txt[3]} $_os ${cor[2]} ‣ \033[1;37m Base: \033[1;31m$modelo1 "
 msg -bar #echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 echo -e "${cor[1]}\033[1;37m Key: ${cor[1]}$exitokey "
 msg -bar
