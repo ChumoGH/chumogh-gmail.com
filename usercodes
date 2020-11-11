@@ -108,7 +108,7 @@ echo "senha: $pass" > $dir_user/$nome
 echo "limite: $limit" >> $dir_user/$nome
 echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
-echo -e "                Despues de expirar !!!!"
+echo -e "               Despues de expirar !!!!"
 echo -e "  Este usuario sera desconectados y eliminados."
 echo -ne "${cor[2]}"
 bash /etc/usuariosteste/$nome.sh &
