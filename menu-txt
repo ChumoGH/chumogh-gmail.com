@@ -9,16 +9,6 @@ csss=$(cat /proc/cpuinfo | grep processor | wc -l)
 usoo=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
 CPU=$(echo $usoo | awk '{printf("%d\n",$1 + 0.5)}')
 ##
-_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
-_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
-##
-ram1=$(free -h | grep -i mem | awk {'print $2'})
-ram2=$(free -h | grep -i mem | awk {'print $4'})
-ram3=$(free -h | grep -i mem | awk {'print $3'})
-##
-_ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
-_usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
-##
 opti=$(cat < /bin/ejecutar/val)
 if [ "$opti" = "0" ]; then
 _opti="\033[1;31m${txt[11]}"
