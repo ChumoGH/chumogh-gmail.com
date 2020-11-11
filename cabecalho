@@ -943,8 +943,6 @@ rm $porta_var
 
 [[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m ($v1)"
 exitokey=$(cat < /root/exito)
-vvcgh=$(cat /etc/adm-lite/versao_script)
-#ipserv=$(curl ifconfig.me)
 cpuss=$(cat /proc/cpuinfo | grep processor | wc -l)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
 __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
@@ -954,7 +952,7 @@ msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪
 [[ "$VERIFICAR" = "on" ]] && 
 echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]} ‣ \033[1;37m${txt[2]} $__vencidos"
 echo -e "${cor[2]} ‣ \033[1;37m${txt[3]} $_os ${cor[2]} ‣ \033[1;37m Base: \033[1;31m$modelo1 "
-echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]} ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
+echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}  ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
 msg -bar #echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 echo -e "${cor[1]}\033[1;37m Key: ${cor[1]}$exitokey "
 msg -bar
