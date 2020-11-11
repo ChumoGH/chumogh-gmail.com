@@ -77,7 +77,7 @@ sysctl -w vm.drop_caches=3 > /dev/null 2>&1
 rm -rf /tmp/*
 #echo -e "${cor[5]} ${txt[118]}"
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
-bash /etc/adm-lite/netflix.sh
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/netflix.sh)
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
 echo -e "${cor[1]} SOLO UTILIZA EL PUERTO 7200 EN UDP PARA USAR ${cor[0]}"
 echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ${cor[0]}"
