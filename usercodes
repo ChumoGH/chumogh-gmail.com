@@ -1,5 +1,7 @@
 #!/bin/bash
 #user=$(echo ${saks:0:5})
+cco=1
+uskk=$(cat /bin/ejecutar/uskill)
 os_version=$(lsb_release -sr);
 distribution=$(lsb_release -si);
 fun_ovpn_onl () {
@@ -85,6 +87,9 @@ kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
 rm -f ./$CLIENT.ovpn > /dev/null
 rm -rf /etc/usuariosteste/$nome.sh
+uskk=$(cat /bin/ejecutar/uskill)
+let uskk=$uskk+$cco
+echo $uskk > /bin/ejecutar/uskill
 exit" > /etc/usuariosteste/$nome.sh
 figlet  $nome | lolcat
 echo -e "${cor[5]} * ${txt[353]} *"
@@ -301,11 +306,14 @@ fi
 userdel --force $name > /dev/null 2>/dev/null
 kill -9 `ps aux |grep -vi '[a-z]$name' |grep -vi '$name[a-z]' |grep -v '[1-9]$name' |grep -v '$name[1-9]' |grep $name |awk {'print $2'}` 2> /dev/null
 pid_kill=$(function_dropb | grep "$name" | awk '{print $2}')
+uskk=$(cat /bin/ejecutar/uskill)
+let uskk=$uskk+$cco
+echo $uskk > /bin/ejecutar/uskill
 if [ "$pid_kill" != "" ]; then
 drop_kill $name
 fi
-if [ -e $dir_user/$name ]; then
-rm $dir_user/$name
+if [ -e /etc/usuariosteste/$name ]; then
+rm /etc/usuariosteste/$name
 fi
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e " $name ${cor[2]} ${txt[45]} "
@@ -324,6 +332,9 @@ open_2 $name
 userdel --force $name > /dev/null 2>&1
 kill -9 `ps aux |grep -vi '[a-z]$name' |grep -vi '$name[a-z]' |grep -v '[1-9]$name' |grep -v '$name[1-9]' |grep $name |awk {'print $2'}`  > /dev/null 2>&1
 pid_kill=$(function_dropb | grep "$name" | awk '{print $2}')
+uskk=$(cat /bin/ejecutar/uskill)
+let uskk=$uskk+$cco
+echo $uskk > /bin/ejecutar/uskill
 if [ "$pid_kill" != "" ]; then
 drop_kill $name
 fi
@@ -546,6 +557,9 @@ echo $diff|grep -q ^\- && continue
 userdel --force $user > /dev/null 2>/dev/null
 kill -9 `ps aux |grep -vi '[a-z]$user' |grep -vi '$user[a-z]' |grep -v '[1-9]$user' |grep -v '$user[1-9]' |grep $user |awk {'print $2'}` 2> /dev/null
 pid_kill=$(function_dropb | grep "$user" | awk '{print $2}')
+uskk=$(cat /bin/ejecutar/uskill)
+let uskk=$uskk+$cco
+echo $uskk > /bin/ejecutar/uskill
 [[ "$pid_kill" != "" ]] && drop_kill $user
 [[ "$OPENVPN" = "on" ]] && open_2 $name
 [[ -e $dir_user/$user ]] && rm $dir_user/$user
