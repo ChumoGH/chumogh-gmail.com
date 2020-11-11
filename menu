@@ -793,7 +793,6 @@ case $rrr in
 sleep 1
 source menu
 ;;
-;;
 99)
 fun_atualizar
 exit
