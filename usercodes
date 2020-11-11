@@ -83,13 +83,14 @@ return
 fi
 echo "#!/bin/bash
 sleep $tempo
+cco=1
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
-rm -f ./$CLIENT.ovpn > /dev/null
-rm -rf /etc/usuariosteste/$nome.sh
 uskk=$(cat /bin/ejecutar/uskill)
 let uskk=$uskk+$cco
 echo $uskk > /bin/ejecutar/uskill
+rm -f ./$CLIENT.ovpn > /dev/null
+rm -rf /etc/usuariosteste/$nome.sh
 exit" > /etc/usuariosteste/$nome.sh
 figlet  $nome | lolcat
 echo -e "${cor[5]} * ${txt[353]} *"
