@@ -22,7 +22,7 @@ echo -e "\033[1;31m ${txt[203]}: $1"
 
 #ATUALIZACAO
 atualiza_fun () {
-msg -bar  #echo -e "${cor[1]} =================================== ${cor[0]}"
+echo -e "${cor[1]} =================================== ${cor[0]}"
 cd $HOME
 [[ ! -d ./update ]] && mkdir ./update
 cd ./update
@@ -43,7 +43,7 @@ done
   [[ -d $HOME/update ]] && rm -rf $HOME/update
   [[ "$lista_atualizados" != "" ]] && echo -e "${cor[5]} $lista_atualizados ${txt[206]}"
   [[ -e /etc/adm-lite/idioma ]] && rm /etc/adm-lite/idioma
-msg -bar #echo -e "${cor[1]} =================================== ${cor[0]}"
+  echo -e "${cor[1]} =================================== ${cor[0]}"
 }
 
 #CORES
