@@ -54,12 +54,12 @@ cor[4]="\033[1;33m"
 cor[0]="\033[1;37m"
 
 #TEXTOS
-txt[206]="Archivitos Actualizados!"
+txt[206]="Archivito(s) Actualizado(s)!"
 txt[208]="Invalid Key, Contact the Script Admin!"
 txt[207]="Valid!!!"
-txt[203]="Verificando"
-txt[204]="Archivitos"
-txt[205]="Actualizados"
+txt[203]="☹"
+txt[204]="㋡--->"
+txt[205]="Actualizado"
 
 cd $HOME
 [[ -d $HOME/update ]] && rm -rf $HOME/update
