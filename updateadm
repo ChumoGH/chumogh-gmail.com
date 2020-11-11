@@ -38,7 +38,9 @@ done
   done
   [[ -e /etc/adm-lite/vencidos ]] && rm /etc/adm-lite/vencidos
   [[ -e /etc/adm-lite/onlines ]] && rm /etc/adm-lite/onlines
+  
   [[ -e /bin/ejecutar/uskill ]] && ukk=$(cat /bin/ejecutar/uskill) || echo 0 > /bin/ejecutar/uskill 
+  [[ $ukk = "" ]] && echo 0 > /bin/ejecutar/uskill
   [[ -e $HOME/lista ]] && rm $HOME/lista
   [[ -d $HOME/update ]] && rm -rf $HOME/update
   [[ "$lista_atualizados" != "" ]] && echo -e "${cor[5]} $lista_atualizados ${txt[206]}"
