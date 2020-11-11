@@ -16,6 +16,46 @@ v2rayports=`netstat -tunlp | grep v2ray | grep LISTEN | grep -vE '127.0.0.1' | a
 cloakports=`netstat -tunlp | grep ck-server | grep LISTEN | grep -vE '127.0.0.1' | awk '{print substr($4,4); }' > /tmp/cloak.txt && echo | cat /tmp/cloak.txt | tr '\n' ' ' > /etc/adm-lite/cloakports.txt && cat /etc/adm-lite/cloakports.txt`;
 shadowrports=`netstat -tunlp | grep python | grep ::: | awk '{print substr($4,4); }' > /tmp/shadowr.txt && echo | cat /tmp/shadowr.txt | tr '\n' ' ' > /etc/adm-lite/shadowrports.txt && cat /etc/adm-lite/shadowrports.txt`;
 
+# Funcoes Globais
+msg () {
+local colors="/etc/new-adm-color"
+if [[ ! -e $colors ]]; then
+COLOR[0]='\033[1;37m' #BRAN='\033[1;37m'
+COLOR[1]='\e[31m' #VERMELHO='\e[31m'
+COLOR[2]='\e[32m' #VERDE='\e[32m'
+COLOR[3]='\e[33m' #AMARELO='\e[33m'
+COLOR[4]='\e[34m' #AZUL='\e[34m'
+COLOR[5]='\e[91m' #MAGENTA='\e[35m'
+COLOR[6]='\033[1;97m' #MAG='\033[1;36m'
+else
+local COL=0
+for number in $(cat $colors); do
+case $number in
+1)COLOR[$COL]='\033[1;37m';;
+2)COLOR[$COL]='\e[31m';;
+3)COLOR[$COL]='\e[32m';;
+4)COLOR[$COL]='\e[33m';;
+5)COLOR[$COL]='\e[34m';;
+6)COLOR[$COL]='\e[35m';;
+7)COLOR[$COL]='\033[1;36m';;
+esac
+let COL++
+done
+fi
+NEGRITO='\e[1m'
+SEMCOR='\e[0m'
+ case $1 in
+  -ne)cor="${COLOR[1]}${NEGRITO}" && echo -ne "${cor}${2}${SEMCOR}";;
+  -ama)cor="${COLOR[3]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verm)cor="${COLOR[3]}${NEGRITO}[!] ${COLOR[1]}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verm2)cor="${COLOR[1]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -azu)cor="${COLOR[6]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+  -bra)cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}";;
+  "-bar2"|"-bar")cor="${COLOR[1]}•••••••••••••••••••••••••••••••••••••••••••••••••" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+ esac
+}
+
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
@@ -790,15 +830,33 @@ b=$(sed -n "$i"p $porta_var | awk '{print $2}')
 #texto=""
 #fi
 if [[ $a = "apache2" ]];then
-texto="\033[1;34m ▸ \033[1;37mWEB: \033[1;31mON"
+texto="\033[1;34m ▸ \033[1;37mAPACHE: \033[1;31mON"
+fi
+if [[ $a = "openvpn" ]];then
+texto="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$b"
+fi
+if [[ $a = "squid" ]];then
+texto="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$b"
+fi
+if [[ $a = "squid3" ]];then
+texto="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$b"
 fi
 if [[ $a = "dropbear" ]];then
 texto="\033[1;34m ▸ \033[1;37mDROPBEAR: \033[1;31m$b"
+fi
+if [[ $a = "python3" ]];then
+texto="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$b"
+fi
+if [[ $a = "python" ]];then
+texto="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$b"
 fi
 if [[ $a = "obfs-serv" ]];then
 texto="\033[1;34m ▸ \033[1;37mSSR (OBFS): \033[1;31m$b"
 fi
 if [[ $a = "sshd" ]];then
+texto="\033[1;34m ▸ \033[1;37mSSH: \033[1;31m$b"
+fi
+if [[ $a = "ssh" ]];then
 texto="\033[1;34m ▸ \033[1;37mSSH: \033[1;31m$b"
 fi
 if [[ $a = "systemd-r" ]];then
@@ -822,7 +880,22 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 #texto_=""
 #fi
 if [[ $c = "apache2" ]];then
-texto_="\033[1;34m ◂ \033[1;37mWEB: \033[1;31mON"
+texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31mON"
+fi
+if [[ $c = "apache2" ]];then
+texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31m$d"
+fi
+if [[ $c = "python3" ]];then
+texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
+fi
+if [[ $c = "python3" ]];then
+texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
+fi
+if [[ $c = "openvpn" ]];then
+texto_="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$d"
+fi
+if [[ $c = "squid3" ]];then
+texto_="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$d"
 fi
 if [[ $c = "dropbear" ]];then
 texto_="\033[1;34m ▸ \033[1;37mDROPBEAR: \033[1;31m$d"
@@ -831,6 +904,9 @@ if [[ $c = "obfs-serv" ]];then
 texto_="\033[1;34m ▸ \033[1;37mSSR (OBFS): \033[1;31m$d"
 fi
 if [[ $c = "sshd" ]];then
+texto_="\033[1;34m ◂ \033[1;37mSSH: \033[1;31m$d"
+fi
+if [[ $c = "ssh" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSSH: \033[1;31m$d"
 fi
 
@@ -859,16 +935,16 @@ exitokey=$(cat < /root/exito)
 cpuss=$(cat /proc/cpuinfo | grep processor | wc -l)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
 __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+#echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 figlet -p -f slant < /root/name | lolcat
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
-echo -e "${cor[2]} ● \033[1;37m${txt[1]} $__onlines ${cor[2]}  ● \033[1;37m${txt[2]} $__vencidos"
-echo -e "${cor[2]} ● \033[1;37m${txt[3]} $_os ${cor[2]}  ●  \033[1;37m Base: \033[1;31m$modelo1 "
-echo -e "${cor[2]} ● \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}  ● \033[1;37m${txt[346]} \033[1;31m$cpuss" 
-echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••  ${cor[0]}"
+echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}  ‣ \033[1;37m${txt[346]} \033[1;31m$cpuss" 
+echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]}  ‣ \033[1;37m${txt[2]} $__vencidos"
+echo -e "${cor[2]} ‣ \033[1;37m${txt[3]} $_os ${cor[2]}  ‣  \033[1;37m Base: \033[1;31m$modelo1 "
+msg -bar#echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 echo -e "${cor[1]}\033[1;37m Key:${cor[1]}$exitokey "
-echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••  ${cor[0]}"
+msg -bar
 ports_
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪•••••••••••• ${cor[0]}"
 echo -e "${cor[2]} ${vesaoSCT} ${cor[0]}"
