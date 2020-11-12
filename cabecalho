@@ -963,7 +963,7 @@ figlet -p -f slant < /root/name | lolcat
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
 echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]} ‣ \033[1;37m${txt[2]} $__vencidos ${cor[2]} ‣ \033[1;37m Eliminados: $ukk"
-echo -e "${cor[2]} ‣ \033[1;37m${txt[3]}$_os ${cor[2]} ‣ \033[1;37mBase:\033[1;31m$modelo1 ${cor[2]}‣ \033[1;37m${txt[346]}\033[1;31m$_core "
+echo -e "${cor[2]} ‣ \033[1;37m${txt[3]}$_os ${cor[2]} ‣ \033[1;37mBase:\033[1;31m$modelo1 ${cor[2]}‣ \033[1;37m${txt[346]}\033[1;31m $_core "
 echo -e "${cor[2]} ‣ \033[1;37m${txt[331]} \033[1;31m$__IP ${cor[2]}  ‣ \033[1;37mFECHA: \033[1;31m$_hora" 
 msg -bar #echo -e "${cor[2]} •••••••••••••••••••••••••••••••••••••••••••••••••  ${cor[0]}"
 echo -e "${cor[1]}\033[1;37m Key: ${cor[1]}$exitokey "
