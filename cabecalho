@@ -884,6 +884,9 @@ fi
 if [[ $a = "stunnel4" ]];then
 texto="\033[1;34m ▸ \033[1;37mSSL: \033[1;31m$b"
 fi
+if [[ $a = "v2ray" ]];then
+texto="\033[1;34m ◂ \033[1;37mV2RAY: \033[1;31m$b"
+fi
 if [[ $a = "badvpn-ud" ]];then
 texto="\033[1;34m ▸ \033[1;37mBadVPN: \033[1;31mON"
 fi
@@ -901,7 +904,7 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 if [[ $c = "apache2" ]];then
 texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31m$d"
 fi
-if [[ $c = "python3" ]];then
+if [[ $c = "python" ]];then
 texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
 fi
 if [[ $c = "python3" ]];then
@@ -911,6 +914,9 @@ if [[ $c = "openvpn" ]];then
 texto_="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$d"
 fi
 if [[ $c = "squid3" ]];then
+texto_="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$d"
+fi
+if [[ $c = "squid" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$d"
 fi
 if [[ $c = "dropbear" ]];then
@@ -925,7 +931,9 @@ fi
 if [[ $c = "ssh" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSSH: \033[1;31m$d"
 fi
-
+if [[ $c = "v2ray" ]];then
+texto_="\033[1;34m ◂ \033[1;37mV2RAY: \033[1;31m$d"
+fi
 if [[ $c = "systemd-r" ]];then
 texto_="\033[1;34m ◂ \033[1;37mKernel: \033[1;31m$d"
 fi
@@ -945,7 +953,7 @@ rm $portas_var
 rm $porta_var
 }
 
-[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m ($v1)"
+[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m ($v2) ► \033[1;32m ($v1)\033[1;31m]"
 exitokey=$(cat < /root/exito)
 cpuss=$(cat /proc/cpuinfo | grep processor | wc -l)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
