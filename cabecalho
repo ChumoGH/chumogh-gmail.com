@@ -953,7 +953,7 @@ rm $portas_var
 rm $porta_var
 }
 
-[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m ($v2) ► \033[1;32m ($v1)\033[1;31m]"
+[[ $v1 = $v2 ]] && vesaoSCT="\033[1;32m${txt[315]} \033[0;33m ($v2)" || vesaoSCT="\033[1;31m${txt[316]}\033[0;33m($v2) ► \033[1;32m($v1)\033[1;31m"
 exitokey=$(cat < /root/exito)
 cpuss=$(cat /proc/cpuinfo | grep processor | wc -l)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
