@@ -179,7 +179,7 @@ else
         uport="5000"
     fi
 fi
-if [[ -z "${un}" ]];then
+if [[ -z "${ur}" ]];then
     ur="$IP"
 fi
 if [[ -z "${un}" ]];then
