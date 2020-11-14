@@ -624,7 +624,7 @@ read -p " [S/N]: " -e -i S newfile
   echo -e "\033[1;31m ${txt[320]} ($HOME/$CLIENT.zip)"
   echo -e "\033[1;32m ${txt[321]} ( * menu * opcion 2 * opcion 8 )"
   }
-rm ./$CLIENT.ovpn
+rm -f ./$CLIENT.ovpn
 cd /etc/adm-lite
 echo "senha: $senha" > $dir_user/$CLIENT
 echo "limite: $limit" >> $dir_user/$CLIENT
