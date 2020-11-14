@@ -366,6 +366,7 @@ txt[352]="Puertas Activas en su Servidor"
 txt[353]="Registrar Usuario Temporal"
 txt[354]="DESACTIVAR KILL MULTILOGUIN"
 txt[355]="ACTIVAR KILL MULTILOGUIN"
+txt[356]="ChumoGH"
 echo "${txt[0]}" > $_dr
 for((_cont=1; _cont<${#txt[@]}; _cont++)); do
 echo "${txt[$_cont]}" >> $_dr
