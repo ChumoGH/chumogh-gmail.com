@@ -109,7 +109,7 @@ echo "limite: $limit" >> $dir_user/$nome
 echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
 echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
-echo -e "-----      $IP:PORT@$nome:$pass           -------"
+echo -e "-----${cor[4]}      $IP${cor[2]}:${cor[5]}PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass "
 echo -e "               Despues de expirar !!!!"
 echo -e "  Este usuario sera desconectados y eliminados."
 echo -ne "${cor[2]}"
@@ -281,7 +281,7 @@ echo "senha: $pass" > $dir_user/$name
 echo "limite: $limit" >> $dir_user/$name
 echo "data: $valid" >> $dir_user/$name
 echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
-echo -e "-----      $IP:PORT@$name:$pass           -------"
+echo -e "-----${cor[4]}      $IP${cor[2]}:${cor[5]}PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass "
 echo -ne "${cor[2]}"
 return
 }
