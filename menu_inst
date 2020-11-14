@@ -1079,6 +1079,10 @@ echo -e "$(source trans -b pt:${id} "Procedimento Concluido")\n${barra}"
 return 0
 }
 
+inisocks () {
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/sockspy.sh)
+}
+
 iniciarsocks () {
 pstop () {
 [[ -e /etc/adm-lite/sockson ]] && {
