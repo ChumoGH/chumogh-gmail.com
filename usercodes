@@ -108,6 +108,8 @@ echo "senha: $pass" > $dir_user/$nome
 echo "limite: $limit" >> $dir_user/$nome
 echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
+echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
+echo -e "$IP:PORT@$nome:$pass"
 echo -e "               Despues de expirar !!!!"
 echo -e "  Este usuario sera desconectados y eliminados."
 echo -ne "${cor[2]}"
@@ -255,6 +257,8 @@ echo -e "${cor[5]} ${txt[34]} ${cor[4]}$name"
 echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$datexp"
+echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
+echo -e "-----      $IP:PORT@$nome:$pass           -------"
 echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 rm -rf ./$CLIENT.ovpn > /dev/null 2>&1
 rm -f ./$CLIENT.ovpn > /dev/null 2>&1
