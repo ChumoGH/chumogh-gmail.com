@@ -6,7 +6,7 @@ usoo=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print u
 CPU=$(echo $usoo "%" | awk '{printf("%d\n",$1 + 0.5)}')
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[14]} ${txt[356]}"
-echo -e "\033[1;34m ▸ M Total: $mt\033[1;34m ▸ M Libre: $mf\033[1;34m ▸ Uso CPU: $_usop "
+echo -e "\033[1;34m ▸ M Total: \033[1;32m$mt\033[1;34m ▸ M Libre: \033[1;32m$mf\033[1;34m ▸ Uso CPU:\033[1;32m $_usop "
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} [0] >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[353]}"
