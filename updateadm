@@ -38,13 +38,16 @@ done
   done
   [[ -e /etc/adm-lite/vencidos ]] && rm /etc/adm-lite/vencidos
   [[ -e /etc/adm-lite/onlines ]] && rm /etc/adm-lite/onlines
-  
   [[ -e /bin/ejecutar/uskill ]] && ukk=$(cat /bin/ejecutar/uskill) || echo 0 > /bin/ejecutar/uskill 
+  [[ -e /root/exito ]] && ex=$(cat /root/exito) || echo  echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2020" > /root/exito
   [[ $ukk = "" ]] && echo 0 > /bin/ejecutar/uskill
+  [[ $ex = "" ]] && echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2020" > /root/exito
   [[ -e $HOME/lista ]] && rm $HOME/lista
   [[ -d $HOME/update ]] && rm -rf $HOME/update
   [[ "$lista_atualizados" != "" ]] && echo -e "${cor[5]} $lista_atualizados ${txt[206]}"
   [[ -e /etc/adm-lite/idioma ]] && rm /etc/adm-lite/idioma
+  echo -e "${cor[1]} =================================== ${cor[0]}"
+  cat /root/exito
   echo -e "${cor[1]} =================================== ${cor[0]}"
 }
 
