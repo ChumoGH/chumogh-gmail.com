@@ -4,10 +4,10 @@ mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
 usoo=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
 CPU=$(echo $usoo "%" | awk '{printf("%d\n",$1 + 0.5)}')
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[14]} ☽ ChumoGH ☾"
-echo -e " ◇ M Total:" $mt "◇ M Libre:" $mf "◇ Uso CPU:" $CPU"% ."
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[14]} ${txt[356]}"
+echo -e "\033[1;34m ▸ M Total: $mt\033[1;34m ▸ M Libre: $mf\033[1;34m ▸ Uso CPU: $_usop "
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[2]} [0] >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[353]}"
 echo -e "${cor[2]} [2] >${cor[3]} ${txt[15]}"
@@ -24,5 +24,4 @@ else
 echo -e "\033[1;31m\033[1;36m \033[1;31m(DESATIVADO) \033[1;36m ${txt[355]}\033[0m"
 fi
 #echo -e "${cor[2]} [10] >${cor[3]} ${txt[254]} $limiter_on ✈ "
-
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
