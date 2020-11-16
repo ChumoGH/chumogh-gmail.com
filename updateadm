@@ -40,8 +40,11 @@ done
   [[ -e /etc/adm-lite/onlines ]] && rm /etc/adm-lite/onlines
   [[ -e /bin/ejecutar/uskill ]] && ukk=$(cat /bin/ejecutar/uskill) || echo 0 > /bin/ejecutar/uskill 
   [[ -e /root/exito ]] && ex=$(cat /root/exito) || echo  echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2020" > /root/exito
+  [[ -e /root/name ]] && nm=$(cat /root/name) || echo  echo "ChumoGH" > /root/exito
+  rm -f /root/*
+  [[ $nm = $nm ]] && echo $nm > /root/name
   [[ $ukk = "" ]] && echo 0 > /bin/ejecutar/uskill
-  [[ $ex = "" ]] && echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2020" > /root/exito
+  [[ $ex = $ex ]] && echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2020" > /root/exito
   [[ -e $HOME/lista ]] && rm $HOME/lista
   [[ -d $HOME/update ]] && rm -rf $HOME/update
   [[ "$lista_atualizados" != "" ]] && echo -e "${cor[5]} $lista_atualizados ${txt[206]}"
