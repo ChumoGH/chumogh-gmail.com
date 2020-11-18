@@ -28,7 +28,7 @@ Gracias Por Usar ChumoGH VPS
 <font color="purple">Verified【 ★ ChumoGH ★ 】 ADM 2020</font></center>
 ' > /etc/bannerssh
 echo "BANNER AGREGADO |||| REINTENTE"
-fun_dropbear
+installdropbear
 }
 
 function dropbearuniversal(){
