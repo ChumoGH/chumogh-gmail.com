@@ -2,6 +2,7 @@
 #user=$(echo ${saks:0:5})
 cco=1
 uskk=$(cat /bin/ejecutar/uskill)
+
 os_version=$(lsb_release -sr);
 distribution=$(lsb_release -si);
 fun_ovpn_onl () {
