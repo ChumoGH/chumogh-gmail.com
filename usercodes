@@ -3,7 +3,8 @@
 cco=1
 uskk=$(cat /bin/ejecutar/uskill)
 fk () {
-echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
+#echo -e "\033[1;39m "
+echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41mEn APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
 if [ -f /etc/default/dropbear ]
 then
 #echo -e "\033[1;39mPara uso Dropbear usa la Sintaxis"
@@ -19,10 +20,11 @@ then
 #echo -e "\033[1;39mPara uso SSL usa la Sintaxis"
 sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
-echo -e "【 SSL  ${cor[4]}  $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
+echo -e "【 SSL  >${cor[4]}  $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
 else
 echo -e "\033[1;39mNo existe SSSl"
 fi
+msg -bar
 }
 os_version=$(lsb_release -sr);
 distribution=$(lsb_release -si);
@@ -99,7 +101,7 @@ echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
 echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$datexp"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar
 rm -f ./$CLIENT.ovpn > /dev/null
 return
 fi
@@ -125,12 +127,11 @@ echo -e "${cor[5]} ${txt[34]} ${cor[4]}$nome"
 echo -e "${cor[5]} ${txt[35]} ${cor[4]}$pass"
 echo -e "${cor[5]} ${txt[36]} ${cor[4]}$limit"
 echo -e "${cor[5]} ${txt[37]} ${cor[4]}$tempo"
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar
 echo "senha: $pass" > $dir_user/$nome
 echo "limite: $limit" >> $dir_user/$nome
 echo "data: $valid" >> $dir_user/$nome
 echo -ne "${cor[2]}"
-echo -e "\033[1;39m En APPS como KPN Rev,APKCUSTOM, etc."
 #####
 fk
 ######
