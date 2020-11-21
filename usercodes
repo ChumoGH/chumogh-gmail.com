@@ -4,7 +4,7 @@ cco=1
 uskk=$(cat /bin/ejecutar/uskill)
 fk () {
 #echo -e "\033[1;39m "
-echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41mEn APPS como HTTP Inyector,CUSTOM,,KPN Rev etc"
+echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41mEn APPS como HTTP Inyector,CUSTOM,KPN Rev,etc"
 if [ -f /etc/default/dropbear ]
 then
 #echo -e "\033[1;39mPara uso Dropbear usa la Sintaxis"
