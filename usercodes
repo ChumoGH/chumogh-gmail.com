@@ -3,22 +3,23 @@
 cco=1
 uskk=$(cat /bin/ejecutar/uskill)
 fk () {
+echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
 if [ -f /etc/default/dropbear ]
 then
-echo -e "\033[1;39mPara uso Dropbear usa la Sintaxis"
+#echo -e "\033[1;39mPara uso Dropbear usa la Sintaxis"
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 PORT=$(cat /etc/adm-lite/dropbearports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
-echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
+echo -e "【 Dropbear >${cor[4]}   $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
 else
 echo -e "\033[1;39mNo existe Dropbear"
 fi
 ######
 if [ -f /etc/stunnel/stunnel.conf ]
 then
-echo -e "\033[1;39mPara uso SSL usa la Sintaxis"
+#echo -e "\033[1;39mPara uso SSL usa la Sintaxis"
 sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
-echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
+echo -e "【 SSL  ${cor[4]}  $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
 else
 echo -e "\033[1;39mNo existe SSSl"
 fi
@@ -304,27 +305,7 @@ msg -bar  #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪�
 echo "senha: $pass" > $dir_user/$name
 echo "limite: $limit" >> $dir_user/$name
 echo "data: $valid" >> $dir_user/$name
-echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
-if [ -f /etc/default/dropbear ]
-then
-echo -e "\033[1;39mPara uso Dropbear usa la Sintaxis"
-dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
-PORT=$(cat /etc/adm-lite/dropbearports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
-echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
-else
-echo -e "\033[1;39mNo existe Dropbear"
-fi
-######
-if [ -f /etc/stunnel/stunnel.conf ]
-then
-echo -e "\033[1;39mPara uso SSL usa la Sintaxis"
-sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
-PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
-echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
-else
-echo -e "\033[1;39mNo existe Dropbear"
-fi
-#echo -e "-----${cor[4]}      $IP${cor[2]}:${cor[5]}PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass "
+fk
 echo -ne "${cor[2]}"
 return
 }
