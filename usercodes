@@ -117,7 +117,7 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 PORT=$(cat /etc/adm-lite/dropbearports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
 else
-
+echo -e "\033[1;39mNo existe Dropbear"
 fi
 ######
 if [ -f /etc/stunnel/stunnel.conf ]
@@ -127,7 +127,7 @@ sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4
 PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 echo -e "【  ${cor[4]}    $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass      】"
 else
-
+echo -e "\033[1;39mNo existe SSSl"
 fi
 ######
 #echo -e "-----${cor[4]}      $IP${cor[2]}:${cor[5]}PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass "
