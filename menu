@@ -9,6 +9,10 @@ inisocks () {
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/sockspy.sh)
 }
 
+chora () {
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/hora.sh)
+}
+
 function removerbadvpn(){
 badvpn stop
 killall badvpn-udpgw
@@ -564,8 +568,9 @@ echo -e "${cor[2]} [8] > \033[1;36mCAMBIAR HOSTNAME VPS"
 echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
-echo -e "${cor[2]} [12] > \033[1;36m DNS Netflix"
+echo -e "${cor[2]} [12] > \033[1;36mDNS Netflix"
 echo -e "${cor[2]} [13] > \033[1;36mSOCKS PYTHON"
+echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje : " ppp
 case $ppp in
@@ -712,6 +717,9 @@ case $ppp in
 	;;
 	13)
 	inisocks
+	;;
+	14)
+	chora
 	;;
 	*)
 	source menu
