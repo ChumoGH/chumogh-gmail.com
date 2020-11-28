@@ -12,7 +12,7 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 PORT=$(cat /etc/adm-lite/dropbearports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 echo -e "【 Dropbear >${cor[4]}   $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
 else
-echo -e "\033[1;39mNo existe Dropbear"
+echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41mNo existe Dropbear"
 fi
 ######
 if [ -f /etc/stunnel/stunnel.conf ]
@@ -22,7 +22,8 @@ sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4
 PORT=$(cat /etc/adm-lite/sslports.txt  | sed 's/\s\+/,/g' | cut -d , -f1)
 echo -e "【   SSL    > ${cor[4]}  $IP${cor[2]}:${cor[5]}$PORT${cor[2]}@${cor[4]}$name${cor[2]}:${cor[4]}$pass   】"
 else
-echo -e "\033[1;39mNo existe SSSl"
+echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41mNo existe SSL"
+#echo -e "\033[1;39m"
 fi
 msg -bar
 }
@@ -48,6 +49,7 @@ if [ "$tmm" = "d" ]; then
 ext=$(echo $tempo |sed 's/[a-z]//g')
 let tempo=$ext*24
 tempo=$tempo"h"
+#echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41m"
 else
 tempo=$(echo "$tempoin" |sed 's/ //g')
 ext=1
