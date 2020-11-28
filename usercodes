@@ -41,8 +41,8 @@ done
 
 time-us () {
 if [[ -z "${tempoin}" ]];then
-    tempoin="1d"
-    echo "Default 24 Horas"
+    tempoin="30m"
+    echo "Default 30 minutos"
 fi
 tempo=$(echo "$tempoin" |sed 's/ //g')
 tmm=$(echo $tempo |sed 's/[0-9]//g')
@@ -107,6 +107,9 @@ echo -e "${cor[5]} ${txt[31]} $nome"
 name=$nome
 read -p " ${txt[35]} " pass
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[5]} ${txt[32]}  $nome"
+echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
+read -p " ${txt[37]} " tempoin
 echo -e "${cor[5]} ${txt[33]}  $name"
 read -p " ${txt[36]} " limit
 if [[ -z "${limit}" ]];then
@@ -114,9 +117,6 @@ if [[ -z "${limit}" ]];then
     echo "Default 5 Logins"
 fi
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "${cor[5]} ${txt[32]}  $nome"
-echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
-read -p " ${txt[37]} " tempoin
 time-us
 valides=$(date '+%C%y-%m-%d' -d " +$ext days")
 useradd -M -s /bin/false $nome -e $valides
