@@ -36,6 +36,24 @@ echo "$userovpn"
 fi
 done
 }
+
+time-us () {
+if [[ -z "${tempoin}" ]];then
+    tempoin="1d"
+    echo "Default 24 Horas"
+fi
+tempo=$(echo "$tempoin" |sed 's/ //g')
+tmm=$(echo $tempo |sed 's/[0-9]//g')
+if [ "$tmm" = "d" ]; then
+ext=$(echo $tempo |sed 's/[a-z]//g')
+let tempo=$ext*24
+tempo=$tempo"h"
+else
+tempo=$(echo "$tempoin" |sed 's/ //g')
+ext=1
+fi
+}
+
 fun_barcgh () {
 comando[0]="$1"
 comando[1]="$2"
@@ -81,17 +99,22 @@ then
 echo -e "${cor[5]} ${txt[30]} ${cor[0]}"
 return
 fi
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[31]} $nome"
 name=$nome
 read -p " ${txt[35]} " pass
-echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+echo -e "${cor[5]} ${txt[33]}  $name"
+read -p " ${txt[36]} " limit
+if [[ -z "${limit}" ]];then
+    limit="5"
+    echo "Default 5 Logins"
+fi
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} ${txt[32]}  $nome"
 echo -e "  Use s = segundos, m = minutos, h = horas e d = dias EX: 14s ."
 read -p " ${txt[37]} " tempoin
-tempo=$(echo "$tempoin" |sed 's/ //g')
-ext=1
-limit=75
+time-us
 valides=$(date '+%C%y-%m-%d' -d " +$ext days")
 useradd -M -s /bin/false $nome -e $valides
 (echo $pass;echo $pass) |passwd $nome 1>/dev/null 2>/dev/null
