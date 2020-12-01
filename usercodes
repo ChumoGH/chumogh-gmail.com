@@ -118,7 +118,7 @@ do
 echo "$testus"
 done
 printf "\n"
-echo -e "${cor[5]} ${txt[28]}"; read -p " ⌐╦╦═─ : " nome
+echo -e "${cor[5]} ${txt[28]}"; read -p "Digita : " nome
 if [ -z $nome ]; then
 echo -e "${cor[5]} ${txt[29]} ${cor[0]}" 
 return
@@ -160,13 +160,11 @@ return
 fi
 echo "#!/bin/bash
 sleep $tempo
-cco=1
-kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
-userdel --force $nome
 uskk=$(cat /bin/ejecutar/uskill)
 uskk=$(( $uskk + 1 ))
-#let uskk=$uskk+$cco
 echo $uskk > /bin/ejecutar/uskill
+kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
+userdel --force $nome
 rm -rf ./$CLIENT.ovpn > /dev/null
 rm -rf /etc/usuariosteste/$nome.sh
 exit" > /etc/usuariosteste/$nome.sh
