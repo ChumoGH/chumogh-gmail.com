@@ -41,19 +41,45 @@ done
 
 time-us () {
 if [[ -z "${tempoin}" ]];then
-    tempoin="30m"
+    tempoin="30"
+    tempoin=$(( $tempoin * 60 ))
+    tempoin="'$tempoin's"
     echo "Default 30 minutos"
 fi
 tempo=$(echo "$tempoin" |sed 's/ //g')
 tmm=$(echo $tempo |sed 's/[0-9]//g')
+if [ "$tmm" = "s" ]; then
+ext=$(echo $tempo |sed 's/[a-z]//g')
+let tempo=$ext*1
+tempo=$tempo"s"
+#echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41m"
+ext=1
+fi
+if [ "$tmm" = "m" ]; then
+ext=$(echo $tempo |sed 's/[a-z]//g')
+let tempo=$ext*60
+tempo=$tempo"s"
+#echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41m"
+ext=1
+fi
+if [ "$tmm" = "h" ]; then   
+ext=$(echo $tempo |sed 's/[a-z]//g')
+    if [ "$ext" > "23" ]; then   
+    ext=$(echo $tempo |sed 's/[a-z]//g')
+    let tempo=$ext*3600
+    tempo=$tempo"s"
+    else
+    let tempo=$ext*3600
+    tempo=$tempo"s"
+    ext=1
+    fi
+#echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41m"
+fi
 if [ "$tmm" = "d" ]; then
 ext=$(echo $tempo |sed 's/[a-z]//g')
-let tempo=$ext*24
-tempo=$tempo"h"
+let tempo=$ext*3600
+tempo=$tempo"s"
 #echo -ne "$(msg -verd "") $(msg -verm2 "") "&& msg -bra "\033[1;41m"
-else
-tempo=$(echo "$tempoin" |sed 's/ //g')
-ext=1
 fi
 }
 
@@ -138,7 +164,8 @@ cco=1
 kill"' $(ps -u '"$nome |awk '{print"' $1'"}') 1>/dev/null 2>/dev/null
 userdel --force $nome
 uskk=$(cat /bin/ejecutar/uskill)
-let uskk=$uskk+$cco
+uskk=$(( $uskk + 1 ))
+#let uskk=$uskk+$cco
 echo $uskk > /bin/ejecutar/uskill
 rm -rf ./$CLIENT.ovpn > /dev/null
 rm -rf /etc/usuariosteste/$nome.sh
