@@ -43,7 +43,7 @@ time-us () {
 if [[ -z "${tempoin}" ]];then
     tempoin="30"
     tempoin=$(( $tempoin * 60 ))
-    tempoin="'$tempoin's"
+    tempoin=$tempoin"s"
     echo "Default 30 minutos"
 fi
 tempo=$(echo "$tempoin" |sed 's/ //g')
