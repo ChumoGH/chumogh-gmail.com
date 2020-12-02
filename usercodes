@@ -681,15 +681,17 @@ rm /bin/ejecutar/bannerssh
 #echo $ban_ner2 > $local
 fun_barcgh
 #echo '<h1><font>===================================</font></h1>' >> $local
-echo '<p style="text-align: center;"><strong><span style="color: #ff0000;">
-VPS&bull;MX&reg;</span> |&nbsp;</strong><span style="color: #0000ff;"><strong>'$credi'</strong></span></p>' >> $local
-
-echo '<br><font color="green">2020 ChumoGH, Inc</font>' >> $local
+credi=$(cat < /root/name)
+echo '<p style="text-align: center;"><strong><span style="color: #FF00FF;">匚卄ㄩ爪ㄖᎶ卄&reg;</span> |&nbsp;</strong><span style="color: #483D8B;"><strong>'$credi'</strong></span></p>' >> $local
+#echo '<br><font color="green">2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-service ssh restart > /dev/null 2>&1 &
-service sshd restart > /dev/null 2>&1 & 
-service dropbear restart > /dev/null 2>&1 &
+echo -ne " \033[1;31m[ ! ] Services dropbear restart"
+service dropbear restart > /dev/null 2>&1
+[[ -e /etc/init.d/dropbear ]] && /etc/init.d/dropbear restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
+echo -ne " \033[1;31m[ ! ] Services ssh restart"
+service ssh restart > /dev/null 2>&1
+[[ -e /etc/init.d/ssh ]] && /etc/init.d/ssh restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
 echo "EXITO"
 sleep 2s
 exit 
@@ -803,7 +805,7 @@ unset sshsn
 unset sin_nao
 echo -e "${cor[3]} "Buena ELECCION, Tienes un 99% mas Garantia""
 echo -e "${cor[3]} "Esta SEGURO:""
-read -p " [S/N]: " -e -i n sshsn
+read -p " [S/N]: " -e -i s sshsn
 [[ "$sshsn" = @(s|S|y|Y) ]] && {
 local2="/etc/bannerssh"
 chk=$(cat /etc/ssh/sshd_config | grep Banner)
@@ -890,15 +892,16 @@ read -p " [ s | n ]: " sin_nao
  fi
 done
 credi=$(cat < /root/name)
-echo '<p style="text-align: center;"><strong><span style="color: #FF00FF;">
- 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄&bull;EC&reg;</span> |&nbsp;</strong><span style="color: #483D8B;"><strong>'$credi'</strong></span></p>' >> $local
-
+echo '<p style="text-align: center;"><strong><span style="color: #FF00FF;">匚卄ㄩ爪ㄖᎶ卄&reg;</span> |&nbsp;</strong><span style="color: #483D8B;"><strong>'$credi'</strong></span></p>' >> $local
 #echo '<font color="#FF00FF">© 2020 ChumoGH, &reg</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-service ssh restart > /dev/null 2>&1 &
-service sshd restart > /dev/null 2>&1 & 
-service dropbear restart > /dev/null 2>&1 &
+echo -ne " \033[1;31m[ ! ] Services dropbear restart"
+service dropbear restart > /dev/null 2>&1
+[[ -e /etc/init.d/dropbear ]] && /etc/init.d/dropbear restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
+echo -ne " \033[1;31m[ ! ] Services ssh restart"
+service ssh restart > /dev/null 2>&1
+[[ -e /etc/init.d/ssh ]] && /etc/init.d/ssh restart > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
 }
 return 0
 ;;
