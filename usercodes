@@ -681,7 +681,10 @@ rm /bin/ejecutar/bannerssh
 #echo $ban_ner2 > $local
 fun_barcgh
 #echo '<h1><font>===================================</font></h1>' >> $local
-echo '<br><font color="green">© 2020 ChumoGH, Inc</font>' >> $local
+echo '<p style="text-align: center;"><strong><span style="color: #ff0000;">
+VPS&bull;MX&reg;</span> |&nbsp;</strong><span style="color: #0000ff;"><strong>'$credi'</strong></span></p>' >> $local
+
+echo '<br><font color="green">2020 ChumoGH, Inc</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
@@ -885,8 +888,12 @@ read -p " [ s | n ]: " sin_nao
  elif [[ "$sin_nao" = @(n|N) ]]; then
  break
  fi
- done
-echo '<font color="green">© 2020 ChumoGH, Inc</font>' >> $local
+done
+credi=$(cat < /root/name)
+echo '<p style="text-align: center;"><strong><span style="color: #FF00FF;">
+ 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄&bull;EC&reg;</span> |&nbsp;</strong><span style="color: #483D8B;"><strong>'$credi'</strong></span></p>' >> $local
+
+#echo '<font color="#FF00FF">© 2020 ChumoGH, &reg</font>' >> $local
 #echo '<h1><font>===================================</font></h1>' >> $local
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 service ssh restart > /dev/null 2>&1 &
