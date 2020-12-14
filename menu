@@ -5,6 +5,22 @@ source <(curl -sL https://git.io/fNgqx) --remove
 cgh
 }
 
+recuva1 () 
+{
+cd /bin/ejecutar
+source <(curl -sL https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/ADM-MANAGER-ULTIMATE-BETA/Modulo/ferramentascodes) 1
+cd $HOME
+exit
+}
+
+recuva2 () 
+{
+cd /bin/ejecutar
+source <(curl -sL https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/ADM-MANAGER-ULTIMATE-BETA/Modulo/ferramentascodes) 2
+cd $HOME
+exit
+}
+
 inisocks () {
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/sockspy.sh)
 }
@@ -574,6 +590,9 @@ echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
 echo -e "${cor[2]} [12] > \033[1;36mDNS Netflix"
 echo -e "${cor[2]} [13] > \033[1;36mSOCKS PYTHON"
 echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
+echo -e "${cor[2]} [15] > \033[1;36mCrear Recovery de USUARIOS"
+echo -e "${cor[2]} [16] > \033[1;36mRestaurar Recovery de USUARIOS"
+###############
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje : " ppp
 case $ppp in
@@ -724,6 +743,12 @@ case $ppp in
 	14)
 	chora
 	;;
+	15)
+	recuva1
+	;;
+	16)
+	recuva2
+	;;	
 	*)
 	source menu
 	;;
