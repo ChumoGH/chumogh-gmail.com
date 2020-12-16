@@ -959,7 +959,7 @@ cpuss=$(cat /proc/cpuinfo | grep processor | wc -l)
 modelo1=$(lscpu | grep Arch | sed 's/\s\+/,/g' | cut -d , -f2)
 __IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-figlet -f future "  $(cat name)" | lolcat
+figlet -p -f slant < /root/name | lolcat
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 [[ "$VERIFICAR" = "on" ]] && 
 echo -e "${cor[2]} ‣ \033[1;37m${txt[1]} $__onlines ${cor[2]} ‣ \033[1;37m${txt[2]} $__vencidos ${cor[2]} ‣ \033[1;37m Eliminados: $ukk"
