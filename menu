@@ -1,5 +1,6 @@
 #!/bin/bash
 source menu-txt
+unset * > /dev/null
 function removerv2ray(){
 source <(curl -sL https://git.io/fNgqx) --remove
 cgh
