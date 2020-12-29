@@ -1417,6 +1417,7 @@ ${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP
 ${cor[2]} \033[1;35m***********************************************************
 Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir" 
 while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
+echo "Digita N/n para Salir"
 read -p "[S/N]: " yesno
 tput cuu1 && tput dl1
 done
