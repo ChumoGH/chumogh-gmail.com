@@ -1045,7 +1045,7 @@ echo -e "${barra}"
 echo -e "${loguin}:${pass}" > ./bottokens
 screen -dmS screen bash ./ultimatebot "$tokenxx" "$lang" > /dev/null 2>&1
 echo -e " LOADING BOT, WAIT"
-sleep 10s
+sleep 1s
 echo -e " RUNNING"
 echo -e "${barra}"
 else
@@ -1169,44 +1169,10 @@ echo -e "${barra}\n $(source trans -b pt:${id} "Procedimento Concluido")\n${barr
 return 0
 }
 
-gettunel_fun () {
-[[ -e /etc/adm-lite/gettun ]] && {
-echo -e "${barra}\n DETENIENDO GETTUNEL\n${barra}"
-pid=$(ps x | grep "get.py" | grep -v grep | awk '{print $1}')
-if [ "$pid" != "" ]; then
-for pids in $(echo $pid); do
-fun_bar "kill -9 $pids"
-done
-fi
-rm /etc/adm-lite/gettun
-echo -e "${barra}\n Gettunel $(source trans -b es:${id} "desactivado")\n${barra}"
-return 0
-}
-echo -e "${barra}\n GETTUNEL PROXY\n${barra}"
-echo -e "${cor[3]} $(source trans -b pt:${id} "Escolha Uma Porta onde Gettunel vai Escutar")"
-while true; do
-unset portas
-echo -ne "\033[1;37m"
-	 read -p " Local-Port: " portas
-	 if [[ ! -z $portas ]]; then
-		 if [[ $(echo $portas|grep [0-9]) ]]; then
-		[[ $(mportas|grep $portas) = "" ]] && break || echo -e " $(source trans -b pt:${id} "Porta Invalida")"
-		fi
-	fi
-done
-sed -s "s;CONFIG_LISTENING = '0.0.0.0:8799';CONFIG_LISTENING = '0.0.0.0:$portas';g" ./get > ./get.py
-screen -dmS screen python ./get.py
-sleep 1s
-rm ./get.py
- [[ "$(ps x | grep get.py | grep -v grep | awk '{print $1}')" != "" ]] && {
- echo -e "${barra}\n Gettunel $(source trans -b pt:${id} "Iniciado com Sucesso")\n${barra} "
- echo -e " Su password es:"
- echo -e "${cor[3]} Pass:\033[1;32m ADMMANAGER"
- echo -e "$barra"
- touch /etc/adm-lite/gettun
- } || {
-echo -e "$barra\n Gettunel$(source trans -b pt:${id} "nao foi iniciado")\n$barra"
- }
+ssrmenu() 
+{
+source <(curl -sL https://github.com/VPS-MX/VPS-MX-8.0/raw/master/SCRIPT/C-SSR.sh)
+#sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 }
 
 tcpbypass_fun () {
@@ -1547,13 +1513,25 @@ unset v2ray
 [[ -e /etc/shadowsocks.json ]] && shadow="\033[1;32m[ ✔ ] "
 [[ "$(ps x | grep "ultimatebot" | grep -v "grep")" != "" ]] && telegran="\033[1;32m[ ✔ ] "
 [[ -e /etc/adm-lite/sockson ]] && socks="\033[1;32m[ ✔ ] "
-[[ -e /etc/adm-lite/gettun ]] && gettun="\033[1;32m[ ✔ ] "
 [[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[ ✔ ] "
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[ ✔ ] "
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[ ✔ ] "
 [[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ ✔ ] "
-#[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ ✔ ] "
-
+menu_status(){
+echo -e "$BARRA1"
+	if [[ -e ${ssr_folder} ]]; then
+		check_pid
+		if [[ ! -z "${PID}" ]]; then
+			C-ssr="\033[1;32m[ ✔ ] "
+		else
+			C-ssr=""
+		fi
+		cd "${ssr_folder}"
+	else
+		C-ssr=""
+	fi
+}
+menu_status
 echo -e "$barra"
 echo -e "${cor[5]} ${txt[335]}"
 echo -e "$barra"
@@ -1561,9 +1539,9 @@ echo -e "${cor[2]} [1] > ${cor[3]}SQUID / gzip $squid"
 echo -e "${cor[2]} [2] > ${cor[3]}DROPBEAR HTTP/HTTPS $dropbear"
 echo -e "${cor[2]} [3] > ${cor[3]}OPENVPN $openvpn"
 echo -e "${cor[2]} [4] > ${cor[3]}SSL/TLS TUNNEL $stunel"
-echo -e "${cor[2]} [5] > ${cor[3]}SHADOW SOCKS $shadow"
+echo -e "${cor[2]} [5] > ${cor[3]}Shadowsocks-R,Go,Liv $shadow"
 echo -e "${cor[2]} [6] > ${cor[3]}PROXY SOCKS $socks"
-echo -e "${cor[2]} [7] > ${cor[3]}PROXY GETTUNEL $gettun"
+echo -e "${cor[2]} [7] > ${cor[3]}ShadowsocksR $C-ssr"
 echo -e "${cor[2]} [8] > ${cor[3]}TCP OVER BYPASS $tcpbypass"
 echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
@@ -1593,7 +1571,7 @@ read -p " Enter";;
 iniciarsocks
 read -p " Enter";;
 7)
-gettunel_fun
+ssrmenu
 read -p " Enter";;
 8)
 tcpbypass_fun
