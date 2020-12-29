@@ -1082,6 +1082,9 @@ source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/maste
 }
 
 iniciarsocks () {
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/sockspy.sh)
+}
+
 pstop () {
 [[ -e /etc/adm-lite/sockson ]] && {
 echo -e "${barra}\n $(source trans -b pt:${id} "Parando Socks Python")\n${barra}"
@@ -1100,8 +1103,7 @@ rm /etc/adm-lite/sockson
 [[ -e /etc/adm-lite/sockdirect ]] && rm /etc/adm-lite/sockdirect
 [[ -e /etc/adm-lite/sockopen ]] && rm /etc/adm-lite/sockopen
 }
-return 0
-}
+
 socksinstal () {
 [[ ! -e /etc/adm-lite/sockson ]] && touch /etc/adm-lite/sockson
 }
