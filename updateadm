@@ -99,6 +99,7 @@ cd $HOME
 [[ -d $HOME/update ]] && rm -rf $HOME/update
 [[ -e $HOME/lista ]] && rm $HOME/lista
 cd $HOME
+ [[ -e /bin/ejecutar/key.fix ]] && kus=$(cat /bin/ejecutar/key.fix) || echo "ChumoGH2021" > /bin/ejecutar/key.fix
 echo -e "\033[1;36mTU KEY USADA Fue \033[1;33m$(cat /bin/ejecutar/key.fix)"
 namsobin
 #atualiza_fun
