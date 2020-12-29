@@ -46,17 +46,19 @@ echo "Expiracion: $data" >> $dir_user/$1
 fi
 }
 
+inisocks () {
+
+}
+
 function_1 () {
 msg -bar #echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[4]} Debugeando"
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/blockT.sh)
 msg -bar #echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-fun_bar
 export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/games
-echo " Presiona Enter para Continuar"
-read -p " "
-cgh
+read -p " Presiona Enter para Continuar"
+exit
 }
 
 function_2 () {
