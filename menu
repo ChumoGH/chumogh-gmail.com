@@ -3,7 +3,12 @@ export PATH=$PATH:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/
 source menu-txt
 unset lang
 function removerv2ray(){
+#source <(curl -sL https://git.io/fNgqx) --remove
+source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
 source <(curl -sL https://git.io/fNgqx) --remove
+rm -rf /usr/local/V2ray.Fun
+rm -f /etc/v2ray/*
+rm -rf /etc/v2ray/
 cgh
 }
 
@@ -578,7 +583,7 @@ echo -e "${cor[2]} [4] > \033[1;36mMostrar Configuraciones de Puertos"
 echo -e "${cor[2]} [5] > \033[1;36mACTULIZAR VPS"
 echo -e "${cor[2]} [6] > \033[1;35mKILL MULTILOGIN"
 echo -e "${cor[2]} [7] > \033[1;36mREINICIAR VPS"
-echo -e "${cor[2]} [8] > \033[1;34mMENU ShadowsocksR \033[1;33m(FIX)"
+echo -e "${cor[2]} [8] > \033[1;34m----------------------------------------" #MENU ShadowsocksR \033[1;33m(FIX)
 echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
