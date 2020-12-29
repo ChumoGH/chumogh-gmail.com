@@ -1410,18 +1410,19 @@ echo -e "$barra"
 
 v2ray-socket() {
 clear
-echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[2]} \033[1;32m          * ESTA OPCION ES EXPERIMENTAL *"
-echo -e "${cor[2]} \033[1;32mPara continuar debes tener configurado un dominio en el VPS"
-echo -e "${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP"
-echo -e "${cor[2]} \033[1;35m***********************************************************"
-echo -e "Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir"
+[[ -e /etc/v2ray/config.json ]] && v2ray || echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}
+${cor[2]} \033[1;32m          * ESTA OPCION ES EXPERIMENTAL *
+${cor[2]} \033[1;32mPara continuar debes tener configurado un dominio en el VPS
+${cor[2]} \033[1;32m     Dominio es la URL de acceso al servidor, No la IP
+${cor[2]} \033[1;35m***********************************************************
+Si Cumples con ese requisito dijita Y/y, Caso contrario N/n para salir" 
 while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
 read -p "[S/N]: " yesno
 tput cuu1 && tput dl1
 done
+
 if [[ ${yesno} = @(s|S|y|Y) ]]; then
-echo -ne "\033[1;37m \n 1)- Instalar edicion Local \n 2)- Instalar edicion WEB \n 3)- Desinstalar \n 4)- Menu V2ray" | lolcat
+echo -ne "\033[1;37m \n 1)- V2ray Manager \n 2)- V2ray Pannel WEB \n 3)- Desinstalar \n 4)- Menu V2ray" | lolcat
 echo -ne " ESCOJE: "; read v2op
 case $v2op in
 1)
@@ -1517,21 +1518,6 @@ unset v2ray
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[ ✔ ] "
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[ ✔ ] "
 [[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ ✔ ] "
-menu_status(){
-echo -e "$BARRA1"
-	if [[ -e ${ssr_folder} ]]; then
-		check_pid
-		if [[ ! -z "${PID}" ]]; then
-			C-ssr="\033[1;32m[ ✔ ] "
-		else
-			C-ssr=""
-		fi
-		cd "${ssr_folder}"
-	else
-		C-ssr=""
-	fi
-}
-menu_status
 echo -e "$barra"
 echo -e "${cor[5]} ${txt[335]}"
 echo -e "$barra"
@@ -1541,7 +1527,7 @@ echo -e "${cor[2]} [3] > ${cor[3]}OPENVPN $openvpn"
 echo -e "${cor[2]} [4] > ${cor[3]}SSL/TLS TUNNEL $stunel"
 echo -e "${cor[2]} [5] > ${cor[3]}Shadowsocks-R,Go,Liv $shadow"
 echo -e "${cor[2]} [6] > ${cor[3]}PROXY SOCKS $socks"
-echo -e "${cor[2]} [7] > ${cor[3]}ShadowsocksR $C-ssr"
+echo -e "${cor[2]} [7] > ${cor[3]}ShadowsocksR $$shadow"
 echo -e "${cor[2]} [8] > ${cor[3]}TCP OVER BYPASS $tcpbypass"
 echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
