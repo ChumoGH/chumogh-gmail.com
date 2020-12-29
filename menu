@@ -583,7 +583,7 @@ echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
 echo -e "${cor[2]} [12] > \033[1;36mDNS Netflix"
-echo -e "${cor[2]} [13] > \033[1;36mBloqueo Torrent y Plabras Claves \033[1;36m( #BETA )"
+echo -e "${cor[2]} [13] > \033[1;36mBloqueo Torrent y Plabras Claves \033[1;34m( #BETA )"
 echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
 echo -e "${cor[2]} [15] > \033[1;36mBackup de USUARIOS"
 ###############
