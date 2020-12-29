@@ -46,10 +46,6 @@ echo "Expiracion: $data" >> $dir_user/$1
 fi
 }
 
-inisocks () {
-
-}
-
 function_1 () {
 msg -bar #echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/blockT.sh)
