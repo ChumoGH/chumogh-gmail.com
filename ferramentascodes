@@ -428,10 +428,6 @@ else
 echo -e "${cor[5]} ${txt[192]}: ${null}???"
 fi
 echo -e "${cor[5]} ${txt[193]}: ${null}$(ps aux  | awk 'BEGIN { sum = 0 }  { sum += sprintf("%f",$3) }; END { printf " " "%.2f" "%%", sum}')"
-name=$(cat /etc/os-release |grep PRETTY_NAME |awk -F = {'print $2'})
-codename=$(cat /etc/os-release |grep NAME |awk -F = {'print $2'})
-echo -e "\033[1;32mNombre: \033[0m$name"
-echo -e "\033[1;32mCodeName: \033[0m$codename"
 echo -e "\033[1;32mKernel: \033[0m$(uname -s)"
 echo -e "\033[1;32mKernel Release: \033[0m$(uname -r)"
 echo -e "${cor[5]} ${txt[194]}: ${null}$(($totalram / 1024))"
