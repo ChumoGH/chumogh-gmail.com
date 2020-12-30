@@ -3,6 +3,11 @@
 #SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 #SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
 dnsnetflix () {
+if [[ -e /bin/ejecutar/resolv.conf.org ]]; then
+echo "YA MODIFICADO"
+else
+cp /etc/resolv.conf /bin/ejecutar/resolv.conf.org
+fi
 echo "nameserver $dnsp" > /etc/resolv.conf
 #echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 /etc/init.d/ssrmu stop &>/dev/null
