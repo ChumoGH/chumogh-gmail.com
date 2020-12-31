@@ -1424,7 +1424,7 @@ tput cuu1 && tput dl1
 done
 
 if [[ ${yesno} = @(s|S|y|Y) ]]; then
-echo -ne "\033[1;37m \n 1)- V2ray Manager \n 2)- V2ray Pannel WEB \n 3)- Desinstalar \n 4)- Menu V2ray" | lolcat
+echo -ne "\033[1;37m \n 1)- V2ray Manager Original (Todo en Consola) \n 2)- V2ray Pannel WEB (Todo en WEB) \n 3)- Desinstalar \n 4)- Menu V2ray" | lolcat
 echo -ne " ESCOJE: "; read v2op
 case $v2op in
 1)
