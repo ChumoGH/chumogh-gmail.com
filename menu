@@ -19,7 +19,7 @@ source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/maste
 
 ssrmenu() 
 {
-source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/ssrrmu.sh)
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan.sh)
 #sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 }
 
@@ -583,7 +583,7 @@ echo -e "${cor[2]} [4] > \033[1;36mMostrar Configuraciones de Puertos"
 echo -e "${cor[2]} [5] > \033[1;36mACTULIZAR VPS"
 echo -e "${cor[2]} [6] > \033[1;35mKILL MULTILOGIN"
 echo -e "${cor[2]} [7] > \033[1;36mREINICIAR VPS"
-echo -e "${cor[2]} [8] > \033[1;34m----------------------------------------" #MENU ShadowsocksR \033[1;33m(FIX)
+echo -e "${cor[2]} [8] > \033[1;34mScript TROJAN (directo) \033[1;33m( #BETA )" #MENU ShadowsocksR \033[1;33m(FIX)
 echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
