@@ -1533,13 +1533,10 @@ msg -bar #echo -e "$barra"
 echo -e "${cor[2]} [1] > ${cor[3]}SQUID / gzip $squid    -    ${cor[2]} [5] > ${cor[3]}Shadowsocks-R,Go,Liv $shadow \033[1;33m( #BETA )"
 echo -e "${cor[2]} [2] > ${cor[3]}DROPBEAR HTTP/HT $dropbear-    ${cor[2]} [6] > ${cor[3]}ShadowsocksR Cuentas\033[1;31m (SS/SSRR) \033[1;33m$user_total"
 echo -e "${cor[2]} [3] > ${cor[3]}OPENVPN $openvpn        -     ${cor[2]} [7] > ${cor[3]}PROXY SOCKS $socks"
-echo -e "${cor[2]} [4] > ${cor[3]}SSL/TLS TUNNEL $stunel  -      ${cor[2]} [12] > ${cor[3]}V2ray Socket $v2ray"
-
-echo -e ""
-echo -e ""
+echo -e "${cor[2]} [4] > ${cor[3]}SSL/TLS Tunnel $stunel - ${cor[2]} [8] > ${cor[3]}V2ray Socket $v2ray"
 #echo -e "${cor[2]} [8] > ${cor[3]}TCP OVER BYPASS $tcpbypass"
-echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
-echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
+#echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
+#echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
 #echo -e "${cor[2]} [11] > ${cor[3]}Anti-DDOS $ddos"
 echo -e ""
 #echo -e "${cor[2]} [13] > ${cor[3]}Instalar Pannel WEB "
@@ -1572,7 +1569,8 @@ read -p " Enter";;
 tcpbypass_fun
 read -p " Enter";;
 9)
-telegran_bot
+v2ray-socket
+#telegran_bot
 read -p " Enter";;
 10)
 web_min
