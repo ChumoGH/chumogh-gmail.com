@@ -1513,18 +1513,18 @@ unset tcpbypass
 unset webminn
 unset ddos
 unset v2ray
-[[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\031[1;31m[OFF]"
-[[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\031[1;31m[OFF]"
-[[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[ON] " || dropbear="\031[1;32m[OFF]"
-[[ -e /etc/openvpn/server.conf ]] && openvpn="\033[1;32m$(source trans -b pt:${id} "Configurado")" || openvpn="\031[1;32m[OFF]"
-[[ $(mportas|grep stunnel4|head -1) ]] && stunel="\033[1;32m[ON]" || stunel="\031[1;32m[OFF]"
+[[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
+[[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
+[[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[ON] " || dropbear="\033[1;31m[OFF]"
+[[ -e /etc/openvpn/server.conf ]] && openvpn="\033[1;32m$(source trans -b pt:${id} "Configurado")" || openvpn="\033[1;31m[OFF]"
+[[ $(mportas|grep stunnel4|head -1) ]] && stunel="\033[1;32m[ON]" || stunel="\033[1;31m[OFF]"
 [[ -e /etc/shadowsocks.json ]] && shadow="\033[1;32m[ON] " || shadow="\033[1;33m ( #BETA )"
 [[ "$(ps x | grep "ultimatebot" | grep -v "grep")" != "" ]] && telegran="\033[1;32m[ON]"
 [[ -e /etc/adm-lite/sockson ]] && socks="\033[1;32m[ON]" || socks="\033[1;31m[OFF]"
-[[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[ON]" || tcpbypass="\033[1;32m[OFF]"
+[[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[ON]" || tcpbypass="\033[1;31m[OFF]"
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[ON]"
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[ON]"
-[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ON]" || tcpbypass="\033[1;32m[OFF]"
+[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ON]" || tcpbypass="\033[1;31m[OFF]"
 user_info=$(cd /usr/local/shadowsocksr &> /dev/null  && python mujson_mgr.py -l )
 user_total=$(echo "${user_info} Cts"|wc -l)
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg)
