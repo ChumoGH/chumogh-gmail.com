@@ -1524,7 +1524,7 @@ unset v2ray
 [[ -e /etc/adm-lite/edbypass ]] && tcpbypass="\033[1;32m[ON]" || tcpbypass="\033[1;31m[OFF]"
 [[ -e /etc/webmin/miniserv.conf ]] && webminn="\033[1;32m[ON]"
 [[ -e /usr/local/ddos/ddos.conf ]] && ddos="\033[1;32m[ON]"
-[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ON]" || tcpbypass="\033[1;31m[OFF]"
+[[ -e /etc/v2ray/config.json ]] && v2ray="\033[1;32m[ON]" || v2ray="\033[1;31m[OFF]"
 ssssrr=`ps -ef |grep -v grep | grep server.py |awk '{print $2}'`
 [[ ! -z "${ssssrr}" ]] && cc="\033[1;31m" || cc="\033[1;32m"
 user_info=$(cd /usr/local/shadowsocksr &> /dev/null  && python mujson_mgr.py -l )
