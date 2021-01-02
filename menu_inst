@@ -1034,6 +1034,12 @@ bash shadowsocks.sh
 rm shadowsocks.sh
 }
 
+
+instala_trojan () {
+source trojan
+}
+
+
 telegran_bot () {
 if [[ "$(ps x | grep "ultimatebot" | grep -v "grep")" = "" ]]; then
 echo -e "${barra}"
@@ -1573,6 +1579,7 @@ v2ray-socket
 #tcpbypass_fun
 read -p " Enter";;
 9)
+instala_trojan
 #telegran_bot
 read -p " Enter";;
 10)
