@@ -1543,7 +1543,7 @@ echo -e "${cor[5]} [1] > ${cor[3]}Squid / gzip $squid      ${cor[6]} [5] > ${cor
 echo -e "${cor[5]} [2] > ${cor[3]}DROPBEAR http(s) $dropbear  ${cor[6]} [6] > ${cor[3]}ShadowsocksR Cts$cc (SS/SSRR) \033[1;33m$user_total"
 echo -e "${cor[5]} [3] > ${cor[3]}OPENVPN $openvpn           ${cor[6]} [7] > ${cor[3]}PROXY SOCKS $socks"
 echo -e "${cor[5]} [4] > ${cor[3]}SSL/TLS Tunnel $stunel  ${cor[6]}    [8] > ${cor[3]}V2ray Socket $v2ray"
-#echo -e "${cor[2]} [8] > ${cor[3]}TCP OVER BYPASS $tcpbypass"
+echo -e "${cor[5]} [9] > ${cor[3]}TROJAN $trj"
 #echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 #echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
 #echo -e "${cor[2]} [11] > ${cor[3]}Anti-DDOS $ddos"
