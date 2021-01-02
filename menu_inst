@@ -1569,23 +1569,23 @@ read -p " Enter";;
 iniciarsocks
 read -p " Enter";;
 8)
-tcpbypass_fun
+v2ray-socket
+#tcpbypass_fun
 read -p " Enter";;
 9)
-v2ray-socket
 #telegran_bot
 read -p " Enter";;
 10)
-web_min
+#web_min
 read -p " Enter";;
 11)
-antiddos
+#antiddos
 read -p " Enter";;
 12)
-v2ray-socket
+#v2ray-socket
 read -p " Enter";;
 13)
-painel_upload
+#painel_upload
 read -p " Enter";;
 esac
 
