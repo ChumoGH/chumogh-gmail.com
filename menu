@@ -19,7 +19,7 @@ source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/maste
 
 ssrmenu() 
 {
-source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan.sh)
+source <(curl -sL https://www.dropbox.com/s/jrb752ru0vqd4cn/trojan)
 #sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 }
 
