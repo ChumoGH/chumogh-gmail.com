@@ -1036,7 +1036,7 @@ rm shadowsocks.sh
 
 
 instala_trojan () {
-source trojan
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh)"
 }
 
 
