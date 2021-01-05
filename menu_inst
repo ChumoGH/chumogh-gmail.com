@@ -1035,7 +1035,7 @@ rm shadowsocks.sh
 }
 
 
-instala_trojan () {
+instala_clash () {
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh)"
 }
 
@@ -1178,6 +1178,13 @@ return 0
 ssrmenu() 
 {
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/ssrrmu.sh)
+#source <(curl -sL https://github.com/VPS-MX/VPS-MX-8.0/raw/master/SCRIPT/C-SSR.sh)
+#sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
+}
+
+trojan() 
+{
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan)
 #source <(curl -sL https://github.com/VPS-MX/VPS-MX-8.0/raw/master/SCRIPT/C-SSR.sh)
 #sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 }
@@ -1579,12 +1586,13 @@ v2ray-socket
 #tcpbypass_fun
 read -p " Enter";;
 9)
-instala_trojan
+instala_clash
 #telegran_bot
 read -p " Enter";;
 10)
 #web_min
-echo "No existe Parametro, DISEÑANDO . . . . "
+trojan
+#echo "No existe Parametro, DISEÑANDO . . . . "
 read -p " Enter";;
 11)
 #antiddos
