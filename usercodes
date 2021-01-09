@@ -462,7 +462,6 @@ echo "$usr_var" > $dir_user/$namer
 echo "limite: $new_limit" >> $dir_user/$namer
 echo -e "${cor[5]} ${txt[56]}"
 fi
-pkill -u $namer
 unset new_limit
 unset usr_var
 return
@@ -483,7 +482,6 @@ echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
 echo -e "$namer: $datexp"
 fi
-pkill -u $namer
 unset datexp
 unset valid
 unset usr_var
@@ -501,7 +499,6 @@ usr_var1=$(cat $dir_user/$namer | grep -v "senha")
 echo -e "$usr_var1" > $dir_user/$namer
 echo -e "senha: $nova_senha" >> $dir_user/$namer
 fi
-pkill -u $namer
 echo -e "${cor[5]} ${txt[62]}"
 unset nova_senha
 unset usr_var1
