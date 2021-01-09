@@ -461,6 +461,8 @@ usr_var=$(cat $dir_user/$namer | grep -v "limite:")
 echo "$usr_var" > $dir_user/$namer
 echo "limite: $new_limit" >> $dir_user/$namer
 echo -e "${cor[5]} ${txt[56]}"
+fi
+pkill -u $namer
 unset new_limit
 unset usr_var
 return
@@ -480,6 +482,8 @@ usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
 echo -e "$namer: $datexp"
+fi
+pkill -u $namer
 unset datexp
 unset valid
 unset usr_var
@@ -496,6 +500,8 @@ fi
 usr_var1=$(cat $dir_user/$namer | grep -v "senha")
 echo -e "$usr_var1" > $dir_user/$namer
 echo -e "senha: $nova_senha" >> $dir_user/$namer
+fi
+pkill -u $namer
 echo -e "${cor[5]} ${txt[62]}"
 unset nova_senha
 unset usr_var1
@@ -504,6 +510,49 @@ else
 echo -e "${cor[5]} ${txt[63]}"
 fi
 }
+
+block_user () {
+msg -bar #echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
+echo -e "${cor[4]} ${txt[48]}"
+msg -bar #echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
+select_users
+if [ "$select_name" = "" ]; then
+return
+fi
+namer="$select_name"
+echo -e "${cor[5]} ${txt[50]} $namer"
+echo -e "${cor[2]} |1| >${cor[3]} ${txt[51]} $namer"
+echo -e "${cor[2]} |2| >${cor[3]} ${txt[52]} $namer"
+#echo -e "${cor[2]} |3| >${cor[3]} ${txt[53]} $namer"
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
+_opt=2
+if [ "$_opt" = "2" ]; then
+echo -e "${cor[5]} ${txt[57]}"
+#read -p ": " date
+data="-1"
+ if [ "$date" = "" ]; then
+echo -e "${cor[5]} ${txt[58]}"
+return
+fipkill -u $namer
+datexp=$(date "+%d/%m/%Y" -d " + $date days")
+valid=$(date '+%C%y-%m-%d' -d " + $date days")
+chage -E $valid $namer 2> /dev/null
+echo -e "${cor[5]} ${txt[59]}"
+usr_var=$(cat $dir_user/$namer | grep -v "data")
+echo -e "$usr_var" > $dir_user/$namer
+echo -e "data: $valid" >> $dir_user/$namer
+echo -e "$namer: $datexp"
+unset datexp
+unset valid
+unset usr_var
+return
+fi
+return
+else
+echo -e "${cor[5]} ${txt[63]}"
+fi
+}
+
 
 function_4 () {
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
@@ -970,7 +1019,7 @@ verifi_fun
 [[ "$1" = "7" ]] && function_6
 [[ "$1" = "8" ]] && function_7
 [[ "$1" = "9" ]] && net_meter
-[[ "$1" = "10" ]] && limiter_fun
+[[ "$1" = "10" ]] && block_user
 
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
