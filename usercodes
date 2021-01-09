@@ -539,8 +539,7 @@ sl=$((dias_use + 1))
 echo $sl > $dir_user/$namer.block1
 ########
 
-data="0"
-
+date=0
 datexp=$(date "+%d/%m/%Y" -d " + $date days")
 valid=$(date '+%C%y-%m-%d' -d " + $date days")
 chage -E $valid $namer 2> /dev/null
@@ -559,15 +558,14 @@ echo -e "USUARIO BLOQUEADO EN LOGUIN "
 return
 fi
 if [ "$_opt" = "2" ]; then
-[[ -e $dir_user/$namer.block1 ]] && data=$(cat $dir_user/$namer.block1) || read -p " : " data
+[[ -e $dir_user/$namer.block1 ]] && date=$(cat $dir_user/$namer.block1) || read -p " Ingresa DATA: " date
 datexp=$(date "+%d/%m/%Y" -d " + $date days")
 valid=$(date '+%C%y-%m-%d' -d " + $date days")
 chage -E $valid $namer 2> /dev/null
-echo -e "${cor[5]} ${txt[59]}"
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
-echo -e "ISET $namer: $datexp  UNLOCK"
+echo -e "UER $namer: UNLOCK SUCCES"
 pkill -u $namer
 [[ -e $dir_user/$namer.block1 ]] && rm $dir_user/$namer.block1
 [[ -e $dir_user/$namer.block ]] && rm -f $dir_user/$namer.block 
