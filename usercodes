@@ -510,18 +510,37 @@ fi
 
 block_user () {
 msg -bar #echo -e "${cor[1]} ➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶➶ ${cor[0]}"
-echo -e "${cor[4]} Bloquear USUARIO PRIVADO}"
+echo -e "${cor[4]} Bloquear USUARIO PRIVADO "
 msg -bar #echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 select_users
 if [ "$select_name" = "" ]; then
 return
 fi
 namer="$select_name"
+echo -e "${cor[5]} Bloquear USUARIO $namer FIJO"
+echo -e "${cor[2]} |1| >${cor[3]} Bloquear $namer en Loguins"
+echo -e "${cor[2]} |2| >${cor[3]} Desbloquear $namer en Loguins"
+#echo -e "${cor[2]} |3| >${cor[3]} ${txt[53]} $namer"
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-_opt=2
+read -p " ${txt[9]} " _opt
+if [ "$_opt" = "1" ]; then
+msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} Bloqueando USER . . ."
 #read -p ": " date
+########
+
+data=$(cat $dir_user/$namer | grep "data" | awk '{print $2}')
+data_sec=$(date +%s)
+data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
+data_user_sec=$(date +%s --date="$data_user")
+variavel_soma=$(($data_user_sec - $data_sec))
+dias_use=$(($variavel_soma / 86400))
+sl=$((dias_use + 1))
+echo $sl > $dir_user/$namer.block1
+########
+
 data="0"
+
 datexp=$(date "+%d/%m/%Y" -d " + $date days")
 valid=$(date '+%C%y-%m-%d' -d " + $date days")
 chage -E $valid $namer 2> /dev/null
@@ -535,8 +554,28 @@ pkill -u $namer
 unset datexp
 unset valid
 unset usr_var
-echo -e "USUARIO BLOQUEADO EN LOGUIN 0"
+echo -e "USUARIO BLOQUEADO EN LOGUIN "
 #read -p
+return
+fi
+if [ "$_opt" = "2" ]; then
+[[ -e $dir_user/$namer.block1 ]] && data=$(cat $dir_user/$namer.block1) || read -p " : " data
+datexp=$(date "+%d/%m/%Y" -d " + $date days")
+valid=$(date '+%C%y-%m-%d' -d " + $date days")
+chage -E $valid $namer 2> /dev/null
+echo -e "${cor[5]} ${txt[59]}"
+usr_var=$(cat $dir_user/$namer | grep -v "data")
+echo -e "$usr_var" > $dir_user/$namer
+echo -e "data: $valid" >> $dir_user/$namer
+echo -e "ISET $namer: $datexp  UNLOCK"
+pkill -u $namer
+[[ -e $dir_user/$namer.block1 ]] && rm $dir_user/$namer.block1
+[[ -e $dir_user/$namer.block ]] && rm -f $dir_user/$namer.block 
+unset datexp
+unset valid
+unset usr_var
+return
+fi
 return
 }
 
