@@ -529,7 +529,7 @@ echo -e "${cor[5]} Bloqueando USER . . ."
 #read -p ": " date
 ########
 data=$(cat $dir_user/$namer | grep "data" | awk '{print $2}')
-pass=$(cat $dir$dir_user/$namer | grep "senha" | awk '{print $2}')
+pass=$(cat $dir_user/$namer | grep "senha" | awk '{print $2}')
 data_sec=$(date +%s)
 data_user=$(chage -l "$namer" |grep -i co |awk -F ":" '{print $2}')
 data_user_sec=$(date +%s --date="$data_user")
