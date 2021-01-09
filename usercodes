@@ -526,7 +526,6 @@ read -p " ${txt[9]} " _opt
 if [ "$_opt" = "1" ]; then
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 echo -e "${cor[5]} Bloqueando USER . . ."
-#read -p ": " date
 ########
 data=$(cat $dir_user/$namer | grep "data" | awk '{print $2}')
 pass=$(cat $dir_user/$namer | grep "senha" | awk '{print $2}')
@@ -538,7 +537,6 @@ dias_use=$(($variavel_soma / 86400))
 sl=$((dias_use + 1))
 echo $sl > $dir_user/$namer.block1
 ########
-
 date=0
 datexp=$(date "+%d/%m/%Y" -d " + $date days")
 valid=$(date '+%C%y-%m-%d' -d " + $date days")
@@ -558,7 +556,6 @@ unset datexp
 unset valid
 unset usr_var
 echo -e "USUARIO BLOQUEADO EN LOGUIN "
-#read -p
 return
 fi
 if [ "$_opt" = "2" ]; then
