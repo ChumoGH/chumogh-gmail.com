@@ -600,10 +600,7 @@ txto[1]=$(printf '%-10s' "$namer")
 txto[2]=$(printf '%-12s' "$_sen")
 txto[3]=$(printf '%-10s' "$_limit")
 txto[4]=$(printf '%-10s' "${HOR}h:${MIN}m:${SEC}s")
-txto[5]=$(printf '%-2s' "$dias_user")
-if [ "$(cat $dir_user/$namer.block)" = "-5" ]; then
-txto[5]="\033[1;32mLOCK"
-fi
+[[ -e $dir_user/$namer.block ]] && txto[5]="\033[1;32mLOCK" || txto[5]=$(printf '%-2s' "$dias_user")
 #$dir_user/$namer.block
 unset open_vpn
 echo "$(cat /etc/passwd | grep -v ovpn | awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort)" > $_tmp
