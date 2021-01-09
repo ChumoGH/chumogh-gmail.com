@@ -517,24 +517,20 @@ if [ "$select_name" = "" ]; then
 return
 fi
 namer="$select_name"
-#echo -e "${cor[5]} ${txt[50]} $namer"
-#echo -e "${cor[2]} |1| >${cor[3]} ${txt[51]} $namer"
-#echo -e "${cor[2]} |2| >${cor[3]} ${txt[52]} $namer"
-#echo -e "${cor[2]} |3| >${cor[3]} ${txt[53]} $namer"
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
 _opt=2
 echo -e "${cor[5]} Bloqueando USER . . ."
 #read -p ": " date
-data="-1"
+data="-5"
 datexp=$(date "+%d/%m/%Y" -d " + $date days")
 valid=$(date '+%C%y-%m-%d' -d " + $date days")
 chage -E $valid $namer 2> /dev/null
-echo -e "${cor[5]} ${txt[59]}"
+#echo -e "${cor[5]} ${txt[59]}"
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
 echo -e "$data" >> $dir_user/$namer.block
-echo -e "$namer: $datexp"
+echo -e "$namer: BLOEQUEADO"
 pkill -u $namer
 unset datexp
 unset valid
@@ -605,6 +601,10 @@ txto[2]=$(printf '%-12s' "$_sen")
 txto[3]=$(printf '%-10s' "$_limit")
 txto[4]=$(printf '%-10s' "${HOR}h:${MIN}m:${SEC}s")
 txto[5]=$(printf '%-2s' "$dias_user")
+if [ "$(cat $dir_user/$namer.block)" = "-5" ]; then
+txto[5]="\033[1;32mLOCK"
+fi
+#$dir_user/$namer.block
 unset open_vpn
 echo "$(cat /etc/passwd | grep -v ovpn | awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort)" > $_tmp
 open_vpn=$(cat $_tmp | grep "$namer")
