@@ -529,7 +529,7 @@ chage -E $valid $namer 2> /dev/null
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
-echo -e "$data" >> $dir_user/$namer.block
+echo -e "$data" > $dir_user/$namer.block
 echo -e "$namer: BLOEQUEADO"
 pkill -u $namer
 unset datexp
