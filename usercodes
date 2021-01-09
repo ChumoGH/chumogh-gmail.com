@@ -538,16 +538,14 @@ echo -e "${cor[5]} ${txt[59]}"
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
+echo -e "$data" >> $dir_user/$namer.block
 echo -e "$namer: $datexp"
 pkill -u $namer
 unset datexp
 unset valid
 unset usr_var
+echo -e "USUARIO BLOQUEADO EN LOGUIN 0"
 return
-fi
-return
-else
-echo -e "${cor[5]} ${txt[63]}"
 fi
 }
 
