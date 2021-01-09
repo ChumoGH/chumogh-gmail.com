@@ -8,7 +8,7 @@ msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪
 echo -e "${cor[2]} ⌐╦╦═─ ${cor[5]} ${txt[14]} ${txt[356]}"
 echo -e "\033[1;34m ▸ M Total: \033[1;32m$mt\033[1;34m ▸ M Libre: \033[1;32m$mf\033[1;34m ▸ Uso CPU:\033[1;32m $_usop "
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
-echo -e "               ${cor[2]} [0] >${cor[4]} ${txt[13]}"
+echo -e "${cor[2]} [0] >${cor[4]} ${txt[13]}"
 echo -e "${cor[2]} [1] >${cor[3]} ${txt[353]}" #  ${cor[2]} [-] >${cor[3]} - "
 echo -e "${cor[2]} [2] >${cor[3]} ${txt[15]}" #   ${cor[2]}   [-] >${cor[3]} - "
 echo -e "${cor[2]} [3] >${cor[3]} ${txt[16]}" #    ${cor[2]}       [-] >${cor[3]} -"
