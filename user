@@ -79,6 +79,22 @@ cd /etc/adm-lite
 source user
 exit
 ;;
+10)
+source usercodes 10
+echo -ne "${cor[5]}"
+read -p " ${txt[47]}"
+cd /etc/adm-lite
+source user
+exit
+;;
+11)
+source usercodes 11
+echo -ne "${cor[5]}"
+read -p " ${txt[47]}"
+cd /etc/adm-lite
+source user
+exit
+;;
 *)
 cd /etc/adm-lite
 source user
