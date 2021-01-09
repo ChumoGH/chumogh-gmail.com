@@ -529,6 +529,7 @@ echo -e "${cor[5]} Bloqueando USER . . ."
 #read -p ": " date
 ########
 data=$(cat $dir_user/$namer | grep "data" | awk '{print $2}')
+pass=$(cat $dir$dir_user/$namer | grep "senha" | awk '{print $2}')
 data_sec=$(date +%s)
 data_user=$(chage -l "$namer" |grep -i co |awk -F ":" '{print $2}')
 data_user_sec=$(date +%s --date="$data_user")
@@ -546,8 +547,12 @@ chage -E $valid $namer 2> /dev/null
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
-echo -e "$data" > $dir_user/$namer.block
+echo -e "$pass" > $dir_user/$namer.block
 echo -e "$namer: BLOEQUEADO $valid"
+(echo "BLOCK" ; echo "BLOCK" ) |passwd $namer > /dev/null 2>/dev/null
+usr_var1=$(cat $dir_user/$namer | grep -v "senha")
+echo -e "$usr_var1" > $dir_user/$namer
+echo -e "senha: BLOCK" >> $dir_user/$namer
 pkill -u $namer
 unset datexp
 unset valid
@@ -564,6 +569,11 @@ chage -E $valid $namer 2> /dev/null
 usr_var=$(cat $dir_user/$namer | grep -v "data")
 echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
+nova_senha=$(cat $dir_user/$namer.block)
+(echo "$nova_senha" ; echo "$nova_senha" ) |passwd $namer > /dev/null 2>/dev/null
+usr_var1=$(cat $dir_user/$namer | grep -v "senha")
+echo -e "$usr_var1" > $dir_user/$namer
+echo -e "senha: $nova_senha" >> $dir_user/$namer
 echo -e "UER $namer: UNLOCK SUCCES"
 pkill -u $namer
 [[ -e $dir_user/$namer.block1 ]] && rm $dir_user/$namer.block1
