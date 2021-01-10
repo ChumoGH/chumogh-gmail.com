@@ -552,6 +552,7 @@ usr_var1=$(cat $dir_user/$namer | grep -v "senha")
 echo -e "$usr_var1" > $dir_user/$namer
 echo -e "senha: LOCK" >> $dir_user/$namer
 pkill -u $namer
+kill -9 `ps aux |grep -vi '[a-z]$namer' |grep -vi '$namer[a-z]' |grep -v '[1-9]$namer' |grep -v '$namer[1-9]' |grep $namer |awk {'print $2'}` 2> /dev/null
 unset datexp
 unset valid
 unset usr_var
