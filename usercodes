@@ -547,10 +547,10 @@ echo -e "$usr_var" > $dir_user/$namer
 echo -e "data: $valid" >> $dir_user/$namer
 echo -e "$pass" > $dir_user/$namer.block
 echo -e "$namer: BLOEQUEADO $valid"
-(echo "BLOCK" ; echo "BLOCK" ) |passwd $namer > /dev/null 2>/dev/null
+(echo "LOCK" ; echo "LOCK" ) |passwd $namer > /dev/null 2>/dev/null
 usr_var1=$(cat $dir_user/$namer | grep -v "senha")
 echo -e "$usr_var1" > $dir_user/$namer
-echo -e "senha: BLOCK" >> $dir_user/$namer
+echo -e "senha: LOCK" >> $dir_user/$namer
 pkill -u $namer
 unset datexp
 unset valid
@@ -571,7 +571,7 @@ nova_senha=$(cat $dir_user/$namer.block)
 usr_var1=$(cat $dir_user/$namer | grep -v "senha")
 echo -e "$usr_var1" > $dir_user/$namer
 echo -e "senha: $nova_senha" >> $dir_user/$namer
-echo -e "UER $namer: UNLOCK SUCCES"
+echo -e " USER $namer: UNLOCK SUCCESS"
 pkill -u $namer
 [[ -e $dir_user/$namer.block1 ]] && rm $dir_user/$namer.block1
 [[ -e $dir_user/$namer.block ]] && rm -f $dir_user/$namer.block 
