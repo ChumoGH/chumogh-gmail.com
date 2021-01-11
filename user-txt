@@ -2,6 +2,11 @@
 source cabecalho
 mt=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f2)
 mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)
+if [ "$(find . -type f -iname "*.block" | wc -l)" > 0 ]; then
+ul="\033[1;31m$(find . -type f -iname "*.block" | wc -l) \033[1;32mLOCKED"
+else
+ul="\033[1;32mALL UNLOCK"
+fi
 usoo=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
 CPU=$(echo $usoo "%" | awk '{printf("%d\n",$1 + 0.5)}')
 msg -bar #echo -e "${cor[1]} ▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪ ${cor[0]}"
@@ -18,7 +23,7 @@ echo -e "${cor[2]} [6] >${cor[3]} ${txt[19]}" #  ${cor[2]} [-] >${cor[3]} - "
 echo -e "${cor[2]} [7] >${cor[3]} ${txt[87]}" #   ${cor[2]}        [-] >${cor[3]} - "
 echo -e "${cor[2]} [8] >${cor[3]} ${txt[234]}" #  ${cor[2]}     [-] >${cor[3]} - "
 echo -e "${cor[2]} [9] >${cor[3]} ${txt[288]}"
-echo -e "${cor[2]} [10] >${cor[3]} Bloquear Usuario Fijo"
+echo -e "${cor[2]} [10] >${cor[3]} Bloquear Usuario Fijo $ul"
 if [ -e /etc/cgh/modulo/limiter ]; then
 echo -e "\033[1;31m \033[1;36m \033[1;32m(ON)\033[1;36m ${txt[354]}"
 else
