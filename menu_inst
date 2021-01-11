@@ -7,7 +7,7 @@ sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4
 }
 
 fun_log () {
-
+[[ -e /bin/ejecutar/sshd_config ]] && { 
 ####
 sysvar=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //' | grep -o Ubuntu)
 [[ ! $(cat /etc/shells|grep "/bin/false") ]] && echo -e "/bin/false" >> /etc/shells
@@ -67,6 +67,68 @@ AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
 Banner /etc/bannerssh" > /etc/ssh/sshd_config
+}
+} || {
+cp /etc/ssh/sshd_config /bin/ejecutar/sshd_config
+sysvar=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //' | grep -o Ubuntu)
+[[ ! $(cat /etc/shells|grep "/bin/false") ]] && echo -e "/bin/false" >> /etc/shells
+[[ "$sysvar" != "" ]] && {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes
+Banner /etc/bannerssh" > /etc/ssh/sshd_config
+} || {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes
+Banner /etc/bannerssh" > /etc/ssh/sshd_config
+}
 }
 ######################
 
@@ -644,6 +706,7 @@ service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
+[[ -e /bin/ejecutar/sshd_config ]] && mv /bin/ejecutar/sshd_config /etc/ssh/sshd_config 
  echo -e "$barra\n\033[1;32m $(source trans -b pt:${id} "Dropbear Removido")\n$barra"
  [[ -e /etc/default/dropbear ]] && rm /etc/default/dropbear
  user -k $dpa/tcp > /dev/null 2>&1
