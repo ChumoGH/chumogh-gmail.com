@@ -5,6 +5,74 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 sslkk (){
 sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 }
+
+fun_log () {
+
+####
+sysvar=$(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //' | grep -o Ubuntu)
+[[ ! $(cat /etc/shells|grep "/bin/false") ]] && echo -e "/bin/false" >> /etc/shells
+[[ "$sysvar" != "" ]] && {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes
+Banner /etc/bannerssh" > /etc/ssh/sshd_config
+} || {
+echo -e "Port 22
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes
+Banner /etc/bannerssh" > /etc/ssh/sshd_config
+}
+######################
+
+}
+
+
 ban_inex () {
 
 echo "BANNER INEXISTENTE"
@@ -25,6 +93,7 @@ Gracias Por Usar ChumoGH VPS
 </h6></font>
 <font color="purple">Verified【 ★ ChumoGH ★ 】 ADM 2020</font></center>
 ' > /etc/bannerssh
+cp /etc/bannersh /etc/dropbear/banner
 echo "BANNER AGREGADO |||| REINTENTE"
 installdropbear
 }
@@ -37,6 +106,9 @@ killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
 [[ -e /etc/bannerssh ]] && {
+####
+fun_log
+####
 echo "› Instalando Dropbear"
 fun_bar "apt-get -y install dropbear"
 service dropbear stop 1> /dev/null 2> /dev/null
@@ -61,7 +133,7 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 #service sshd restart 1> /dev/null 2> /dev/null
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 service dropbear start 1> /dev/null 2> /dev/null
-#fun_eth
+fun_eth
 echo -e "\033[1;33m › INSTALACION FINALIZADA - PRESIONE ENTER\033[0m"
 read -p " "
 return 0
@@ -78,6 +150,9 @@ service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
+####
+fun_log
+####
 echo "› Instalando Dropbear"
 fun_bar "apt-get -y install dropbear"
 rm /etc/default/dropbear
@@ -119,6 +194,9 @@ service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
+####
+fun_log
+####
 echo "› Instalando Dropbear"
 fun_bar "apt-get -y install dropbear=2016.72-1"
 rm /etc/default/dropbear
@@ -154,6 +232,9 @@ cgh 10
 }
 function dropbeardebian9(){
 clear
+####
+fun_log
+####
 echo "Instalando Dropbear"
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y install dropbear=2016.74-5
