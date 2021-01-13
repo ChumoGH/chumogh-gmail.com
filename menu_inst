@@ -137,7 +137,7 @@ Banner /etc/bannerssh" > /etc/ssh/sshd_config
 
 ban_inex () {
 
-echo "BANNER INEXISTENTE"
+echo "BANNER INEXISTENTE - RECOMENDADO MODIFICAR TU BANNER"
 fun_bar 
 echo '<h1 style="text-align:center;"><font>××××××××××××××××××××××××××××</font></h1>
 <h1 style="text-align:center;"><font color="#FF00FF">
@@ -153,9 +153,8 @@ echo '<h1 style="text-align:center;"><font>××××××××××××××××××�
 <h6><font color="#2E8B57">
 Gracias Por Usar ChumoGH VPS
 </h6></font>
-<font color="purple">Verified【 ★ ChumoGH ★ 】 ADM 2020</font></center>
-' > /etc/bannerssh
-cp /etc/bannersh /etc/dropbear/banner
+<font color="purple">Verified【 ★ChumoGH★ 】 ADM 2021</font></center>' > /etc/bannerssh
+cat /etc/bannersh > /etc/dropbear/banner
 echo "BANNER AGREGADO |||| REINTENTE"
 installdropbear
 }
@@ -190,9 +189,9 @@ sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-#service ssh restart 1> /dev/null 2> /dev/null
+service ssh restart 1> /dev/null 2> /dev/null
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
-#service sshd restart 1> /dev/null 2> /dev/null
+service sshd restart 1> /dev/null 2> /dev/null
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 service dropbear start 1> /dev/null 2> /dev/null
 fun_eth
@@ -231,11 +230,12 @@ read -p "› : " puertodropbear
    unset puertodropbear
    }
 sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
+sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-#service ssh restart 1> /dev/null 2> /dev/null
-#service sshd restart 1> /dev/null 2> /dev/null
+service ssh restart 1> /dev/null 2> /dev/null
+service sshd restart 1> /dev/null 2> /dev/null
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 fun_eth
@@ -275,11 +275,12 @@ read -p "› : " puertodropbear
    return 1
    }
 sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
+sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
-#service ssh restart 1> /dev/null 2> /dev/null
-#service sshd restart 1> /dev/null 2> /dev/null
+service ssh restart 1> /dev/null 2> /dev/null
+service sshd restart 1> /dev/null 2> /dev/null
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo -e "\033[1;31m › DROPBEAR ESCUCHA \033[0m" $dropbearports " ESCOJIDO " $puertodropbear
 fun_eth
@@ -301,8 +302,20 @@ echo "Instalando Dropbear"
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y install dropbear=2016.74-5
 clear
+echo -e "\033[1;31m › ESCRIBE UN PUERTO PARA DROPBEAR\033[0m"
+echo -e "\033[1;31m › RECOMENDADO 443 - 80 \033[0m"
+read -p "› : " puertodropbear
+[[ $(mportas|grep $puertodropbear) != "" ]] && {
+   echo -e "\033[1;31m $(source trans -b pt:${id} "PORTA " $puertodropbear "EN USO")\033[1;37m"
+   echo -e "\033[1;31m $(source trans -b es:${id} "INTENTE NUEVAMENTE")\033[1;37m"
+   fuser -k $puertodropbear/tcp > /dev/null 2>&1
+   echo -e "$barra"
+   unset puertodropbear
+   return 1
+   }
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=443/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=$puertodropbear/g' /etc/default/dropbear
+sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
