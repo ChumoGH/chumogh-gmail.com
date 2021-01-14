@@ -491,8 +491,9 @@ _cont="1"
 [[ -e $_tmp3 ]] && rm $_tmp3
 touch $_tmp3
 for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
-echo "$_cont $u" >> $_tmp3
-echo -e "${cor[2]} |$_cont| >${cor[5]} $u"
+
+echo "$_cont $u --" >> $_tmp3
+[[ -e $dir_user/$u.block ]] && echo -e "${cor[2]} |$_cont| >${cor[5]} $u \033[1;34m<--\033[1;31m LOCK" || echo -e "${cor[2]} |$_cont| >${cor[5]} $u"
 [[ "$u" = "" ]] && break
 _cont=$(($_cont + 1))
 done
