@@ -1004,7 +1004,6 @@ limiter_fun () {
 echo -e "${cor[1]} =================================== ${cor[0]}"
 echo -e "${cor[5]} LIMITER RUNNING IN VERIFICACION ${cor[0]}"
 echo -e "${cor[1]} =================================== ${cor[0]}"
-return
 }
    if [[ $limiter_on = "" ]]; then
    unset limiter_on
