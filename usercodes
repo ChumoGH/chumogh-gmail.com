@@ -83,6 +83,11 @@ tempo=$tempo"s"
 fi
 }
 
+recuva1 () 
+{
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/sd)
+}
+
 fun_barcgh () {
 comando[0]="$1"
 comando[1]="$2"
@@ -1033,7 +1038,7 @@ echo -e "${cor[1]} =================================== ${cor[0]}"
 [[ "$1" = "8" ]] && function_7
 [[ "$1" = "9" ]] && net_meter
 [[ "$1" = "10" ]] && block_user
-[[ "$1" = "11" ]] && limiter_fun
+[[ "$1" = "11" ]] && recuva1
 
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
