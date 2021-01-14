@@ -24,6 +24,8 @@ echo -e "${cor[2]} [7] >${cor[3]} ${txt[87]}" #   ${cor[2]}        [-] >${cor[3]
 echo -e "${cor[2]} [8] >${cor[3]} ${txt[234]}" #  ${cor[2]}     [-] >${cor[3]} - "
 echo -e "${cor[2]} [9] >${cor[3]} ${txt[288]}"
 echo -e "${cor[2]} [10] >${cor[3]} Bloquear Usuario Fijo $ul"
+echo -e "${cor[2]} [11] >${cor[3]} BACKUP USUARIOS \033[1;33m( #OFFICIAL )"
+
 if [ -e /etc/cgh/modulo/limiter ]; then
 echo -e "\033[1;31m \033[1;36m \033[1;32m(ON)\033[1;36m ${txt[354]} $limiter_on"
 else
