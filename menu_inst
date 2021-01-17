@@ -167,7 +167,7 @@ service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
 apt-get -y purge dropbear 1> /dev/null 2> /dev/null
 apt-get -y remove dropbear 1> /dev/null 2> /dev/null
-[[ -e /etc/bannerssh ]] && {
+[[ -e /etc/dropbear/banner ]] && {
 ####
 fun_log
 ####
@@ -210,7 +210,7 @@ cgh 10
 }
 function dropbear14(){
 clear
-[[ -e /etc/bannerssh ]] && {
+[[ -e /etc/dropbear/banner ]] && {
 echo "› Preparando Instalacion"
 service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
@@ -259,7 +259,7 @@ cgh 10
 }
 function dropbear16(){
 clear
-[[ -e /etc/bannerssh ]] && {
+[[ -e /etc/dropbear/banner ]] && {
 echo "› Preparando Instalacion"
 service dropbear stop 1> /dev/null 2> /dev/null
 killall dropbear 1> /dev/null 2> /dev/null
