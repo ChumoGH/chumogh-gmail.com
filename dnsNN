@@ -3,32 +3,27 @@
 #SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 #SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
 dnsnetflix () {
-if [[ -e /bin/ejecutar/resolv.conf.org ]]; then
-echo "YA MODIFICADO"
-else
-cp /etc/resolv.conf /bin/ejecutar/resolv.conf.org
-fi
-echo "nameserver $dnsp" > /etc/resolv.conf
+[[ -e /bin/ejecutar/resolv.conf ]] && {
+echo "nameserver $dnsp" >> /etc/resolv.conf
 #echo "nameserver 8.8.8.8" >> /etc/resolv.conf
-/etc/init.d/ssrmu stop &>/dev/null
-/etc/init.d/ssrmu start &>/dev/null
-/etc/init.d/shadowsocks-r stop &>/dev/null
-/etc/init.d/shadowsocks-r start &>/dev/null
 msg -bar2
 echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
+} || {
+cp /etc/resolv.conf /bin/ejecutar/resolv.conf
+}
 } 
 clear
 msg -bar2
 echo -e "\033[1;93m     AGREGARDOR DE DNS PERSONALES "
 msg -bar2
-echo -e "\033[1;39m Esta funcion ara que puedas ver Netflix con tu VPS"
+echo -e "\033[1;39m Esta funcion para que puedas ver Netflix con tu VPS"
 msg -bar2
-echo -e "\033[1;91m ¡ Solo seran utiles si registraste tu IP en el BOT !"
-echo -e "\033[1;39m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
-echo -e "\033[1;39m Se deveran agregar en la aplicasion a usar estos DNS."
-echo -e "\033[1;39m En APPS como SS,SSR,V2RAY no es necesario agregarlos."
+echo -e "\033[1;91m ¡ SOLO INGRESA LA IP DEL DNS O SERVIDOR CON SOPORTE"
+echo -e "\033[1;39m         Instalara el DNS funcional para Netflix"
+#echo -e "\033[1;39m Se deveran agregar en la aplicasion a usar estos DNS."
+#echo -e "\033[1;39m En APPS como SS,SSR,V2RAY no es necesario agregarlos."
 msg -bar2
-echo -e "\033[1;93m Recuerde escojer entre 1 DNS ya sea el de USA,BR,MX,CL \n segun le aya entregado el BOT."
+echo -e "\033[1;93m Recuerde escojer entre 1 DNS \n       Que sea Valido ."
 echo ""
 echo -e "\033[1;97m Ingrese su DNS a usar: \033[0;91m"; read -p "   "  dnsp
 echo ""
