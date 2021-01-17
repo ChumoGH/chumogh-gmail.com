@@ -6,6 +6,8 @@ unset _usor
 unset _ram
 _hora=$(printf '%(%D-%H:%M:%S)T') 
 adaptador=`ifconfig | awk 'NR==1{print substr($1,1,length($1)-1); }'`;
+trojanports=`lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN" | grep trojan | awk '{print substr($9,3); }' > /tmp/trojan.txt && echo | cat /tmp/trojan.txt | tr '\n' ' ' > /etc/adm-lite/trojanports.txt && cat /etc/adm-lite/trojanports.txt`;
+
 squidports=`netstat -tunlp | grep squid | grep -vE 'udp' | awk '{print substr($4,4); }' > /tmp/squid.txt && echo | cat /tmp/squid.txt | tr '\n' ' ' > /etc/adm-lite/squidports.txt && cat /etc/adm-lite/squidports.txt`;
 sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 sshports=`netstat -tunlp | grep sshd | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssh.txt && echo | cat /tmp/ssh.txt | tr '\n' ' ' > /etc/adm-lite/sshports.txt && cat /etc/adm-lite/sshports.txt`;
