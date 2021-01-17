@@ -136,8 +136,9 @@ Banner /etc/bannerssh" > /etc/ssh/sshd_config
 
 
 ban_inex () {
-
-echo "BANNER INEXISTENTE - RECOMENDADO MODIFICAR TU BANNER"
+echo -e " "
+echo -e "BANNER INEXISTENTE - RECOMENDADO MODIFICAR TU BANNER"
+read -p "Presiona Enter para Continuar"
 fun_bar 
 echo '<h1 style="text-align:center;"><font>××××××××××××××××××××××××××××</font></h1>
 <h1 style="text-align:center;"><font color="#FF00FF">
@@ -154,7 +155,7 @@ echo '<h1 style="text-align:center;"><font>××××××××××××××××××�
 Gracias Por Usar ChumoGH VPS
 </h6></font>
 <font color="purple">Verified【 ★ChumoGH★ 】 ADM 2021</font></center>' > /etc/bannerssh
-cat /etc/bannersh > /etc/dropbear/banner
+[[ -e /etc/dropbear/banner ]] && touch /etc/dropbear/banner || cat /etc/bannerssh > /etc/dropbear/banner
 echo "BANNER AGREGADO |||| REINTENTE"
 installdropbear
 }
@@ -185,7 +186,11 @@ read -p "› : " puertodropbear
    echo -e "$barra"
    return 1
    }
-sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
+echo -e "NO_START=0" > /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
+echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
+#sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
@@ -229,8 +234,12 @@ read -p "› : " puertodropbear
    return 1
    unset puertodropbear
    }
-sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
-sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
+echo -e "NO_START=0" > /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
+echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
+#sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
+#sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
@@ -274,8 +283,12 @@ read -p "› : " puertodropbear
    unset puertodropbear
    return 1
    }
-sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
-sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
+echo -e "NO_START=0" > /etc/default/dropbear
+echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
+echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
+echo -e "DROPBEAR_RECEIVE_WINDOW=65536" >> /etc/default/dropbear
+#sed -i '2i DROPBEAR_PORT="'"$puertodropbear"'"' /etc/default/dropbear
+#sed -i "s;/etc/bannerssh;/etc/dropbear/banner;g" /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service dropbear restart 1> /dev/null 2> /dev/null
@@ -614,7 +627,7 @@ echo -e "http_port $pts" >> $var_squid
 done
 echo -e "
 #nome
-visible_hostname ADM-MANAGER
+visible_hostname ChumoGH-ADM
 
 via off
 forwarded_for off
@@ -638,7 +651,7 @@ echo -e "http_port $pts" >> $var_squid
 done
 echo -e "
 #nome
-visible_hostname ADM-MANAGER
+visible_hostname ChumoGH-ADM
 
 via off
 forwarded_for off
@@ -737,8 +750,8 @@ fun_bar
 if lsof -Pi :$portdrop -sTCP:LISTEN -t >/dev/null ; then
 echo "Puerto Seleccionado Ocupado | Reintenta"
 else
-sed -i "3d" /etc/default/dropbear
-sed -i '3i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
+sed -i "2d" /etc/default/dropbear
+sed -i '2i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
 echo $portdrop > /etc/default/dadd
 echo "Reiniciando Dropbear para ejecutar cambios"
 fun_bar
@@ -752,9 +765,10 @@ fi
  return 0
  }
 echo "Desgraciado, No HAS INSTALADO EL SERVICIO AUN ;C"
+exit
 ;;
 *)
-cgh
+adm
 ;;
 esac
 }
@@ -1284,7 +1298,7 @@ echo -ne "\033[1;37m"
 	 fi
 done
 echo -e "${barra}\n $(source trans -b pt:${id} "Escolha o Texto de Conexao")\n${barra}"
-read -p " Text Socket: " -e -i ADMULTIMATE texto_soket
+read -p " Text Socket: " -e -i ChumoGH-ADM texto_soket
 }
 IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 [[ -e /etc/adm-lite/sockpub ]] && _sockpub="\033[1;32mOn" || _sockpub="\033[1;31mOff"
@@ -1684,8 +1698,9 @@ unset tcpbypass
 unset webminn
 unset ddos
 unset v2ray
-[[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
+
 [[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
+[[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
 [[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[ON] " || dropbear="\033[1;31m[OFF]"
 [[ -e /etc/openvpn/server.conf ]] && openvpn="\033[1;32m$(source trans -b pt:${id} "Configurado")" || openvpn="\033[1;31m[OFF]"
 [[ $(mportas|grep stunnel4|head -1) ]] && stunel="\033[1;32m[ON]" || stunel="\033[1;31m[OFF]"
