@@ -186,6 +186,7 @@ read -p "› : " puertodropbear
    echo -e "$barra"
    return 1
    }
+echo $puertodropbear > /etc/default/dadd
 echo -e "NO_START=0" > /etc/default/dropbear
 echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
 echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
@@ -234,6 +235,7 @@ read -p "› : " puertodropbear
    return 1
    unset puertodropbear
    }
+echo $puertodropbear > /etc/default/dadd
 echo -e "NO_START=0" > /etc/default/dropbear
 echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
 echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
@@ -283,6 +285,7 @@ read -p "› : " puertodropbear
    unset puertodropbear
    return 1
    }
+echo $puertodropbear > /etc/default/dadd
 echo -e "NO_START=0" > /etc/default/dropbear
 echo -e 'DROPBEAR_EXTRA_ARGS="-p '$puertodropbear'"' >> /etc/default/dropbear
 echo -e 'DROPBEAR_BANNER="/etc/dropbear/banner"' >> /etc/default/dropbear
@@ -744,14 +747,17 @@ apt-get -y remove dropbear 1> /dev/null 2> /dev/null
 dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/dropbear.txt && echo | cat /tmp/dropbear.txt | tr '\n' ' ' > /etc/adm-lite/dropbearports.txt && cat /etc/adm-lite/dropbearports.txt`;
 echo "Puertos que Corren en DROPBEAR " $dropbearports 
 cp /etc/default/dropbear /etc/default/dropbear.or
-echo "Ingresa Nuevo Puerto a Escuchar:"
+echo "Ingresa Nuevo Puerto Escuchar:"
 read -p ": " portdrop
+dnew="$portdrop"
 fun_bar
 if lsof -Pi :$portdrop -sTCP:LISTEN -t >/dev/null ; then
 echo "Puerto Seleccionado Ocupado | Reintenta"
 else
-sed -i "2d" /etc/default/dropbear
-sed -i '2i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
+ #sed -i "2d" /etc/default/dropbear
+dvj=$(cat < /etc/default/dadd)
+sed -i "s/$dvj/$dnew -p $dvj/g" /etc/default/dropbear
+#sed -i '2i DROPBEAR_EXTRA_ARGS="-p '"$portdrop"'"' /etc/default/dropbear
 echo $portdrop > /etc/default/dadd
 echo "Reiniciando Dropbear para ejecutar cambios"
 fun_bar
