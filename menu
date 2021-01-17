@@ -6,10 +6,11 @@ function removerv2ray(){
 #source <(curl -sL https://git.io/fNgqx) --remove
 source <(curl -sL https://multi.netlify.com/v2ray.sh) --remove
 source <(curl -sL https://git.io/fNgqx) --remove
+source <(curl -sL https://git.io/JeSZL) --remove
 rm -rf /usr/local/V2ray.Fun
 rm -f /etc/v2ray/*
 rm -rf /etc/v2ray/
-cgh
+exit
 }
 
 recuva1 () 
