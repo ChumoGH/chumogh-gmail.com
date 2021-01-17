@@ -1361,7 +1361,15 @@ source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/maste
 
 trojan() 
 {
-source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan)
+[[ -e /usr/local/etc/trojan/config.json ]] && {
+source <(curl -sL https://git.io/trojan-install) --remove
+echo -e "\033[1;37m  Desinstalacion Completa \033[0m"
+echo -e "\033[1;31m PRESIONE ENTER\033[0m"
+read -p " "
+} || { 
+source <(curl -sL https://git.io/trojan-install)
+}
+#source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan)
 #source <(curl -sL https://github.com/VPS-MX/VPS-MX-8.0/raw/master/SCRIPT/C-SSR.sh)
 #sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
 }
@@ -1704,7 +1712,16 @@ unset tcpbypass
 unset webminn
 unset ddos
 unset v2ray
-
+xclash=`if netstat -tunlp | grep clash 1> /dev/null 2> /dev/null; then
+echo -e "\033[1;32m[ON] "
+else
+echo -e "\033[1;31m[OFF]"
+fi`;
+tojanss=`if netstat -tunlp | grep trojan 1> /dev/null 2> /dev/null; then
+echo -e "\033[1;32m[ON] "
+else
+echo -e "\033[1;31m[OFF]"
+fi`;
 [[ -e /etc/squid3/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
 [[ -e /etc/squid/squid.conf ]] && squid="\033[1;32m[ON] " || squid="\033[1;31m[OFF]"
 [[ -e /etc/default/dropbear ]] && dropbear="\033[1;32m[ON] " || dropbear="\033[1;31m[OFF]"
@@ -1729,7 +1746,7 @@ echo -e "${cor[5]} [1] > ${cor[3]}Squid / gzip $squid      ${cor[6]} [5] > ${cor
 echo -e "${cor[5]} [2] > ${cor[3]}DROPBEAR http(s) $dropbear  ${cor[6]} [6] > ${cor[3]}ShadowsocksR$cc (SS/SSRR) \033[1;33m$user_total"
 echo -e "${cor[5]} [3] > ${cor[3]}OPENVPN $openvpn           ${cor[6]} [7] > ${cor[3]}PROXY SOCKS $socks"
 echo -e "${cor[5]} [4] > ${cor[3]}SSL/TLS Tunnel $stunel  ${cor[6]}    [8] > ${cor[3]}V2ray Socket $v2ray"
-echo -e "${cor[5]} [9] > ${cor[3]}Clash \033[1;33m( #BETA )$trj         ${cor[6]} [10] > ${cor[3]}Trojan Socket \033[1;33m( #BETA )$v2ray    "
+echo -e "${cor[5]} [9] > ${cor[3]}Clash \033[1;33m( #BETA )$xclash         ${cor[6]} [10] > ${cor[3]}Trojan Socket \033[1;33m( #BETA )$tojanss    "
 #echo -e "${cor[2]} [9] > ${cor[3]}TELEGRAN MANAGER BOT $telegran"
 #echo -e "${cor[2]} [10] > ${cor[3]}WEBMIN $webminn"
 #echo -e "${cor[2]} [11] > ${cor[3]}Anti-DDOS $ddos"
