@@ -1791,7 +1791,7 @@ v2ray-socket
 read -p " Enter";;
 9)
 instala_clash
-#telegran_bot
+#
 read -p " Enter";;
 10)
 #web_min
@@ -1799,7 +1799,7 @@ trojan
 #echo "No existe Parametro, DISEÑANDO . . . . "
 read -p " Enter";;
 11)
-#antiddos
+telegran_bot
 read -p " Enter";;
 12)
 #v2ray-socket
