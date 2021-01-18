@@ -1265,7 +1265,6 @@ echo -e "\033[1;32mRuta de Configuracion: /root/.config/clash/config.yaml"
 echo -e "\033[1;32mRuta de archivo de importacion de servidor Clash: http://$IP:81/clash.yaml"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
-exit
 fi
 #bash -c "$(curl -fsSL https://raw.githubusercontent.com/JeannieStudio/all_install/master/SixForOne_install.sh)"
 }
@@ -1460,7 +1459,6 @@ echo -e "\033[1;33mSi necesitas cambiar el password edita el archivo o Reinstala
 echo -e "\033[1;32mRuta de Configuracion: /usr/local/etc/trojan/config.json"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
-exit
 }
 ###
 #[[ -e /usr/local/etc/trojan/config.json ]] && {
@@ -1859,7 +1857,6 @@ cd /root
 echo -e "TCP DNS Instalado"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
-exit
 }
 
 #FUNCOES
