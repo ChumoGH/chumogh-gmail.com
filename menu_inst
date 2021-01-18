@@ -1459,6 +1459,7 @@ echo -e "\033[1;33mSi necesitas cambiar el password edita el archivo o Reinstala
 echo -e "\033[1;32mRuta de Configuracion: /usr/local/etc/trojan/config.json"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
+fi
 }
 ###
 #[[ -e /usr/local/etc/trojan/config.json ]] && {
