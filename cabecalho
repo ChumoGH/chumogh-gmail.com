@@ -854,6 +854,9 @@ b=$(sed -n "$i"p $porta_var | awk '{print $2}')
 if [[ $a = "apache2" ]];then
 texto="\033[1;34m ▸ \033[1;37mAPACHE: \033[1;31m$b"
 fi
+if [[ $a = "clash" ]];then
+texto="\033[1;34m ▸ \033[1;37mClash: \033[1;31m$b"
+fi
 if [[ $a = "psiphond" ]];then
 texto="\033[1;34m ▸ \033[1;37mPSIPHON: \033[1;31m$b"
 fi
@@ -913,11 +916,14 @@ fi
 if [[ $c = "psiphond" ]];then
 texto_="\033[1;34m ◂ \033[1;37mPSIPHON: \033[1;31m$d"
 fi
+if [[ $c = "clash" ]];then
+texto_="\033[1;34m ◂ \033[1;37mClash: \033[1;31m$d"
+fi
 if [[ $c = "python" ]];then
-texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
 fi
 if [[ $c = "python3" ]];then
-texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
 fi
 if [[ $c = "openvpn" ]];then
 texto_="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$d"
@@ -929,10 +935,10 @@ if [[ $c = "squid" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSQUID: \033[1;31m$d"
 fi
 if [[ $c = "dropbear" ]];then
-texto_="\033[1;34m ▸ \033[1;37mDROPBEAR: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mDROPBEAR: \033[1;31m$d"
 fi
 if [[ $c = "obfs-serv" ]];then
-texto_="\033[1;34m ▸ \033[1;37mSSR (OBFS): \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSSR (OBFS): \033[1;31m$d"
 fi
 if [[ $c = "sshd" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSSH: \033[1;31m$d"
