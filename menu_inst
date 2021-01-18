@@ -1461,6 +1461,8 @@ echo -e "\033[1;32mRuta de Configuracion: /usr/local/etc/trojan/config.json"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
 exit
+}
+###
 #[[ -e /usr/local/etc/trojan/config.json ]] && {
 #source <(curl -sL https://git.io/trojan-install) --remove
 #echo -e "\033[1;37m  Desinstalacion Completa \033[0m"
@@ -1472,7 +1474,9 @@ exit
 #source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/trojan)
 #source <(curl -sL https://github.com/VPS-MX/VPS-MX-8.0/raw/master/SCRIPT/C-SSR.sh)
 #sed '/gnula.sh/ d' /etc/crontab > /bin/ejecutar/crontab
-}
+##
+
+
 
 tcpbypass_fun () {
 [[ -e /etc/adm-lite/edbypass ]] && {
