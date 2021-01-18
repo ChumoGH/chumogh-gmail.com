@@ -854,6 +854,9 @@ b=$(sed -n "$i"p $porta_var | awk '{print $2}')
 if [[ $a = "apache2" ]];then
 texto="\033[1;34m ▸ \033[1;37mAPACHE: \033[1;31m$b"
 fi
+if [[ $a = "psiphond" ]];then
+texto="\033[1;34m ▸ \033[1;37mPSIPHON: \033[1;31m$b"
+fi
 if [[ $a = "openvpn" ]];then
 texto="\033[1;34m ◂ \033[1;37mOPENVPN-TCP: \033[1;31m$b"
 fi
@@ -882,7 +885,7 @@ if [[ $a = "ssh" ]];then
 texto="\033[1;34m ▸ \033[1;37mSSH: \033[1;31m$b"
 fi
 if [[ $a = "systemd-r" ]];then
-texto="\033[1;34m ▸ \033[1;37mKernel: \033[1;31m$b"
+texto="\033[1;34m ▸ \033[1;37mSystem-R: \033[1;31m$b"
 fi
 if [[ $a = "stunnel4" ]];then
 texto="\033[1;34m ▸ \033[1;37mSSL: \033[1;31m$b"
@@ -906,6 +909,9 @@ d=$(sed -n "$i"p $porta_var | awk '{print $2}')
 #fi
 if [[ $c = "apache2" ]];then
 texto_="\033[1;34m ◂ \033[1;37mAPACHE: \033[1;31m$d"
+fi
+if [[ $c = "psiphond" ]];then
+texto_="\033[1;34m ◂ \033[1;37mPSIPHON: \033[1;31m$d"
 fi
 if [[ $c = "python" ]];then
 texto_="\033[1;34m ▸ \033[1;37mSOCKS/PYTHON: \033[1;31m$d"
@@ -938,7 +944,7 @@ if [[ $c = "v2ray" ]];then
 texto_="\033[1;34m ◂ \033[1;37mV2RAY: \033[1;31m$d"
 fi
 if [[ $c = "systemd-r" ]];then
-texto_="\033[1;34m ◂ \033[1;37mKernel: \033[1;31m$d"
+texto_="\033[1;34m ◂ \033[1;37mSystem-R: \033[1;31m$d"
 fi
 if [[ $c = "stunnel4" ]];then
 texto_="\033[1;34m ◂ \033[1;37mSSL: \033[1;31m$d"
