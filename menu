@@ -12,6 +12,15 @@ rm -f /etc/v2ray/*
 rm -rf /etc/v2ray/
 exit
 }
+sfix () 
+{
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/sourcesfix.sh)
+}
+
+xswap () 
+{
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/swap.sh)
+}
 
 recuva1 () 
 {
@@ -612,7 +621,7 @@ echo -e "${cor[2]} [1] > \033[1;36mREINICIAR Servicios"
 echo -e "${cor[2]} [2] > \033[1;36mDesinstalar Servicios de Puertos."
 echo -e "${cor[2]} [3] > \033[1;36mCambiar ROOT."
 echo -e "${cor[2]} [4] > \033[1;36mMostrar Configuraciones de Puertos"
-echo -e "${cor[2]} [5] > \033[1;36mACTULIZAR VPS"
+echo -e "${cor[2]} [5] > \033[1;36mMemoria SWAP Particion \033[1;33m( #BETA )"
 echo -e "${cor[2]} [6] > \033[1;35mKILL MULTILOGIN"
 echo -e "${cor[2]} [7] > \033[1;36mREINICIAR VPS"
 echo -e "${cor[2]} [8] > \033[1;34mScript TROJAN (directo) \033[1;33m( #BETA )" #MENU ShadowsocksR \033[1;33m(FIX)
@@ -620,7 +629,7 @@ echo -e "${cor[2]} [9] > \033[1;36mFIX CONTRASEÑA ROOT EN AMAZON & GG CLOUD"
 echo -e "${cor[2]} [10] > \033[1;36mMostrar Trafico Total de VPS"
 echo -e "${cor[2]} [11] > \033[1;36mREDIRECCIONAMIENTO SSL "
 echo -e "${cor[2]} [12] > \033[1;36mDNS Netflix"
-echo -e "${cor[2]} [13] > \033[1;36mBloqueo Torrent y Plabras Claves \033[1;33m( #BETA )"
+echo -e "${cor[2]} [13] > \033[1;36mFIX SOURCES UBUNTU"
 echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
 echo -e "${cor[2]} [15] > \033[1;36mInstalar Go Lang"
 ###############
@@ -751,7 +760,7 @@ case $ppp in
 		
 	;;
 	5)
-	update_pak;;
+	xswap;;
 	6)
 	verifi_fun;;
 	7)
@@ -769,7 +778,7 @@ case $ppp in
 	source <(curl -sL https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/dnsNN)
 	;;
 	13)
-	inisocks
+	sfix
 	;;
 	14)
 	chora
