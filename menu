@@ -23,7 +23,8 @@ source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/maste
 }
 mpro () {
 echo -e "5 PROCESOS SOBRE CARGADOS"
-ps aux --width 30 --sort -rss | head
+#ps aux --width 30 --sort -rss | head
+ps -Ao user,uid,comm,pid,pcpu,pmem --sort=-pcpu | head -n 15
 read -p "Ingresa nombre de proceso a Destruir, ( no Dropbear, no SSH )" df
 pidkill='ps x | grep -v grep | grep $df'
 killall $df
