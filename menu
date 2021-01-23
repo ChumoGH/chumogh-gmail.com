@@ -21,6 +21,11 @@ xswap ()
 {
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/swap.sh)
 }
+
+xclash () 
+{
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/Clash/clash.sh)
+}
 mpro () {
 echo -e "5 PROCESOS SOBRE CARGADOS"
 #ps aux --width 30 --sort -rss | head
@@ -644,6 +649,7 @@ echo -e "${cor[2]} [13] > \033[1;36mFIX SOURCES UBUNTU"
 echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
 echo -e "${cor[2]} [15] > \033[1;36mInstalar Go Lang"
 echo -e "${cor[2]} [16] > \033[1;36mMostar Procesos con Mas consumo"
+echo -e "${cor[2]} [17] > \033[1;36mClash Testeando \033[1;33m( #BETA )"
 ###############
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje : " ppp
@@ -800,6 +806,9 @@ case $ppp in
 	;;
 	16)
 	mpro
+	;;
+	17)
+	xclash
 	;;
 	*)
 	source menu
