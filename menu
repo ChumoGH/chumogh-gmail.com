@@ -21,6 +21,16 @@ xswap ()
 {
 source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/swap.sh)
 }
+mpro () {
+echo -e "5 PROCESOS SOBRE CARGADOS"
+ps aux --width 30 --sort -rss | head
+read -p "Ingresa nombre de proceso a Destruir, ( no Dropbear, no SSH )" df
+pidkill='ps x | grep -v grep | grep $df'
+killall $df
+#pidkill='ps x | grep -v grep | grep $df'
+ps aux | grep -v grep | grep $df
+echo "Proceso Liberado Exitosamente"
+}
 
 recuva1 () 
 {
@@ -632,6 +642,7 @@ echo -e "${cor[2]} [12] > \033[1;36mDNS Netflix"
 echo -e "${cor[2]} [13] > \033[1;36mFIX SOURCES UBUNTU"
 echo -e "${cor[2]} [14] > \033[1;36mActualizar Zona Horaria"
 echo -e "${cor[2]} [15] > \033[1;36mInstalar Go Lang"
+echo -e "${cor[2]} [16] > \033[1;36mMostar Procesos con Mas consumo"
 ###############
 echo -e "${cor[1]} ➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷➷ ${cor[0]}"
 read -p " Escoje : " ppp
@@ -785,6 +796,9 @@ case $ppp in
 	;;
 	15)
 	goinst
+	;;
+	16)
+	mpro
 	;;
 	*)
 	source menu
