@@ -5,7 +5,7 @@ dropbearports=`netstat -tunlp | grep dropbear | grep 0.0.0.0: | awk '{print subs
 sslkk (){
 sslports=`netstat -tunlp | grep stunnel4 | grep 0.0.0.0: | awk '{print substr($4,9); }' > /tmp/ssl.txt && echo | cat /tmp/ssl.txt | tr '\n' ' ' > /etc/adm-lite/sslports.txt && cat /etc/adm-lite/sslports.txt`;
 }
-
+par=$(v2ray info | grep path |awk -F : '{print $4}')
 fun_log () {
 [[ -e /bin/ejecutar/sshd_config ]] && { 
 ####
