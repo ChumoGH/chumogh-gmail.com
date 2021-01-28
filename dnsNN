@@ -11,9 +11,12 @@ echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
 } || {
 cp /etc/resolv.conf /bin/ejecutar/resolv.conf
 echo "nameserver $dnsp" >> /etc/resolv.conf
+#echo "nameserver $dnsp2" >> /etc/resolv.conf
 #echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 msg -bar2
 echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
+sudo systemctl restart systemd-resolved.service
+sudo systemctl restart dnsmasq.service
 }
 } 
 clear
@@ -31,6 +34,7 @@ echo -e "\033[1;93m Recuerde escojer entre 1 DNS \n       Que sea Valido ."
 echo ""
 read -p "Ingrese su DNS a usar: " dnsp
 echo ""
+read -p "Ingrese su 2 DNS a usar: " dnsp2
 msg -bar2
 read -p " Estas seguro de continuar?  [ s | n ]: " dd   
 [[ "$dd" = "s" || "$dd" = "S" ]] && dnsnetflix
