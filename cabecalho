@@ -138,7 +138,7 @@ fun_bar1 'apt-get install screen -y' 'apt-get install python'
 fun_bar1 'apt-get install lsof -y' 'apt-get install python3-pip'
 fun_bar1 'apt-get install python' 'apt-get install unzip'
 echo -e "${cor[2]} $text Pannel de Administracion"
-fun_bar1 'apt-get install zip' 'apt-get install apache2 -y'
+fun_bar1 'apt-get install zip' 'apt-get install apache2 -y' 'apt install vnstat -y'
 echo -e "${cor[2]} $text Descomprensores"
 fun_bar1 'apt-get install ufw' 'apt-get install nmap'
 echo -e "${cor[2]} $text Interfaz de Control"
