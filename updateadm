@@ -99,7 +99,7 @@ cd $HOME
 [[ -e $HOME/lista ]] && rm $HOME/lista
 cd $HOME
  [[ -e /bin/ejecutar/key.fix ]] && echo -e "\033[1;36mTU KEY USADA Fue \033[1;33m$(cat /bin/ejecutar/key.fix)" || echo "ChumoGH2021" > /bin/ejecutar/key.fix
-wget -O lista https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/lista -o /dev/null
+wget -O lista https://www.dropbox.com/s/p5v2hevrfj3pdxb/lista -o /dev/null
 atualiza_fun
 namsobin
 #atualiza_fun
