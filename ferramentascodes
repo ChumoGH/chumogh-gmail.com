@@ -154,7 +154,9 @@ net.core.wmem_max = 16777216
 net.ipv4.tcp_rmem = 4096 87380 16777216
 net.ipv4.tcp_wmem = 4096 16384 16777216
 net.ipv4.tcp_low_latency = 1
-net.ipv4.tcp_slow_start_after_idle = 0" >> /etc/sysctl.conf
+net.ipv4.tcp_slow_start_after_idle = 0
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf > /dev/null 2>&1
 echo -e "${cor[5]} ${txt[137]} TCP"
 echo -e "${cor[5]} ${txt[138]}"
@@ -179,7 +181,9 @@ net.core.wmem_max = 16777216
 net.ipv4.tcp_rmem = 4096 87380 16777216
 net.ipv4.tcp_wmem = 4096 16384 16777216
 net.ipv4.tcp_low_latency = 1
-net.ipv4.tcp_slow_start_after_idle = 0" /etc/sysctl.conf > /tmp/syscl && mv -f /tmp/syscl /etc/sysctl.conf
+net.ipv4.tcp_slow_start_after_idle = 0
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr" /etc/sysctl.conf > /tmp/syscl && mv -f /tmp/syscl /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf > /dev/null 2>&1
 echo -e "${cor[5]} ${txt[141]} TCP"
 echo -e "${cor[5]} ${txt[142]}"
@@ -195,8 +199,6 @@ fi
 function_6 () {
 source fai2ban
 fail2ban-testcases -x start 2>/dev/null
-fail2ban-regex -x start 2>/dev/null
-fail2ban-server -x start 2>/dev/null
 fail2ban-client -x start 2>/dev/null
 }
 
@@ -693,9 +695,9 @@ barra="${cor[1]} =================================== ${cor[0]}"
 [[ -e /etc/adm-lite/idioma_menuinst ]] && id="$(cat /etc/adm-lite/idioma_menuinst)" || id=pt
 [[ $(iptables -h|wc -l) -lt 5 ]] && apt-get install iptables -y > /dev/null 2>-1
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
-echo -e "$barra\n $(source trans -b pt:${id} "Essas configuracoes so Devem ser adicionadas")"
-echo -e " $(source trans -b pt:${id} "apos a vps estar totalmente configurada!")\n$barra"
-echo -e " $(source trans -b pt:${id} "Deseja Prosseguir?")"
+echo -e "$barra\n $(source trans -b pt:${id} "Estas configuraciones van a ser adicionadas")"
+echo -e " $(source trans -b pt:${id} "Recuerda, Tener tu VPS Totalmente Configurada!")\n$barra"
+echo -e " $(source trans -b pt:${id} "Deseas Continuar?")"
 read -p " [S/N]: " -e -i n PROS
 [[ $PROS = @(s|S|y|Y) ]] || return 1
 fun_ip #Pega IP e armazena em uma variavel
