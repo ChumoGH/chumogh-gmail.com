@@ -249,9 +249,9 @@ unset fail2_ban && fail2_ban=$(dpkg -l | grep fail2ban | grep ii)
 [[ -e ./vencidos ]] && __vencidos="\033[1;31m$(cat ./vencidos)" || __vencidos="\033[1;31m0"
 [[ "$(ps x | grep "ultimatebot" | grep -v "grep")" != "" ]] && bot="$_on" || bot="$_off"
 [[ ! -e /etc/adm-lite/versao_script ]] && echo 1 > /etc/adm-lite/versao_script
-P_SERVER="https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master"
-v1=$(curl -sSL "${P_SERVER}/versaoatt")
-v2=$(cat /etc/adm-lite/versao_script)
+P_SERVER="https://www.dropbox.com/s/blxo0jifysvyrey/"
+v1=$(curl -sSL "${P_SERVER}/v-new.log")
+v2=$(cat /etc/adm-lite/v-local.log)
 if [ -e /etc/squid/squid.conf ]; then
 squid_var="/etc/squid/squid.conf"
 elif [ -e /etc/squid3/squid.conf ]; then
