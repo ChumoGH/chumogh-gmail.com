@@ -177,6 +177,7 @@ echo -e "${cor[5]}  $(source trans -b pt:${id} " Nombre de tu servidor.... OPCIO
 echo -e "${cor[3]} $(source trans -b pt:${id} "RECOMENDABLE 10 Caracteres Maximo!")"
 msg -bar2 #echo -e "${cor[5]}◈ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 🪐 - 🪐 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ◈ "
 echo -ne " Nombre del Servidor : "; read name
+[[ -z $name ]] && name="VPS-VIP"
 echo $name > /etc/adm-lite/name
 chmod +x /etc/adm-lite/name
 echo $name > /root/name
