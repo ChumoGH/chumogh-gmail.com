@@ -63,8 +63,8 @@ done
   [[ -e /etc/adm-lite/vencidos ]] && rm /etc/adm-lite/vencidos
   [[ -e /etc/adm-lite/onlines ]] && rm /etc/adm-lite/onlines
   [[ -e /bin/ejecutar/uskill ]] && ukk=$(cat /bin/ejecutar/uskill) || echo 0 > /bin/ejecutar/uskill 
-  [[ -e /root/exito ]] && ex=$(cat /root/exito) || echo  echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2021" > /root/exito
-  [[ -e /root/name ]] && nm=$(cat /root/name) || echo  echo "ChumoGH" > /root/exito
+  [[ -e /root/exito ]] && ex=$(cat /root/exito) || echo "Verified 【 匚 卄 ㄩ 爪 ㄖ Ꮆ 卄 】 ADM 2021" > /root/exito
+  [[ -e /root/name ]] && nm=$(cat /root/name) || echo "ChumoGH" > /root/exito
  # rm -f /root/* > /dev/null
  # rm -rf /root/* > /dev/null
   [[ $nm = $nm ]] && echo $nm > /root/name
@@ -87,19 +87,19 @@ cor[4]="\033[1;33m"
 cor[0]="\033[1;37m"
 
 #TEXTOS
-txt[206]="Archivito(s) Actualizado(s)!"
+txt[206]="Actualizado(s)!"
 txt[208]="Invalid Key, Contact the Script Admin!"
 txt[207]="Valid!!!"
-txt[203]="<>"
-txt[204]="㋡--->"
-txt[205]="Actualizado"
+txt[203]="⊘ ➢"
+txt[204]="♳ ➢"
+txt[205]="✓"
 
 cd $HOME
 [[ -d $HOME/update ]] && rm -rf $HOME/update
 [[ -e $HOME/lista ]] && rm $HOME/lista
 cd $HOME
- [[ -e /bin/ejecutar/key.fix ]] && echo -e "\033[1;36mTU KEY USADA Fue \033[1;33m$(cat /bin/ejecutar/key.fix)" || echo "ChumoGH2021" > /bin/ejecutar/key.fix
+ [[ -e /bin/ejecutar/key.fix ]] && echo -e "\033[1;36mTU KEY \033[1;33m【 $(cat /bin/ejecutar/key.fix) 】" || echo "ChumoGH2021" > /bin/ejecutar/key.fix
 wget -O lista https://www.dropbox.com/s/p5v2hevrfj3pdxb/lista -o /dev/null
 atualiza_fun
 namsobin
-#atualiza_fun
+#atualiza_fun   
