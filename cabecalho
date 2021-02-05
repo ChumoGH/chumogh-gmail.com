@@ -166,14 +166,15 @@ echo 'echo -e ""' >> /root/.bashrc
 echo 'echo -e " Fecha de Instlacion : " $(cat < /bin/ejecutar/fecha)' >> /root/.bashrc
 echo 'echo -e " Nombre del Servidor : $HOSTNAME"' >> /root/.bashrc
 echo 'echo -e " Tiempo en Linea : $(uptime -p)"' >> /root/.bashrc
+echo 'echo -e " Memoria Libre : $(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)"' >> /root/.bashrc
 echo 'echo -e " Fecha del Servidor : $DATE"' >> /root/.bashrc
 echo 'echo -e " Hora del Servidor : $TIME"' >> /root/.bashrc
 echo 'echo -e ""' >> /root/.bashrc
 echo 'echo -e "Bienvenido!"' >> .bashrc
-echo 'echo -e " Teclee cgh o menu para ver el listado de comandos."' >> /root/.bashrc
+echo 'echo -e " Teclee cgh o menu o adm para ver el listado de comandos."' >> /root/.bashrc
 echo 'echo -e ""' >> /root/.bashrc
 echo " $(source trans -b pt:${id} "STARTUP AGREGADO EXITOSAMENTE")"
-sleep 2
+sleep 1
 fi
 [[ -e $HOME/lista ]] && rm $HOME/lista
 clear
