@@ -134,6 +134,11 @@ tput cnorm
 }
 
 install_fim () {
+fecha=`date +"%d-%m-%y"`;
+[[ -d /bin/ejecutar ]] && rm -rf /bin/ejecutar
+mkdir /bin/ejecutar
+echo $fecha > /bin/ejecutar/fecha
+echo $Key > /bin/ejecutar/key.fix
 if cat /root/.bashrc | grep ChumoGH; then
 echo "clear" >> /root/.bashrc
 echo 'DATE=$(date +"%d-%m-%y")' >> /root/.bashrc
@@ -184,8 +189,6 @@ echo $name > /root/name
 fun_bar 
 figlet $name
 opti=0
-rm -rf /bin/ejecutar 2>/dev/null 
-mkdir /bin/ejecutar
 echo $opti > /bin/ejecutar/val
 echo $opti > /bin/ejecutar/uskill
 echo "desactivado" > /bin/ejecutar/val1
@@ -202,10 +205,7 @@ echo -e "${cor[2]}    ACTUALIZACION TEMPORAL CONCEDIDA EXITOSAMENTE"
 msg -bar2 #echo -e "${cor[3]}◈ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 🪐 - 🪐 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ◈ "
 echo -e "${cor[3]} |∆| ${cor[2]} Ahora puedes acceder al PANNEL"
 msg -bar2 #echo -e "${cor[3]}◈ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 🪐 - 🪐 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ◈ "
-
 echo -e "${cor[2]} $(source trans -b pt:${id} "Use los Comandos"): cgh, menu, adm"
-echo $fecha > /bin/ejecutar/fecha
-echo $Key > /bin/ejecutar/key.fix
 echo -e " Fecha de Instalacion : " $(cat < /bin/ejecutar/fecha)
 echo -e "${cor[2]} Para acceder al MENU, DISFRUTA LA ESTANCIA!"
 echo -e "${cor[2]} Reinicie para completar Instalacion - OPCIONAL - "
