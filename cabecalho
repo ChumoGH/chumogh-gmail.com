@@ -161,12 +161,13 @@ chmod +x /bin/toolmaster
 echo "clear" >> .bashrc
 echo 'DATE=$(date +"%d-%m-%y")' >> /root/.bashrc
 echo 'TIME=$(date +"%T")' >> /root/.bashrc
+echo 'mf=$(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)' >> /root/.bashrc
 echo 'figlet -k ChumoGH | lolcat' >> /root/.bashrc
 echo 'echo -e ""' >> /root/.bashrc
 echo 'echo -e " Fecha de Instlacion : " $(cat < /bin/ejecutar/fecha)' >> /root/.bashrc
 echo 'echo -e " Nombre del Servidor : $HOSTNAME"' >> /root/.bashrc
 echo 'echo -e " Tiempo en Linea : $(uptime -p)"' >> /root/.bashrc
-echo 'echo -e " Memoria Libre : $(free -h | grep Mem | sed 's/\s\+/,/g' | cut -d , -f4)"' >> /root/.bashrc
+echo 'echo -e " Memoria Libre : $mf"' >> /root/.bashrc
 echo 'echo -e " Fecha del Servidor : $DATE"' >> /root/.bashrc
 echo 'echo -e " Hora del Servidor : $TIME"' >> /root/.bashrc
 echo 'echo -e ""' >> /root/.bashrc
