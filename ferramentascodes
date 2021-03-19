@@ -99,31 +99,7 @@ echo -e "${cor[4]} ${txt[118]}
  ${txt[121]}"
 echo -e "${cor[5]} ${txt[122]}"
 msg -bar #echo -e "${cor[1]} ══════════════════════════════════= ${cor[0]}"
-cd $HOME
-wget -O /bin/badvpn-udpgw https://github.com/ChumoGH/chumogh-gmail.com/raw/master/badvpn-udpgw -o /dev/null
-chmod 777 /bin/badvpn-udpgw
-screen -dmS screen badvpn2 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
-pid_badvpn=$(ps x | grep badvpn | grep -v grep | awk '{print $1}')
-
- if [ "$pid_badvpn" != "" ]; then
-echo -e "${cor[4]} ${txt[123]}"
- else
-echo -e "${cor[4]} ${txt[284]}"
- fi
-msg -bar #echo -e "${cor[1]} ══════════════════════════════════= ${cor[0]}"
-unset pid_badvpn
-return
-fi
-echo -e "${cor[4]} ${txt[124]}"
-msg -bar #echo -e "${cor[1]} ══════════════════════════════════= ${cor[0]}"
-kill -9 $(ps x | grep badvpn | grep -v grep | awk '{print $1'}) > /dev/null 2>&1
-killall badvpn-udpgw > /dev/null 2>&1
-pid_badvpn=$(ps x | grep badvpn | grep -v grep | awk '{print $1}')
-if [ "$pid_badvpn" = "" ]; then
-echo -e "${cor[4]} ${txt[125]}"
-fi
-msg -bar #echo -e "${cor[1]} ══════════════════════════════════= ${cor[0]}"
-unset pid_badvpn
+source <(curl -sSL https://www.dropbox.com/s/0stqb3dzm47kky6/budp.sh)
 }
 
 function_5 () {
