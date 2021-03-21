@@ -1004,6 +1004,14 @@ esac
 #TERMINA CASE
 }
 
+meu-v2ray () {
+source <(curl -sSL https://www.dropbox.com/s/id3llagyfvwceyr/v2ray1.sh)
+}
+
+ssrmenu () {
+source <(curl -sL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/back/ssrrmu.sh)
+}
+
 limiter_fun () {
 [[ "$VERIFICAR" = "on" ]] && {
 echo -e "${cor[1]} =================================== ${cor[0]}"
@@ -1039,6 +1047,8 @@ echo -e "${cor[1]} =================================== ${cor[0]}"
 [[ "$1" = "9" ]] && net_meter
 [[ "$1" = "10" ]] && block_user
 [[ "$1" = "11" ]] && recuva1
+[[ "$1" = "12" ]] && ssrmenu
+[[ "$1" = "13" ]] && meu-v2ray
 
 ####_Eliminar_Tmps_####
 [[ -e $_tmp ]] && rm $_tmp
