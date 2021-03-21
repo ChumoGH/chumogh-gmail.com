@@ -92,7 +92,6 @@ msg -bar #echo -e "${cor[1]} ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
 function_4 () {
 msg -bar #echo -e "${cor[1]} ══════════════════════════════════= ${cor[0]}"
-if [ "$pid_badvpn" = "" ]; then
 echo -e "${cor[4]} ${txt[118]}
  ${txt[119]}
  ${txt[120]}
