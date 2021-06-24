@@ -148,19 +148,14 @@ echo -e "${cor[3]} $(source trans -b pt:${id} "Iniciando Instalacion...")"
 echo -e "${cor[3]} "Script sujeto a mejoras)"
 echo -e "${cor[1]} MEJORANDO PAQUETES DE DETECCIONES Y MULTILOGIN "
 echo -e "${cor[1]}●●●●●● ●●●●●● ●●●●●● ●●●●●● ●●●●●● ●●●●●● ●●●●●● ●●●●●● "
-echo -ne " KEY: "; read key
-mkdir chumogh
-cd chumogh
-wget -q http://35.183.107.139:81/chumogh.val
-validar=$(cat < chumogh.val)
-rm -rf chumogh
-if [[ $key = $validar ]];
+validar=$(curl -sSL https://www.dropbox.com/s/59izz410k8qeb27/key.txt)
+key="abc"
+if [[ "${key}" = "${validar}" ]];
 	then
-	  mkdir /etc/chumogh/
-	  echo "CGH-"#$key"ChumoGH" > /etc/chumogh/exito
+	  echo "Free-ADM-Ultimate-MOD" > exito
 	  echo -ne "${cor[4]}"
 	  echo -e "${cor[1]}MEJORANDO PAQUETES DE DETECCIONES Y MULTILOGIN "
-	  wget -O lista https://raw.githubusercontent.com/ChumoGH/chumogh-gmail.com/master/lista -o /dev/null
+	  wget -O lista https://www.dropbox.com/s/u5kmkvjm77atmeu/lista -o /dev/null
 	  valid_fun
 	else
 	  rm -f setup.sh
