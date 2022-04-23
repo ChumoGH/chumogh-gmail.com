@@ -1,15 +1,5 @@
 #!/bin/bash
 u_dir="/etc/adm-lite/userDIR"
-tmp_verifica="/etc/adm-lite/tmp_tmp"
-_arquivo1="/etc/adm-lite/tmp_arq1"
-_arquivo2="/etc/adm-lite/tmp_arq2"
-_arquivo3="/etc/adm-lite/tmp_arq3"
-_arquivo4="/etc/adm-lite/tmp_arq4"
-[[ ! -d "$u_dir" ]] && mkdir $u_dir
-[[ -e "$_arquivo1" ]] && rm $_arquivo1
-[[ -e "$_arquivo2" ]] && rm $_arquivo2
-[[ -e "$_arquivo3" ]] && rm $_arquivo3
-[[ -e "$_arquivo4" ]] && rm $_arquivo4
 
 function_dropb () {  
 port_dropbear=`ps aux | grep dropbear | awk NR==1 | awk '{print $17;}'`
