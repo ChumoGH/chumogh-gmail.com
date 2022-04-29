@@ -17,6 +17,7 @@ while read usline
 		user="$(echo $usline | cut -d' ' -f1)"
 		s2ssh="$(echo $usline | cut -d' ' -f2)"
 		[[ ${s2ssh} = "HWID" ]] && s2ssh=1
+		[[ ${s2ssh} = "TOKEN" ]] && s2ssh=1
 		if [ -z "$user" ] ; then
 			echo "" > /dev/null
 		else
