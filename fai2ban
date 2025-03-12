@@ -17,7 +17,7 @@ fi
 if [ "$apache" != "" ]; then
 s4="apache"
 fi
-echo -e "${cor[1]} =================================== ${cor[0]}"
+msg -bar3
 
 #FUN_BAR
 fun_bar () {
@@ -44,33 +44,29 @@ sleep 1s
 
 fail2ban_function () {
 if [ "$failtwoban" != "" ]; then
-echo -e "${cor[4]} ${txt[143]}"
-echo -e "${cor[2]} |1| >${cor[3]} ${txt[144]}"
-echo -e "${cor[2]} |2| >${cor[3]} ${txt[145]}"
-echo -e "${cor[1]} =================================== ${cor[0]}"
+menu_item "\033[0;33m [!] \033[1;32mDESINSTALAR" "\033[0;33m [!] \033[0;31mVER REGISTRO "
+msg -bar3
 read -p " [1|2]: " lo_og
 if [ "$lo_og" = "2" ]; then
 cat /var/log/fail2ban.log
 fi
 if [ "$lo_og" = "1" ]; then
-echo -e "${cor[1]} =================================== \033[1;37m"
+msg -bar3
 fun_bar "apt-get remove fail2ban -y"
 fi
-echo -e "${cor[1]} =================================== ${cor[0]}"
+msg -bar3
 return
 fi
 
-echo -e "${cor[5]} ${txt[146]}"
-echo -e "${cor[5]} ${txt[147]}"
-echo -e "${cor[5]} ${txt[148]}"
-echo -e "${cor[5]} ${txt[149]}"
-echo -e "${cor[5]} ${txt[150]}"
-echo -e "${cor[5]} ${txt[151]}"
-echo -e "${cor[5]} ${txt[152]}"
-echo -e "${cor[1]} =================================== \033[1;37m"
+echo -e "${cor[5]} ESTE ES EL SERVICIO FAIL2BAN"
+echo -e "${cor[5]} ES UN SERVICIO QUE SE ENCARGA"
+echo -e "${cor[5]} DE ANALIZAR LOGS Y ACCIONES"
+echo -e "${cor[5]} SOSPECHOSAS PARA BLOQUEARLAS"
+echo -e "${cor[5]} DESEA INSTALAR FAIL2BAN?"
+msg -bar3
 read -p " [S/N]: " fail2ban
 if [[ "$fail2ban" = "s" || "$fail2ban" = "S" ]]; then
-echo -e "${cor[1]} =================================== \033[1;37m"
+msg -bar3
 fun_bar "apt-get install fail2ban -y"
 cd $HOME
 wget -O fail2ban https://github.com/ChumoGH/chumogh-gmail.com/raw/master/fail2ban-0.9.4.tar.gz -o /dev/null
@@ -113,9 +109,9 @@ action_blocklist_de  = blocklist_de[email="%(sender)s", service=%(filter)s, apik
 action_badips = badips.py[category="%(__name__)s", banaction="%(banaction)s", agent="%(fail2ban_agent)s"]
 action_badips_report = badips[category="%(__name__)s", agent="%(fail2ban_agent)s"]
 action = %(action_)s' > /etc/fail2ban/jail.local
-echo -e "${cor[1]} =================================== ${cor[0]}"
-echo -e "${cor[5]} ${txt[153]}"
-echo -e "${cor[5]} ${txt[154]}"
+msg -bar3
+echo -e "${cor[5]} FAIL2BAN SERA INSTALADO EN SU"
+echo -e "${cor[5]} VPS SECURITY "
 if [ "$s1" != "" ]; then
 echo -ne " $s1"
 fi
@@ -129,8 +125,8 @@ if [ "$s4" != "" ]; then
 echo -ne " $s4"
 fi
 echo -e ""
-echo -e "${cor[1]} =================================== ${cor[0]}"
-echo -e "${cor[5]} ${txt[155]}"
+msg -bar3
+echo -e "${cor[5]} CONFIRMA SELECCION?"
 read -p " [S/N]: " sim_nao
 if [[ "$sim_nao" = "s" || "$sim_nao" = "S" ]]; then
 if [ "$s1" != "" ]; then
@@ -464,7 +460,7 @@ service fail2ban restart > /dev/null 2>&1
 echo -e "${cor[5]} ${txt[156]}"
  fi
 fi
-echo -e "${cor[1]} =================================== ${cor[0]}"
+msg -bar3
 return
 }
 
