@@ -457,7 +457,7 @@ logencoding = utf-8
 [haproxy-http-auth]
 logpath  = /var/log/haproxy.log' >> /etc/fail2ban/jail.local
 service fail2ban restart > /dev/null 2>&1
-echo -e "${cor[5]} ${txt[156]}"
+echo -e "${cor[5]} INSTALACION FINALIZADA !!"
  fi
 fi
 msg -bar3
